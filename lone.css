@@ -1,0 +1,33 @@
+ul{
+                border-width: 2px;
+                border-style: solid;
+                border-color: goldenrod;
+                border-radius: 10px;
+                width: 650px;
+                margin-left: 500px;
+                margin-top: -75px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                list-style-type: none;
+                background: red;
+
+            }
+
+            li{
+                display: inline;
+                padding: 30px;
+            }
+
+            ul a:link{
+                font-size: 18px;
+                color: white;
+                text-decoration: none;
+            }
+            ul a:visited{
+                color: white;
+            }
+
+            ul a:hover{
+                color: yellow;
+                text-decoration: overline ;
+            }
