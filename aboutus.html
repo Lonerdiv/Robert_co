@@ -1,70 +1,232 @@
 <html> 
     <head>
         <title> ROBERT & CO | ABOUT US </title>
+         <style>
+    *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f8f9fb;
+color:#222;
+line-height:1.6;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+.navbar{
+background:#d60000;
+padding:20px 5%;
+border-radius:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+color:white;
+font-size:24px;
+font-weight:bold;
+}
+
+.nav-links{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#ffd700;
+}
+
+.hero img{
+width:100%;
+display:block;
+}
+
+section{
+padding:90px 0;
+}
+
+.section-header{
+text-align:center;
+max-width:800px;
+margin:auto;
+}
+
+.section-header h2{
+font-size:42px;
+margin-bottom:20px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.card{
+background:white;
+padding:35px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#d60000;
+}
+
+.process h2,
+.services h2,
+.why-us h2{
+text-align:center;
+font-size:40px;
+margin-bottom:50px;
+}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.step{
+background:white;
+padding:25px;
+border-radius:12px;
+text-align:center;
+font-weight:bold;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.step:hover{
+background:#d60000;
+color:white;
+transform:scale(1.05);
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.service-card{
+background:#d60000;
+color:white;
+padding:30px;
+border-radius:12px;
+text-align:center;
+font-weight:600;
+transition:.3s;
+}
+
+.service-card:hover{
+background:#111;
+transform:translateY(-8px);
+}
+
+.cta{
+background:#111;
+color:white;
+text-align:center;
+}
+
+.cta h2{
+font-size:42px;
+margin-bottom:25px;
+}
+
+.btn{
+display:inline-block;
+background:#d60000;
+color:white;
+padding:15px 40px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
+
+.btn:hover{
+background:white;
+color:#d60000;
+}
+
+footer{
+background:#000;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:20px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.section-header h2,
+.process h2,
+.services h2,
+.why-us h2,
+.cta h2{
+font-size:30px;
+}
+
+}
+</style>
     </head>
     <body> 
-        <a href="index.html">
-        <style>
-            h1{                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                font-size: 18px;
-            }
+        <a href="chat.html" style="text-decoration:none;"></a>
 
-            ul{
-                border-width: 2px;
-                border-style: solid;
-                border-color: goldenrod;
-                border-radius: 10px;
-                width: 700px;
-                margin-left: 500px;
-                margin-top: -75px;
-                padding-top: 15px;
-                padding-bottom: 15px;
-                list-style-type: none;
-                background: red;
+    <nav class="navbar">
 
-            }
+    <div class="logo">
+       <a><img src="images/logo.png" alt="Robert & Co. Consulting Firm" style="height: 50px;">Robert & Co. Consulting Firm</a>
+    </div>
 
-        li{
-            display: inline;
-            padding: 30px;
-        }
-        
-        ul a:link{
-            font-size: 18px;
-            text-decoration: none;
-            color: white;
-        }
-        ul a:visited{
-            color: #fff;
-        }
+    <ul class="nav-links">
+        <li><a href="chat.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="ourmission.html">Our Mission</a></li>
+        <li><a href="crypto.html">Services</a></li>
+        <li><a href="contactus.html">Contact</a></li>
+    </ul>
 
-         ul a:hover{
-                color: yellow;
-                text-decoration: overline ;
-            }
+    </nav>
 
-        td{
-            text-align: center;
-        }
-
-        #hobbies{
-            text-align: ;
-        }
-
-        </style>
-    <h1> 
-        <img src="images/logo.png" width="80" height="80"/>  About us  </h1>
-    </a> <br/>
-
-
-
-        <ul>
-            <li><a href="index.html" > HOME PAGE </a></li>
-            <li><a href="aboutus.html" target="-tab" > ABOUT US</a></li>
-            <li><a href="ourmission.html" target="-tab" > OUR MISSION </a></li>
-            <li><a href="contactus.html" target="-tab" > CONTACT US </a></li>
-            
-        </ul>
         <img src="images/immigration.png" width="100%" height="600" /> <br/>
 
         <p> <h5> Robert & Co. Consulting Firm is a trusted business consulting company dedicated to helping organizations achieve sustainable growth, improve operational efficiency, and make strategic decisions. Our team of experienced consultants provides tailored solutions in business strategy, management consulting, market research, financial planning, and organizational development. We work closely with businesses of all sizes to identify opportunities, overcome challenges, and drive long-term success. </h5> </p>
@@ -89,7 +251,7 @@ It preserve spaces and line breaks </big>
 
         <center><h2>JUNE 2026 VCHUB TRAINING TIME-TABLE </h2></center>
         <center>
-            <table border="12" cellpadding="3" cellspacing="0" width="50%" height="200" >
+            <table border="10" cellpadding="3" cellspacing="0" width="50%" height="200" >
                 <tr>
                     <th rowspan="2">Days</th>
                     <th rowspan="2">Venue</th>
