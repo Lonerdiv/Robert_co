@@ -1,0 +1,273 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f2f2f2;
+}
+
+.student-notice{
+position:fixed;
+top:10px;
+right:10px;
+background:#fff3cd;
+padding:10px 15px;
+font-size:12px;
+font-weight:bold;
+border:1px solid #e8d89f;
+z-index:999;
+border-radius:4px;
+}
+
+.logo-area{
+height:85px;
+display:flex;
+align-items:center;
+padding-left:90px;
+background:white;
+}
+
+.logo{
+width:65px;
+height:65px;
+background:#5b238f;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+font-weight:bold;
+border-radius: 10%;
+}
+
+.top-nav{
+height:40px;
+background:#56298d;
+}
+
+.nav-label{
+background:#f3ba13;
+height:40px;
+width:400px;
+display:flex;
+align-items:center;
+padding-left:12px;
+font-size:18px;
+margin-left: 40px;
+}
+
+.lock-icon{
+    background-color: white; 
+    color: rgba(17, 16, 16, 0.671); 
+    border-radius: 50%; width: 22px; 
+    height: 22px; margin: 5px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin-left: 40px;
+}
+
+.wrapper{
+width:1170px;
+margin:20px auto;
+}
+
+.welcome{
+display:flex;
+gap:15px;
+margin-bottom:20px;
+}
+
+.welcome-line{
+width:3px;
+background:#f3ba13;
+height: 90px;
+margin-top: -10px;
+}
+
+.welcome h4{
+color:#4d7ec5;
+margin-bottom:8px;
+}
+
+.welcome h1{
+font-size:48px;
+margin-bottom:8px;
+}
+
+.session-msg{
+color:red;
+font-size:12px;
+}
+
+.main-content{
+display:flex;
+gap:30px;
+}
+
+.login-panel{
+width:370px;
+background:linear-gradient(#74208d,#c02992);
+padding:8px;
+height:320px;
+}
+
+.login-box{
+background:white;
+padding:20px;
+border-radius:3px;
+}
+
+.login-box label{
+display:block;
+margin-top:15px;
+margin-bottom:5px;
+}
+
+.login-box input[type=text],
+.login-box input[type=password]{
+width:100%;
+height:32px;
+border:1px solid #ccc;
+}
+
+.remember{
+margin:15px 0;
+font-size:14px;
+}
+
+.login-row{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.login-row button{
+background:#f3ba13;
+border:none;
+padding:10px 20px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.login-row a{
+text-decoration:none;
+color:#1d8ce0;
+}
+
+.banner-panel{
+width:370px;
+height:320px;
+padding:0px;
+color:white;
+position:relative;
+}
+
+.banner-logo{
+background:#5b238f;
+display:inline-block;
+padding:8px;
+font-weight:bold;
+}
+
+.banner-text h2{
+font-size:58px;
+margin-top:20px;
+line-height:1;
+color:#ffd600;
+}
+
+.banner-text p{
+font-size:34px;
+margin-top:15px;
+}
+
+.phone-placeholder{
+position:absolute;
+right:20px;
+top:80px;
+font-size:120px;
+}
+
+.support-panel{
+width:390px;
+background:#f8f8f8;
+border:1px solid #ddd;
+padding:20px;
+}
+
+.support-panel h2{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.contact{
+margin:20px 0;
+}
+
+.support-panel h3{
+margin:20px 0 10px;
+}
+
+.security-text{
+color:#666;
+line-height:1.6;
+}
+
+.more-btn{
+margin-top:20px;
+background:#f3ba13;
+border:none;
+padding:10px 20px;
+font-weight:bold;
+margin-left: 150px;
+}
+
+.quick-links{
+display:flex;
+margin-top:20px;
+border:1px solid #ddd;
+background:white;
+}
+
+.needs-box{
+width:180px;
+background:#f0a300;
+padding:35px 20px;
+font-size:30px;
+font-weight:bold;
+}
+
+.links-column{
+flex:1;
+padding:20px;
+}
+
+.links-column h4{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.links-column a{
+display:block;
+margin-bottom:10px;
+color:#1d8ce0;
+text-decoration:none;
+}
+
+.social-row{
+text-align:center;
+margin:20px 0;
+color:#1d8ce0;
+}
+
+footer{
+background:#4a4a4a;
+color:white;
+text-align:center;
+padding:25px;
+font-size:13px;
+line-height:1.7;
+}

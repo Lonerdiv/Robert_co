@@ -1,175 +1,392 @@
-<html>
-    <head>
-        <title> ROBERT & CO. CONSULTING FIRM </title>
-        <style>
-           body{
-            padding: 0px;
-            margin: 0px;
-           }
-           h1{
-                margin-left: 10px;
-                text-shadow: 2px 2px 5px rgb(135, 230, 149);
-                text-shadow: horizontal vertical blur color;
-                color: rgb(13, 13, 47);
-                font-size: 2em;
-                background: red;
-                width: 100%;
-                padding: 10px;
-                box-sizing: border-box;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robert & Co. Consulting Firm</title>
+<link rel="stylesheet" href=".css">
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial,sans-serif;
+    }
 
-            p{
-                width: 800px;
-                margin: 0px auto;
-                padding: 40px;
-                font-size: 1.5em;
-                border-radius: 30px;
-                box-sizing: border-box;
-            }
+    body{
+        background:#f8f9fb;
+        color:#222;
+        line-height:1.6;
+    }
 
-            p:hover{
-                box-shadow: 0px 0px 10px black;
-            }
+    .container{
+        width:90%;
+        max-width:1200px;
+        margin:auto;
+    }
 
-            ul{
-                display: flex;
-                justify-content: space-around;
-                border-width: 2px;
-                border-style: solid;
-                border-color: white;
-                border-radius: 10px;
-                width: 650px;
-                margin-left: 500px;
-                margin-top: -75px;
-                padding-top: 15px;
-                padding-bottom: 15px;
-                list-style-type: none;
-                background: red;
+    .navbar{
+        background:#C00000;
+        padding-top:20px ;
+        padding-bottom: 10px 5%;
+        padding-left: 70px;
+        padding-right: 40px;
+        display:flex;
+        margin-bottom: -100px;
+        justify-content:space-between;
+        align-items:center;
+        position:sticky;
+        top:0;
+        z-index:1000;
+    }
 
-            }
+    .logo{
+        color:white;
+        font-size:24px;
+        font-weight:bold;
+        size: 24px;
+    }
 
-            li{
-                display: inline;
-                padding: 30px;
-            }
+    .nav-links{
+        display:flex;
+        list-style:none;
+        gap:30px;
+    }
 
-            ul a:link{
-                font-size: 18px;
-                font-weight: bold;  
-                color: white;
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
-            ul a:visited{
-                color: white;
-            }
+    .nav-links a{
+        color:white;
+        text-decoration:none;
+        font-weight:600;
+        transition:.3s;
+    }
 
-            ul a:hover{
-                color: gold;
-                border-bottom: 2px solid white;
-                text-decoration: none ;
-                border-bottom: 20px;
-                box-sizing: border-box;
-                border-color: aliceblue;
-            }
+    .nav-links a:hover{
+        color:#ffd700;
+ }
 
-        </style>
-    </head> 
-    <body>
-        
-        <a href="index.html" style="text-decoration:none;">
-    <h1>
-        <img src="images/logo.png" width="50" height="50">
-        ROBERT & CO. CONSULTING FIRM
-    </h1>
-</a>
-    <ul>
-            <li><a href="index.html" > HOME </a></li>
-            <li><a href="aboutus.html" target="-tab" > ABOUT US</a></li>
-            <li><a href="ourmission.html" target="-tab" > OUR MISSION </a></li>
-            <li><a href="contactus.html" target="-tab" > CONTACT US </a></li>
-            
-        </ul>
+    .hero img{
+        width:100%;
+        display:block;
+        margin-top: 0px;
+        height: 550px;
+        padding: 0%;
+    }
 
-        <a href="documents/RobertCoCompanyProfile.pdf" target="_blank">see outline</a>
+    section{
+        padding:90px 0;
+    }
 
-        <img src="images/legalpraticional.png" width="100%" height="600" />
+    .section-header{
+        text-align:center;
+        max-width:800px;
+        margin:auto;
+        }
 
-         <h2> Welcome to My Web Page </h2>
-            <p> This page illustrate how you can write proper HTML using only a text editor,<br>
-                such as Notepad. You can also downlaod a free text editor such as Crimson <br>
-                Editor, which is better than Notepad.
-            <br><br><br>
+    .section-header h2{
+        font-size:42px;
+        margin-bottom:20px;
+    }
 
-             There is a small graphic after the preiod at the end of this sentence. The <br>
-            graphic is in a file. The file is inside a folder named "images" <br><br>
+    .cards{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+        gap:30px;
+        margin-top:50px;
+    }
 
-            Link: <a href="index.html" > Yahoo! </a><br>
-            Another link: <a href="index.html" > Another Web page </a><br>
-            Note the way the BR tag eorks in the two lines above.
-            </p><br>
+    .card{
+        background:white;
+        padding:35px;
+        border-radius:15px;
+        box-shadow:0 10px 30px rgba(0,0,0,.08);
+        transition:.4s;
+    }
 
-            <h2 style="text-align: center;"> 
-                Example of Header tags use 
-            </h2>
-            <h2> 
-                Introduction 
-            </h2>
-            <p>
-                All members are formally welcome to the information platform, where you recieve updates and connect with others across all center in ibadan <br>
-                <h4> Challenges: </h4>
-                <ul>
-                    <li style="display: list-item;"> courteuos in conversation </li>
-                    <li style="display: list-item;"> irrelevant memes and annoying jokes </li>
-                </ul>
-                <h4> Artice Plan</h4>
-                <h2> Querying </h2>
-                <h4> Country-biased queries </h4>
-                There is a small graphic after the preiod at the end of this sentence.
-                <h4>Structure-biased queries</h4>
-                Note the way the BR tag eorks in the two lines above the elivetor and aligator.
-                <h2>References</h2>
+    .card:hover{
+        transform:translateY(-10px);
+    }
 
-            </p>
+    .card h3{
+        margin-bottom:15px;
+        color:#d60000;
+    }
 
+    .process h2,
+        .services h2,
+        .why-us h2{
+        text-align:center;
+        font-size:40px;
+        margin-bottom:50px;
+        }
 
-    <p> <h3> Welcome to Robert & Co. Consulting Firm </h3> </p>
+    .steps{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+        gap:20px;
+    }
 
-    <p> Empowering businesses with innovative strategies, expert guidance, and practical solutions for sustainable growth and success.
-        Experienced professionals with industry-specific knowledge </p>
+    .step{
+        background:white;
+        padding:25px;
+        border-radius:12px;
+        text-align:center;
+        font-weight:bold;
+        box-shadow:0 5px 20px rgba(0,0,0,.08);
+        transition:.3s;
+    }
 
+    .step:hover{
+        background:#d60000;
+        color:white;
+        transform:scale(1.05);
+    }
 
-        <p> <h3> Our Consulting Process </h3> </p>
-    
+        .service-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:25px;
+        }
 
-<!-- Ordered list -->
-    <ol> 
-        <li> Initial Consultation </li>
-        <li> Business Assessment </li>
-        <li> Strategy Development </li>
-        <li> Solution Implementation </li>
-        <li> Performance Monitoring </li>
-        <li> Continuous Improvement </li>
-    </ol>
+        .service-card{
+        background:#d60000;
+        color:white;
+        padding:30px;
+        border-radius:12px;
+        text-align:center;
+        font-weight:600;
+        transition:.3s;
+        }
 
+        .service-card:hover{
+        background:#111;
+        transform:translateY(-8px);
+        }
 
-    <p> <h3> Our Services </h3></p>
-    <ul> 
-        <li> Business Strategy Consulting </li>
-        <li> Financial Advisory Services </li>
-        <li> Human Resource Consulting </li>
-        <li> Risk Management </li>
-        <li> Project Management Support </li>
+        .cta{
+        background:#111;
+        color:white;
+        text-align:center;
+        }
+
+        .cta h2{
+        font-size:42px;
+        margin-bottom:25px;
+        }
+
+        .btn{
+        display:inline-block;
+        background:#d60000;
+        color:white;
+        padding:15px 40px;
+        border-radius:50px;
+        text-decoration:none;
+        font-weight:bold;
+        transition:.3s;
+        }
+
+        .btn:hover{
+        background:white;
+        color:#d60000;
+        }
+
+        footer{
+        background:#000;
+        color:white;
+        text-align:center;
+        padding:25px;
+        }
+
+        @media(max-width:768px){
+
+        .navbar{
+        flex-direction:column;
+        gap:20px;
+        }
+
+        .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        }
+
+        .section-header h2,
+        .process h2,
+        .services h2,
+        .why-us h2,
+        .cta h2{
+        font-size:30px;
+        }
+
+        }
+</style>
+<link rel="icon" type="image/ico" sizes="32x32" href="images/logo.png   ">
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <a href="index.html" class="logo-link" style="display: flex; align-items: center; gap:0px; font-size: 0px;">
+            <img src="images/legallogo.png" alt="Robert & Co. Consulting Firm" style="height: 80px; width: 300px;"></a>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="ourmission.html">Our Mission</a></li>
+        <li><a href="crypto.html">Services</a></li>
+        <li><a href="contactus.html">Contact</a></li>
+        <li><a href="chat.html">Bank With Us</a></li>
     </ul>
 
-    <p> <h3> Why Choose Us? </h3></p>
+</nav>
 
-<!-- descriptive list -->
-    <dl> 
-        <dt> Expert Consultants 
-            <dd> Experienced professionals with industry-specific knowledge </dd>
-        </dt>
-    </dl>
+<!-- HERO IMAGE -->
+
+<section class="hero">
+
+    <img src="images/legalban.png" alt="Hero Banner">
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about">
+
+    <div class="container">
+
+        <div class="section-header">
+            <h2>Welcome to Robert & Co. Consulting Firm</h2>
+            <p>
+                Empowering businesses with innovative strategies,
+                expert guidance and practical solutions for sustainable growth.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section class="why-us">
+
+    <div class="container">
+
+        <h2>Why Choose Us</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Expert Consultants</h3>
+                <p>Industry specialists with proven experience.</p>
+            </div>
+
+            <div class="card">
+                <h3>Tailored Solutions</h3>
+                <p>Strategies customized to your business goals.</p>
+            </div>
+
+            <div class="card">
+                <h3>Reliable Support</h3>
+                <p>Professional assistance every step of the way.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROCESS -->
+
+<section class="process">
+
+    <div class="container">
+
+        <h2>Our Consulting Process</h2>
+
+        <div class="steps">
+
+            <div class="step">1. Consultation</div>
+            <div class="step">2. Assessment</div>
+            <div class="step">3. Strategy</div>
+            <div class="step">4. Implementation</div>
+            <div class="step">5. Monitoring</div>
+            <div class="step">6. Improvement</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services">
+
+    <div class="container">
+
+        <h2>Our Services</h2>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                Business Strategy Consulting
+            </div>
+
+            <div class="service-card">
+                Risk Management
+            </div>
+
+            <div class="service-card">
+                Financial Advisory
+            </div>
+
+            <div class="service-card">
+                Project Management
+            </div>
+
+            <div class="service-card">
+                Human Resource Consulting
+            </div>
+
+            <div class="service-card">
+                Market Research
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>Ready To Grow Your Business?</h2>
+
+        <a href="contactus.html " class="btn">
+            Contact Us Today
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        &copy; 2026 Robert & Co. Consulting Firm. All Rights Reserved.
+    </p>
+
+</footer>
 
 </body>
 </html>

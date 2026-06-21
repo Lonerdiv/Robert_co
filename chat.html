@@ -3,380 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Robert & Co. Consulting Firm</title>
-<link rel="stylesheet" href=".css">
-<style>
-    *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#f8f9fb;
-color:#222;
-line-height:1.6;
-}
-
-.container{
-width:90%;
-max-width:1200px;
-margin:auto;
-}
-
-.navbar{
-background:#d60000;
-padding:20px 5%;
-border-radius:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-.logo{
-color:white;
-font-size:24px;
-font-weight:bold;
-}
-
-.nav-links{
-display:flex;
-list-style:none;
-gap:30px;
-}
-
-.nav-links a{
-color:white;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-}
-
-.nav-links a:hover{
-color:#ffd700;
-}
-
-.hero img{
-width:100%;
-display:block;
-}
-
-section{
-padding:90px 0;
-}
-
-.section-header{
-text-align:center;
-max-width:800px;
-margin:auto;
-}
-
-.section-header h2{
-font-size:42px;
-margin-bottom:20px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-margin-top:50px;
-}
-
-.card{
-background:white;
-padding:35px;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.card h3{
-margin-bottom:15px;
-color:#d60000;
-}
-
-.process h2,
-.services h2,
-.why-us h2{
-text-align:center;
-font-size:40px;
-margin-bottom:50px;
-}
-
-.steps{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
-}
-
-.step{
-background:white;
-padding:25px;
-border-radius:12px;
-text-align:center;
-font-weight:bold;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.step:hover{
-background:#d60000;
-color:white;
-transform:scale(1.05);
-}
-
-.service-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.service-card{
-background:#d60000;
-color:white;
-padding:30px;
-border-radius:12px;
-text-align:center;
-font-weight:600;
-transition:.3s;
-}
-
-.service-card:hover{
-background:#111;
-transform:translateY(-8px);
-}
-
-.cta{
-background:#111;
-color:white;
-text-align:center;
-}
-
-.cta h2{
-font-size:42px;
-margin-bottom:25px;
-}
-
-.btn{
-display:inline-block;
-background:#d60000;
-color:white;
-padding:15px 40px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-transition:.3s;
-}
-
-.btn:hover{
-background:white;
-color:#d60000;
-}
-
-footer{
-background:#000;
-color:white;
-text-align:center;
-padding:25px;
-}
-
-@media(max-width:768px){
-
-.navbar{
-flex-direction:column;
-gap:20px;
-}
-
-.nav-links{
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.section-header h2,
-.process h2,
-.services h2,
-.why-us h2,
-.cta h2{
-font-size:30px;
-}
-
-}
-</style>
+<title>FCMB Student Project</title>
+<link rel="stylesheet" href="stylee.css">
 </head>
-
 <body>
 
-<!-- NAVBAR -->
+<div class="student-notice">
+    This is a student project, not an attempt to clone the existing web page.
+</div>
 
-<nav class="navbar">
-
-    <div class="logo">
-       <a><img src="images/logo.png" alt="Robert & Co. Consulting Firm" style="height: 50px;">Robert & Co. Consulting Firm</a>
+<header>
+    <div class="logo-area">
+        <div class="logo">
+            <!-- <span>FCMB</span> -->
+             <a href="index.html"><img src="images/FCMBLogo.png" alt="" style="height: 50px; width: 50px;"></a>
+        </div>
     </div>
 
-    <ul class="nav-links">
-        <li><a href="chat.html">Home</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-        <li><a href="ourmission.html">Our Mission</a></li>
-        <li><a href="crypto.html">Services</a></li>
-        <li><a href="contactus.html">Contact</a></li>
-    </ul>
+    <div class="top-nav">
+        <div class="nav-label" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 700;">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+            <div class="lock-icon"><i class="fa-solid fa-lock"></i></div>
+             Online Business Banking
+        </div>
+    </div>
+</header>
 
-</nav>
+<div class="wrapper">
 
-<!-- HERO IMAGE -->
+    <section class="welcome">
+        <div class="welcome-line"></div>
 
-<section class="hero">
+        <div>
+            <h4>Welcome To</h4>
+            <h1>FCMB Online</h1>
 
-    <img src="images/immigration.png" alt="Hero Banner">
-
-</section>
-
-<!-- ABOUT -->
-
-<section class="about">
-
-    <div class="container">
-
-        <div class="section-header">
-            <h2>Welcome to Robert & Co. Consulting Firm</h2>
-            <p>
-                Empowering businesses with innovative strategies,
-                expert guidance and practical solutions for sustainable growth.
+            <p style="font-size: 12px; color: grey;">
+             &nbsp;  Your User ID and Password are confidential NEVER disclose them to anyone.
             </p>
-        </div>
 
-    </div>
-
-</section>
-
-<!-- WHY CHOOSE US -->
-
-<section class="why-us">
-
-    <div class="container">
-
-        <h2>Why Choose Us</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Expert Consultants</h3>
-                <p>Industry specialists with proven experience.</p>
-            </div>
-
-            <div class="card">
-                <h3>Tailored Solutions</h3>
-                <p>Strategies customized to your business goals.</p>
-            </div>
-
-            <div class="card">
-                <h3>Reliable Support</h3>
-                <p>Professional assistance every step of the way.</p>
-            </div>
+            <span class="session-msg">
+             &nbsp; Your Session Timed Out! Kindly Login Again To Use The Application
+            </span><br>
 
         </div>
 
-    </div>
+    </section>
+            
 
-</section>
+    <section class="main-content">
 
-<!-- PROCESS -->
+        <!-- LOGIN -->
 
-<section class="process">
+        <div class="login-panel">
 
-    <div class="container">
+            <div class="login-box">
 
-        <h2>Our Consulting Process</h2>
+                <label>Login Name</label>
+                <input type="text" title="Enter your login name!">
 
-        <div class="steps">
+                <label>Password</label>
+                <input type="password" title="Kindly enter your password here !">
 
-            <div class="step">1. Consultation</div>
-            <div class="step">2. Assessment</div>
-            <div class="step">3. Strategy</div>
-            <div class="step">4. Implementation</div>
-            <div class="step">5. Monitoring</div>
-            <div class="step">6. Improvement</div>
+                <div class="remember">
+                    <input type="checkbox">
+                    Remember me on this computer
+                </div>
+
+                <div class="login-row">
+                    <button>Login</button>
+
+                    <a href="#">
+                        Click Here to Register...
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BANNER -->
+
+        <div class="banner-panel">
+            <img src="images/fcmbpic.PNG" alt="">
 
         </div>
 
-    </div>
+        <!-- SUPPORT -->
 
-</section>
+        <div class="support-panel">
 
-<!-- SERVICES -->
+            <h2>
+                Having Trouble
+                <em>Signing In?</em>
+            </h2>
 
-<section class="services">
+            <p>
+                Call us or send us an email
+            </p>
 
-    <div class="container">
-
-        <h2>Our Services</h2>
-
-        <div class="service-grid">
-
-            <div class="service-card">
-                Business Strategy Consulting
+            <div class="contact">
+                <p>Email: Oluwayomigbenro4@gmail.com</p>
+                <p>Telephone: 09063435711</p>
             </div>
 
-            <div class="service-card">
-                Risk Management
-            </div>
+            <h3>How to secure your account</h3>
 
-            <div class="service-card">
-                Financial Advisory
-            </div>
+            <p class="security-text">
+                FCMB will never solicit your personal or security information by email or by phone.
+            </p>
 
-            <div class="service-card">
-                Project Management
-            </div>
-
-            <div class="service-card">
-                Human Resource Consulting
-            </div>
-
-            <div class="service-card">
-                Market Research
-            </div>
+            <button class="more-btn">
+                FIND OUT MORE
+            </button>
 
         </div>
 
+    </section>
+
+    <!-- QUICK LINKS -->
+
+    <section class="quick-links">
+
+        <div class="needs-box">
+            Putting your banking needs first
+        </div>
+
+        <div class="links-column">
+            <h4>🏦</h4>
+
+            <a href="#">Where to find a branch</a>
+            <a href="#">Where to find ATM</a>
+        </div>
+
+        <div class="links-column">
+            <h4>🖱️</h4>
+
+            <a href="#">Open an account online</a>
+            <a href="#">Make payment online</a>
+            <a href="#">E-statements</a>
+            <a href="#">How to use internet banking</a>
+        </div>
+
+        <div class="links-column">
+            <h4>☎️</h4>
+
+            <a href="#">Telephone Banking</a>
+            <a href="#">Send us feedback by mail</a>
+        </div>
+
+    </section>
+
+    <div class="social-row">
+        Connect with us:
+        Facebook • Twitter • LinkedIn • YouTube
     </div>
 
-</section>
-
-<!-- CTA -->
-
-<section class="cta">
-
-    <div class="container">
-
-        <h2>Ready To Grow Your Business?</h2>
-
-        <a href="#" class="btn">
-            Contact Us Today
-        </a>
-
-    </div>
-
-</section>
-
-<!-- FOOTER -->
+</div>
 
 <footer>
-
-    <p>
-        &copy; 2026 Robert & Co. Consulting Firm. All Rights Reserved.
-    </p>
-
+    This site ensures that all information sent via the World Wide Web are encrypted.
+    © Student Project Version
 </footer>
 
 </body>
