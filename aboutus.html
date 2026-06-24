@@ -35,6 +35,36 @@
                     z-index:1000;
                 }
 
+                 .nav-links a:hover{
+                        color:#ffd700;
+                    }
+
+                    .dropdown{
+                        position: relative;
+                    }
+                    
+                    .dropmenu{
+                        display: none;
+                        position: absolute;
+                        top: 100%;
+                        right: 0px;
+                        z-index: 1000;
+                        background: white;
+                        width: 200px;
+                        transition: background-color 2s ;
+                        text-align: center;
+                        padding: 0px;
+                        margin: opx;
+                    }
+
+                    .dropmenu:hover{
+                        background-color: red;
+                    }
+
+                    .dropdown:hover .dropmenu{
+                        display: inline-block;
+                    }
+
                 .logo{
                     color:white;
                     font-size:24px;
@@ -84,13 +114,17 @@
             <img src="images/legallogo.png" alt="Robert & Co. Consulting Firm" style="height: 80px; width: 300px;"></a>
     </div>
 
-    <ul class="nav-links">
+   <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="aboutus.html">About Us</a></li>
         <li><a href="ourmission.html">Our Mission</a></li>
-        <li><a href="crypto.html">Services</a></li>
-        <li><a href="contactus.html">Contact</a></li>
-        <li><a href="chat.html">Bank With Us</a></li>
+        <li class="dropdown">
+            <a href="crypto.html">Services</a>
+            <ul class="dropmenu">
+                <li><a href="contactus.html">Contact</a></li>
+                <li><a href="chat.html">Bank With Us</a></li>
+            </ul>
+        </li>
     </ul>
 
     </nav>
