@@ -12,7 +12,7 @@
         box-sizing:border-box;
         font-family:Arial,sans-serif;
     }
-    @keyframes animatebody{
+    /* @keyframes animatebody{
         0%{
             background: #000;
             color: white;
@@ -25,14 +25,14 @@
             background: purple;
             color: #000;
         }
-    }
+    } */
 
     body{
         background:#f8f9fb;
         color:#222;
         line-height:1.6;
         animation-name: animatebody;
-        animation-duration: 2s;
+        animation-duration: 1s;
         animation-iteration-count: infinite;
     }
 
@@ -40,43 +40,60 @@
         0%{
             left: 300px;
             top: 0px;
-            background: red;                                                                                                                                                                           
+            background: conic-gradient( red, blue, yellow);
+            transform:rotate(20deg);                                                                                                                                                                          
         }
 
         25%%{
             left: 300px;
             top: 0px;
-            background: yellow;
+            background: conic-gradient( red, blue, yellow);
+            transform:rotate(140deg); 
         }
 
         50%{
             left: 300px;
             top: 200px;
-            background: black;
+            background: conic-gradient( red, blue, yellow);
+            transform:rotate(180deg); 
         }
 
         75%{
             left: 0px;
             top: 200px;
-            background: cyan;
+            background: conic-gradient( red, blue, yellow);
+            transform:rotate(220deg); 
         }
 
         100%{
             left: 0px;
             top: 0px;
-            background: purple;
+            background: conic-gradient( red, blue, yellow);
+            transform:rotate(360deg); 
         }
     }
 
-    /* #mycontainer{
+    #mycontainer{
         width: 200px;
         height: 200px;
+        margin: 5px;
+        margin-top: 0PX;
         border: 1px solid black;
         border-radius: 100%;
         position: relative;
-        animation: myball 10s ease 4s infinite normal;
-        opacity: o.5;
+        animation: myball 5s ease 1s infinite normal;
+        /*opacity: o.5; */
         text-align: center;
+        align-items: center;
+        transition: background 1s ease 1s, transform 1s;
+        transform:rotate(45deg); 
+        background: conic-gradient( red, blue, yellow);
+       
+    }
+/* 
+    #mycontainer:hover{
+        background: conic-gradient( red, blue, yellow);
+        transform: scale(1.2);
     } */
 
     .container{
@@ -105,6 +122,7 @@
         font-size:24px;
         font-weight:bold;
         size: 24px;
+        
     }
 
     .nav-links{
@@ -156,7 +174,14 @@
         margin-top: 0px;
         height: 550px;
         padding: 0%;
+        transition: background 5s ease 1s, transform 10s;
     }
+
+    /* .hero img:hover{
+        transform: scale(1.1);
+        transform: rotate(360deg);
+        transform-origin: top right;
+    } */
 
     section{
         padding:60px 0;
@@ -236,6 +261,7 @@
         padding-top: -90px 0;
         
     }
+    
 
     .service-grid{
         display:grid;
@@ -255,23 +281,115 @@
         transition:.3s;
     }
 
-        .service-card:hover{
+    .service-card:hover{
         background:#111;
         transform:translateY(-8px);
+    }
+
+    .partners{
+        width: 100%;
+        padding: 80px 5%;
+        background: url("images/background.jpg") center/cover no-repeat;
+        position: relative;
+    }
+
+    .overlay{
+        background: rgba(25, 20, 75, .82);
+        padding: 80px ;
+        margin: -80px;
+        margin-right: -65px;
+        margin-left: -70px;
+    }
+
+    .title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-top: 30px;
+        padding: 10px;
+    }
+
+    .line{
+        width: 30px;
+        height: 2px;
+        background: #f3b319;
+    }
+
+    .title h4{
+        color: #f3b319;
+        font-size: 18px;
+        letter-spacing: 1px;
+        font-family: Arial, Arial, Helvetica, sans-serif;
+    }
+
+    .partners h2{
+        text-align: center;
+        color: #fff;
+        font-size: 32px;
+        margin: 20px 0 50px;
+        margin-top: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .partner-flex{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: nowrap;
+        width: 6%;
+    }
+
+    .Partner-card{
+        width: 260px;
+        height: 170px;
+        margin: 0 15px;
+        background: white;
+        border-radius: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        transition: .3s;
+        /*cursor: pointer; */
+        animation: scrollpartner 10s linear infinite;
+        padding: 20px;
+    }
+
+    .partner-card img{
+        max-width: 70%;
+        max-height: 70%;
+        object-fit: contain;
+    }
+
+    .partner-card:hover{
+        transform: scale(1.08);
+        box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
+
+    @keyframes scrollpartner{
+        from{
+                transform: translateX(0);
         }
 
-        .cta{
+        to {
+                transform: translateX(calc(-280px * 4));
+        }
+    }
+
+    .cta{
         background:#111;
         color:white;
         text-align:center;
-        }
+    }
 
-        .cta h2{
+    .cta h2{
         font-size:42px;
         margin-bottom:25px;
-        }
+    }
 
-        .btn{
+    .btn{
         display:inline-block;
         background:#d60000;
         color:white;
@@ -280,31 +398,81 @@
         text-decoration:none;
         font-weight:bold;
         transition:.3s;
-        }
+    }
 
-        .btn:hover{
+    .btn:hover{
         background:white;
         color:#d60000;
+    }
+    .marquee{
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            border: 1px solid #000;
+            background: #000;
+            margin-bottom: 0px;
+    }
+
+    .marquee-content{
+            display: inline-block;
+            padding-right: 100%;
+            color: white;
+            font-weight: 100;
+            animation: scrolltext 20s linear infinite;
+    }
+
+    .marquee-content:hover{
+        animation-play-state: paused;
+    }
+
+    @keyframes scrolltext{
+        from{
+                transform: translateX(0);
         }
 
-        footer{
+        to {
+                transform: translateX(100%);
+        }
+    }
+
+    footer{
         background:#000;
         color:white;
         text-align:center;
         padding:25px;
+    }
+
+    @media (max-width:768px){
+        body{
+            
         }
-
-        @media(max-width:768px){
-
-        .navbar{
+    .navbar{
         flex-direction:column;
         gap:20px;
-        }
+    }
 
-        .nav-links{
+    .nav-links{
+        flex-direction: column;
+    }
+
+    .process{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-links{
         flex-wrap:wrap;
         justify-content:center;
-        }
+
+    .partners h2{
+        font-size: 34px;
+    }
+    
+    .partner-card{
+        width: 90%;
+        max-width: 300px;
+    }
+    }
 
         .section-header h2,
         .process h2,
@@ -312,24 +480,32 @@
         .why-us h2,
         .cta h2{
         font-size:30px;
-        }
+    }
 
-        }
+    }
+
 </style>
-<link rel="icon" type="image/ico" sizes="32x32" href="images/logo.png   ">
+<link rel="icon" type="image/ico" sizes="32x32" href="images/logo.png">
 </head>
 <body>
+    <div class="marquee">
+        <div class="marquee-content">
+                Welcome To Robert & Co. Consulting Firm - Learn What Law Is All About - 
+                10% Discount On Your First Order
+        </div>
+    </div>
 
 <!-- NAVBAR -->
 
-<nav class="navbar">
+<nav class="navbar" style="padding-top: 0px;">
 
     <div class="logo">
         <a href="index.html" class="logo-link" style="display: flex; align-items: center; gap:0px; font-size: 0px;">
-            <img src="images/legallogo.png" alt="Robert & Co. Consulting Firm" style="height: 80px; width: 300px;"></a>
+            <img src="images/legallogo.png" alt="Robert & Co. Consulting Firm" style="height: 80px; width: 300px; margin-top: 0px;"></a>
     </div>
 
-    <ul class="nav-links">
+
+    <ul class="nav-links" >
         <li><a href="index.html">Home</a></li>
         <li><a href="aboutus.html">About Us</a></li>
         <li><a href="ourmission.html">Our Mission</a></li>
@@ -424,9 +600,9 @@
 
 </section>
 
- <!-- <div id="mycontainer">
+ <div id="mycontainer">
    
- </div> -->
+ </div>
 
 <!-- SERVICES -->
 
@@ -467,6 +643,88 @@
     </div>
 
 </section>
+
+
+
+
+<section class="partners" >
+    
+    <div class="overlay">
+
+        <div class="title">
+            <span class="line"></span>
+            <h4>OUR PARTNERS</h4>
+            <span class="line"></span>
+        </div>
+
+        <h2>Maintaining Law Together</h2>
+
+            <div class="partner-flex">
+
+                <div class="Partner-card">
+                    <!-- <img src="images/benz.jpg" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                    <!-- <img src="images/bmw.jpg" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                    <!-- <img src="images/toyota.png" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                    <!-- <img src="images/lambo.jpg" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                    <!-- <img src="images/famous.jpg" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                   <!-- <img src="images/benz.jpg" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                    <!-- <img src="images/bmw.jpg" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                    <!-- <img src="images/famous.jpg" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                    <!-- <img src="images/lambo.jpg" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                    <!-- <img src="images/toyota.png" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                    <!-- <img src="images/benz.jpg" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                    <!-- <img src="images/bmw.jpg" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                    <!-- <img src="images/famous.jpg" alt=""> -->
+                </div>
+
+                <div class="Partner-card">
+                    <!-- <img src="images/lambo.jpg" alt=""> -->
+                </div>
+
+            </div>
+
+    </div>  
+
+</section>
+
+
+
 
 <!-- CTA -->
 
