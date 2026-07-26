@@ -1,66 +1,152 @@
-<html>
-    <head>
-        <body>
-            
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-            <form action="">
-                <fieldset>
-                    <legend>Personal Information</legend>
-                <label for="first">First Name</label><br>
-                <input type="text" id="First" maxlength="20" minlength="5" placeholder="first name"><br><br> 
-                <label for="last"> Last Name </label><br>
-                <input type="text" id="last" maxlength="20" minlength="5" placeholder="last name" ><br><br>
-                <label for="email"> Your Email </label><br>
-                <input type="email" id="email" placeholder="Enter your email"><br><br>
-                <label for="password">Password</label><br>
-                <input type="password" id="password" placeholder="Enter your password"><br><br>
-                <label for="phone"> Phone Number</label><br>
-                <input type="number" id="Phone"><br><br>
-                <label for="Gender"> Gender </label><br>
-                <input type="radio" id="male" name="gender" value="male">
-                <label for="male">Male</label>
-                <input type="radio" id="female" name="gender" value="female">
-                <label for="female">Female</label>
-                <input type="radio" id="anonymous" name="I'd rather not say" value="anonymous">
-                <label for="anonymous"> I'd rather not say </label><br><br>
+</head>
+<body>
+  
 
-                
-                <label for="terms"> Do you agree to the terms and condition?</label><br>
-                <input type="checkbox" id="terms"> 
-                <label  >i agree to terms and condition </label><br><br>
-                <label for="Job"> Choose your job </label><br>
-                <input type="checkbox"  id="job" name="job" value="lawyer">
-                <label for="job">Lawyer</label><br>
-                <input type="checkbox" id="job" name="job" value="Doctor">
-                <label for="job"> Doctor</label><br>
-                <input type="checkbox" id="job" name="job" value="Engineer">
-                <label for="job"> Engineer </label><br><br>
+  <script>
+        let username = prompt ('what is your name');
+    
+        alert(`welcome to class ${username}`)
+        alert(``)
 
-                <label for="date">  Choose your date of birth </label>
-                <input type="date" id="date"><br><br>
-                <label for="Time"> Choose your time </label>
-                <input type="time" id="time"><br><br>
-                <label for="file">Choose a file</label>
-                <input type="file" name="file" id="file" multiple><br><br>
+        let a; 
+      String(a)
+      
+      // let age = 25;
+      // console.log("age :"+ age)
 
-                <select name="Country" id="Country">
-                    <option value="">Choose your Country</option>
-                    <option value="Nigeria">Nigeria</option>
-                    <option value="Ghana">Ghana</option>
-                    <option value="United State Of America">United State Of America</option>
-                    <option value="United Kingdon">United Kingdon</option>
-                    <option value="South Africa">South Africa</option>
-                    <option value="New Zealand">New Zealand</option>
-                </select><br><br>
+      
+      console.log(String)
 
-                <label for="comment"> Enter Your Comment </label><br>
-                <textarea name="comment" id="comment" cols="100" rows="20"></textarea><br><br>
+      String(2<45) //"failse"
 
-                <button type="submit">Submit</button>
-                </fieldset>
-            </form>
+      // let age = 25
+      // alert(age*"tolu") //NaN
+
+      Boolean(false)
+      Boolean(0)
+      Boolean(-0)
+      Boolean("")
+      Boolean(null)
+      Boolean(undefined)
+      Boolean(NaN)
+
+      // let age = Number(prompt('how old are you?'))
+
+      // if(!age){
+      //   alert("please enter a valid number")
+      // }
+
+      let user={
+        name: "ayomi",
+        age: 48,
+        occupation: "developer",
+        height: 6.0
+      }
+
+      console.log(user+ "")
 
 
-        </body>
-    </head>
-</html>
+      // Number(true) //1
+      // Number(false) //0
+      // Number(null) //0
+      // Number("") //0
+      // Number(" ") //0
+      // Number( undefined) //NaN
+      // Number("hello") //NaN
+      // parseFloat("45.67")
+      // parseInt("45.67")
+
+
+
+
+ const ibadanRestaurants = [
+  {
+    name: "Amala Sky",
+    location: "Bodija, Ibadan",
+    menu: {
+      swallow: ["Amala", "Eba", "Pounded Yam", "Fufu"],
+      meats: ["Goat Meat", "Beef", "Shaki", "Ponmo"],
+      drinks: ["Coke", "Pepsi", "Zobo", "Water"],
+      chinese: {
+        rice: ["Fried Rice", "Special Fried Rice", "Shrimp Fried Rice"],
+        noodles: ["Chicken Noodles", "Seafood Noodles"],
+        sides: ["Spring Rolls", "Dumplings"]
+      }
+    }
+  },
+  {
+    name: "Tantalizers",
+    location: "Dugbe, Ibadan",
+    menu: {
+      swallow: ["Eba", "Semo", "Wheat"],
+      meats: ["Chicken", "Beef", "Fish"],
+      drinks: ["Sprite", "Fanta", "Chapman", "Juice"],
+      chinese: {
+        rice: ["Cantonese Rice", "Vegetable Fried Rice"],
+        noodles: ["Beef Noodles", "Prawn Noodles"],
+        sides: ["Sweet Corn Soup", "Chicken Wings"]
+      }
+    }
+  },
+  {
+    name: "Mama Ope Restaurant",
+    location: "Ring Road, Ibadan",
+    menu: {
+      swallow: ["Amala", "Fufu", "Lafun"],
+      meats: ["Goat Meat", "Fish", "Chicken", "Intestine"],
+      drinks: ["Coke", "Pepsi", "Malt", "Water"],
+      chinese: {
+        rice: ["Egg Fried Rice", "Chicken Fried Rice"],
+        noodles: ["Vegetable Noodles", "Shrimp Noodles"],
+        sides: ["Wonton", "Spicy Tofu"]
+      }
+    }
+  },
+  {
+    name: "Koko Dome",
+    location: "Cocoa House, Dugbe, Ibadan",
+    menu: {
+      swallow: ["Pounded Yam", "Eba", "Fufu"],
+      meats: ["Beef", "Turkey", "Catfish"],
+      drinks: ["Chapman", "Smirnoff Ice", "Coke", "Water"],
+      chinese: {
+        rice: ["Yangzhou Fried Rice", "Pineapple Fried Rice"],
+        noodles: ["Chicken Chow Mein", "Beef Chow Mein"],
+        sides: ["Spring Rolls", "Samosa"]
+      }
+    }
+  },
+  {
+    name: "Mr Bigg’s",
+    location: "Challenge, Ibadan",
+    menu: {
+      swallow: ["Semo", "Eba", "Fufu"],
+      meats: ["Chicken", "Beef", "Turkey"],
+      drinks: ["Fanta", "Pepsi", "Bottled Water", "Malt"],
+      chinese: {
+        rice: ["Special Rice", "Fried Rice", "Egg Rice"],
+        noodles: ["Beef Noodles", "Vegetable Noodles"],
+        sides: ["Spicy Wings", "Steamed Dumplings"]
+      }
+    }
+  }
+];
+
+
+     console.log(`I want to buy 3 wraps of ${ibadanRestaurants[0].menu.swallow[0]}, one piece of ${ibadanRestaurants[0].menu.meats[1]} and one bottle of ${ibadanRestaurants[0].menu.drinks[1]} from ${ibadanRestaurants[0].name} restaurant located in ${ibadanRestaurants[0].location}.`);
+
+        // console.log(`My name is ${student.first}  ${student.surname} and i am ${student.age}`)
+     
+  
+
+
+    </script>
+</body>
+</html> 

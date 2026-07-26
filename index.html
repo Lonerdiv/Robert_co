@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Robert & Co. Consulting Firm</title>
-<link rel="stylesheet" href=".css">
+<link href="thony.css" rel="stylesheet">
+<link href="lonert/sammy.css" rel="stylesheet">
 <style>
     *{
         margin:0;
@@ -44,7 +45,7 @@
             transform:rotate(20deg);                                                                                                                                                                          
         }
 
-        25%%{
+        25%{
             left: 300px;
             top: 0px;
             background: conic-gradient( red, blue, yellow);
@@ -102,6 +103,10 @@
         margin:auto;
     }
 
+    h2{
+        margin-top: -50px;
+    }
+
     .navbar{
         background:#C00000;
         padding-top:20px ;
@@ -145,23 +150,63 @@
     .dropdown{
         position: relative;
     }
+
+    .dropdown > a{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
     
     .dropmenu{
-        display: none;
         position: absolute;
-        top: 100%;
+        top: 130%;
         right: 0px;
+        left: 0;
+        min-width: 180px;
         z-index: 1000;
         background: white;
+        list-style: none;
         width: 200px;
         transition: background-color 2s ;
         text-align: center;
-        padding: 0px;
+        padding: 8px 0;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,.15);
         margin: opx;
+        margin-left: -100px;
+        visibility: hidden;
+        transform: translateY(15px);
+        transition: all .35s ease;
     }
 
-    .dropmenu:hover{
-        background-color: red;
+    .dropmenu li{
+        width: 100%;
+    }
+
+    .dropmenu a{
+        display: block;
+        padding: 1opx 18px;
+        color: #444;
+        text-decoration: none;
+        transition: .35s ease;
+    }
+
+    .dropmenua::after{
+        display: none;
+    }
+
+
+
+    .dropmenu a:hover{
+        background-color: #f5f5f5;
+        color: red;
+        padding-left: 25px;
+    }
+
+    .dropdown:hover .dropmenu{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 
     .dropdown:hover .dropmenu{
@@ -174,14 +219,14 @@
         margin-top: 0px;
         height: 550px;
         padding: 0%;
-        transition: background 5s ease 1s, transform 10s;
+        transition: background 5s ease 1s, transform 3s;
     }
 
-    /* .hero img:hover{
+    .hero img:hover{
         transform: scale(1.1);
-        transform: rotate(360deg);
-        transform-origin: top right;
-    } */
+        /* transform: rotate(360deg); */
+        transform-origin: center;
+    }
 
     section{
         padding:60px 0;
@@ -203,6 +248,8 @@
         grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
         gap:30px;
         margin-top:50px;
+        margin-left: 120px;
+        margin-right: 120px;
     }
 
     .card{
@@ -301,6 +348,11 @@
         margin-left: -70px;
     }
 
+    .partner{
+        padding-left: 0%;
+        overflow: hidden;
+    }
+
     .title{
         display: flex;
         justify-content: center;
@@ -337,33 +389,51 @@
         justify-content: center;
         align-items: center;
         gap: 30px;
+        height: 200px;
         flex-wrap: nowrap;
         width: 6%;
+        animation: scrollpartner 10s linear infinite;
     }
 
-    .Partner-card{
+    .partner-flex:hover{
+        animation-play-state: paused;
+    }
+
+
+    .partner-flex span{
         width: 260px;
         height: 170px;
         margin: 0 15px;
         background: white;
         border-radius: 18px;
-        display: flex;
+        display: inline-block;
         justify-content: center;
         align-items: center;
         flex-shrink: 0;
-        transition: .3s;
+        /* transition: 0s; */
         /*cursor: pointer; */
-        animation: scrollpartner 10s linear infinite;
         padding: 20px;
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
     }
 
-    .partner-card img{
-        max-width: 70%;
-        max-height: 70%;
+
+    .partner-flex span img{
+        width: 100%;
+        height: 100%;
         object-fit: contain;
+        transition: filter 3s, transform 3s;
+        border-radius: 20px;
+        transform-style: preserve-3d;
     }
 
-    .partner-card:hover{
+    .partner-flex span:hover img {
+        transform: translateZ(200px);
+        filter: grayscale(100%);
+        /* animation-play-state: paused; */
+    }
+
+    .partner-flex span:hover{
         transform: scale(1.08);
         box-shadow: 0 12px 30px rgba(0,0,0,.35);
     }
@@ -416,6 +486,7 @@
     .marquee-content{
             display: inline-block;
             padding-right: 100%;
+            margin-left: 1350px;
             color: white;
             font-weight: 100;
             animation: scrolltext 20s linear infinite;
@@ -431,7 +502,7 @@
         }
 
         to {
-                transform: translateX(100%);
+                transform: translateX(-100%);
         }
     }
 
@@ -442,47 +513,142 @@
         padding:25px;
     }
 
-    @media (max-width:768px){
-        body{
-            
-        }
+@media screen and (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .container{
+        width:95%;
+        margin:auto;
+    }
+
+    /* Navbar */
+
     .navbar{
         flex-direction:column;
-        gap:20px;
-    }
-
-    .nav-links{
-        flex-direction: column;
-    }
-
-    .process{
-        align-items: center;
-        justify-content: center;
-    }
-
-    .nav-links{
-        flex-wrap:wrap;
+        align-items:center;
         justify-content:center;
-
-    .partners h2{
-        font-size: 34px;
-    }
-    
-    .partner-card{
-        width: 90%;
-        max-width: 300px;
-    }
+        padding:15px;
+        margin-bottom:0;
+        gap:15px;
     }
 
-        .section-header h2,
-        .process h2,
-        .services h2,
-        .why-us h2,
-        .cta h2{
+    .logo img{
+        width:220px !important;
+        height:auto !important;
+    }
+
+    .nav-links{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+        width:100%;
+    }
+
+    .dropdown{
+        width:100%;
+    }
+
+    .dropmenu{
+        position:static;
+        visibility:visible;
+        opacity:1;
+        transform:none;
+        width:100%;
+        margin:10px 0;
+        box-shadow:none;
+        border-radius:8px;
+    }
+
+    /* Hero */
+
+    .hero img{
+        width:100%;
+        height:auto;
+        object-fit:cover;
+    }
+
+    /* Headings */
+
+    .section-header h2,
+    .why-us h2,
+    .process h2,
+    .services h2,
+    .partners h2,
+    .cta h2{
         font-size:30px;
+        margin-top:0;
     }
 
+    /* Cards */
+
+    .cards{
+        grid-template-columns:1fr;
+        margin:30px 0;
     }
+
+    .card{
+        padding:25px;
+    }
+
+    /* Steps */
+
+    .steps{
+        grid-template-columns:1fr;
+        margin:30px 0;
+    }
+
+    /* Services */
+
+    .service-grid{
+        grid-template-columns:1fr;
+        margin:30px 0;
+    }
+
+    /* Partners */
+
+    .partners{
+        padding:50px 20px;
+    }
+
+    .overlay{
+        margin:0;
+        padding:40px 20px;
+    }
+
+    .partner{
+        overflow-x:auto;
+    }
+
+    .partner-flex{
+        gap:15px;
+        width:max-content;
+        animation:none;
+    }
+
+    .partner-flex span{
+        width:170px;
+        height:120px;
+    }
+
+    /* CTA */
+
+    .btn{
+        display:block;
+        width:100%;
+        max-width:300px;
+        margin:auto;
+    }
+
+    /* Marquee */
+
+    .marquee-content{
+        margin-left:100%;
+    }
+
+}
 
 </style>
 <link rel="icon" type="image/ico" sizes="32x32" href="images/logo.png">
@@ -509,9 +675,12 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="aboutus.html">About Us</a></li>
         <li><a href="ourmission.html">Our Mission</a></li>
+
         <li class="dropdown">
-            <a href="crypto.html">Services</a>
+            <a href="#">More ▼</a>
+
             <ul class="dropmenu">
+                <li><a href="crypto.html">Services</a></li>
                 <li><a href="contactus.html">Contact</a></li>
                 <li><a href="chat.html">Bank With Us</a></li>
             </ul>
@@ -600,9 +769,9 @@
 
 </section>
 
- <div id="mycontainer">
+ <!-- <div id="mycontainer">
    
- </div>
+ </div> -->
 
 <!-- SERVICES -->
 
@@ -659,65 +828,69 @@
 
         <h2>Maintaining Law Together</h2>
 
+        <div class="partner">
+
             <div class="partner-flex">
 
-                <div class="Partner-card">
-                    <!-- <img src="images/benz.jpg" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/benz.jpg" alt="">
+                </span>
 
-                <div class="Partner-card">
-                    <!-- <img src="images/bmw.jpg" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/bmw.jpg" alt="">
+                </span>
 
-                <div class="Partner-card">
-                    <!-- <img src="images/toyota.png" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/toyota.png" alt="">
+                </span>
 
-                <div class="Partner-card">
-                    <!-- <img src="images/lambo.jpg" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/lambo.jpg" alt="">
+                </span>
 
-                <div class="Partner-card">
-                    <!-- <img src="images/famous.jpg" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/famous.jpg" alt="">
+                </span>
 
-                <div class="Partner-card">
-                   <!-- <img src="images/benz.jpg" alt=""> -->
-                </div>
+                <span>
+                   <img src="images/benz.jpg" alt="">
+                </span>
 
-                <div class="Partner-card">
-                    <!-- <img src="images/bmw.jpg" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/bmw.jpg" alt="">
+                </span>
 
-                <div class="Partner-card">
-                    <!-- <img src="images/famous.jpg" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/famous.jpg" alt="">
+                </span>
 
-                <div class="Partner-card">
-                    <!-- <img src="images/lambo.jpg" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/lambo.jpg" alt="">
+                </span>
 
-                <div class="Partner-card">
-                    <!-- <img src="images/toyota.png" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/toyota.png" alt="">
+                </span>
 
-                <div class="Partner-card">
-                    <!-- <img src="images/benz.jpg" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/benz.jpg" alt="">
+                </span>
 
-                <div class="Partner-card">
-                    <!-- <img src="images/bmw.jpg" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/bmw.jpg" alt="">
+                </span>
 
-                <div class="Partner-card">
-                    <!-- <img src="images/famous.jpg" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/famous.jpg" alt="">
+                </span>
 
-                <div class="Partner-card">
-                    <!-- <img src="images/lambo.jpg" alt=""> -->
-                </div>
+                <span>
+                    <img src="images/lambo.jpg" alt="">
+                </span>
 
             </div>
+
+         </div>   
 
     </div>  
 

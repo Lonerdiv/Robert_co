@@ -1,44 +1,1039 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dispay</title>
-    <style>
-        body{
-            padding: 0px;
-            margin: 0px;
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Robert & Co. Consulting Firm</title>
+
+<link rel="stylesheet" href="thony.css">
+<link rel="stylesheet" href="lonert/sammy.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8f9fb;
+    color:#222;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+@keyframes myball{
+
+    0%{
+        left:300px;
+        top:0;
+        background:conic-gradient(red,blue,yellow);
+        transform:rotate(20deg);
+    }
+
+    25%{
+        left:300px;
+        top:0;
+        background:conic-gradient(red,blue,yellow);
+        transform:rotate(140deg);
+    }
+
+    50%{
+        left:300px;
+        top:200px;
+        background:conic-gradient(red,blue,yellow);
+        transform:rotate(180deg);
+    }
+
+    75%{
+        left:0;
+        top:200px;
+        background:conic-gradient(red,blue,yellow);
+        transform:rotate(220deg);
+    }
+
+    100%{
+        left:0;
+        top:0;
+        background:conic-gradient(red,blue,yellow);
+        transform:rotate(360deg);
+    }
+
+}
+
+#mycontainer{
+
+    width:200px;
+    height:200px;
+
+    margin:5px;
+
+    border:1px solid #000;
+    border-radius:50%;
+
+    position:relative;
+
+    animation:myball 5s ease infinite;
+
+    background:conic-gradient(red,blue,yellow);
+
+    transition:1s;
+
+}
+
+.container{
+
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+
+}
+
+section{
+
+    padding:70px 0;
+
+}
+
+.section-header{
+
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+
+}
+
+.section-header h2{
+
+    font-size:42px;
+    margin-bottom:20px;
+
+}
+
+.navbar{
+
+    background:#C00000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 5%;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    flex-wrap:wrap;
+
+}
+
+.logo{
+
+    color:#fff;
+    font-size:24px;
+    font-weight:bold;
+
+}
+
+.logo img{
+
+    width:100%;
+    max-width:250px;
+    height:auto;
+    display:block;
+
+}
+
+.nav-links{
+
+    display:flex;
+    list-style:none;
+    gap:30px;
+    align-items:center;
+
+}
+
+.nav-links li{
+
+    position:relative;
+
+}
+
+.nav-links a{
+
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#FFD700;
+
+}
+
+.dropdown{
+
+    position:relative;
+
+}
+
+.dropdown>a{
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+}
+
+.dropmenu{
+
+    position:absolute;
+
+    top:120%;
+    left:50%;
+
+    transform:translateX(-50%) translateY(15px);
+
+    width:220px;
+
+    background:#fff;
+
+    border-radius:10px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    list-style:none;
+
+    padding:10px 0;
+
+    visibility:hidden;
+    opacity:0;
+
+    transition:.35s ease;
+
+}
+
+.dropmenu li{
+
+    width:100%;
+
+}
+
+.dropmenu a{
+
+    display:block;
+
+    color:#444;
+
+    padding:12px 20px;
+
+    transition:.3s;
+
+}
+
+.dropmenu a:hover{
+
+    background:#f3f3f3;
+
+    color:#C00000;
+
+    padding-left:28px;
+
+}
+
+.dropdown:hover .dropmenu{
+
+    visibility:visible;
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+
+}
+
+.hero{
+
+    width:100%;
+    overflow:hidden;
+
+}
+
+.hero img{
+
+    width:100%;
+    height:auto;
+    display:block;
+
+    transition:transform 1.5s ease;
+
+}
+
+.hero img:hover{
+
+    transform:scale(1.05);
+
+} 
+
+    .process h2,
+        .services h2,
+        .why-us h2{
+        text-align:center;
+        font-size:40px;
+        margin-bottom:30px;
         }
 
-        p.mydiv{
-            background: red;
-            width: 300px;
-            height: 200px;
-            display: block;
-            color: white;
-            font-size: 2vw;
-            padding: 30px;
-        }
+    .steps{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+        gap:20px;
+        margin: 230px;
+        margin-top: 0px;
+        margin-bottom: 0;
+    }
 
-        div#mycontainer{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            width: 750px;
-            background:yellow;
-            justify-content: center;
-            height: 600px;
-            padding: 40px;
-            margin: 0px auto;
-        }
-    </style>
-</head>
-<body>
-    <div id="mycontainer">
-        <p id="container" class="mydiv">Welcome to CSS Masterclass</p>
-        <p id="container" class="mydiv">to class</p>
-        <p id="container" class="mydiv">Topic: CSS Display</p>
-        <p id="container" class="mydiv">Topic: Welcome to CSS Masterclass</p>
-    </div>
+    .step{
+        background:white;
+        padding:25px;
+        border-radius:12px;
+        text-align:center;
+        font-weight:bold;
+        box-shadow:0 5px 20px rgba(0,0,0,.08);
+        transition:.3s;
+    }
+
+    .step:hover{
+        background:#d60000;
+        color:white;
+        transform:scale(1.05);
+    }
+
+    .container{
+        margin-top: 0px;
+        gap: 10px;
+        padding-top: -90px 0;
+        
+    }
     
+
+    .service-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:25px;
+        margin: 130px;
+        margin-top: 0px;
+    }
+
+    .service-card{
+        background:#d60000;
+        color:white;
+        padding:40px;
+        border-radius:12px;
+        text-align:center;
+        font-weight:600;
+        transition:.3s;
+    }
+
+    .service-card:hover{
+        background:#111;
+        transform:translateY(-8px);
+    }
+
+    .partners{
+        width: 100%;
+        padding: 80px 5%;
+        background: url("images/background.jpg") center/cover no-repeat;
+        position: relative;
+    }
+
+    .overlay{
+        background: rgba(25, 20, 75, .82);
+        padding: 80px ;
+        margin: -80px;
+        margin-right: -65px;
+        margin-left: -70px;
+    }
+
+    .partner{
+        padding-left: 0%;
+        overflow: hidden;
+    }
+
+    .title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-top: 30px;
+        padding: 10px;
+    }
+
+    .line{
+        width: 30px;
+        height: 2px;
+        background: #f3b319;
+    }
+
+    .title h4{
+        color: #f3b319;
+        font-size: 18px;
+        letter-spacing: 1px;
+        font-family: Arial, Arial, Helvetica, sans-serif;
+    }
+
+    .partners h2{
+        text-align: center;
+        color: #fff;
+        font-size: 32px;
+        margin: 20px 0 50px;
+        margin-top: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .partner-flex{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        height: 200px;
+        flex-wrap: nowrap;
+        width: 6%;
+        animation: scrollpartner 10s linear infinite;
+    }
+
+    .partner-flex:hover{
+        animation-play-state: paused;
+    }
+
+
+    .partner-flex span{
+        width: 260px;
+        height: 170px;
+        margin: 0 15px;
+        background: white;
+        border-radius: 18px;
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        /* transition: 0s; */
+        /*cursor: pointer; */
+        padding: 20px;
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+    }
+
+
+    .partner-flex span img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: filter 3s, transform 3s;
+        border-radius: 20px;
+        transform-style: preserve-3d;
+    }
+
+    .partner-flex span:hover img {
+        transform: translateZ(200px);
+        filter: grayscale(100%);
+        /* animation-play-state: paused; */
+    }
+
+    .partner-flex span:hover{
+        transform: scale(1.08);
+        box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
+
+    @keyframes scrollpartner{
+        from{
+                transform: translateX(0);
+        }
+
+        to {
+                transform: translateX(calc(-280px * 4));
+        }
+    }
+
+.cta{
+
+    background:#111;
+    color:#fff;
+    text-align:center;
+
+}
+
+.cta h2{
+
+    font-size:42px;
+    margin-bottom:25px;
+
+}
+
+.btn{
+
+    display:inline-block;
+
+    background:#d60000;
+
+    color:#fff;
+
+    padding:15px 40px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.35s ease;
+
+}
+
+.btn:hover{
+
+    background:#fff;
+    color:#d60000;
+
+}
+
+.marquee{
+
+    width:100%;
+    overflow:hidden;
+    white-space:nowrap;
+
+    background:#000;
+
+}
+
+.marquee-content{
+
+    display:inline-block;
+
+    padding-left:100%;
+
+    color:#fff;
+
+    animation:scrolltext 20s linear infinite;
+
+}
+
+.marquee-content:hover{
+
+    animation-play-state:paused;
+
+}
+
+@keyframes scrolltext{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-100%);
+    }
+
+}
+
+
+footer{
+
+    background:#000;
+    color:#fff;
+    text-align:center;
+    padding:25px;
+
+}
+
+
+@media screen and (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .container{
+        width:95%;
+        margin:auto;
+    }
+
+    /* Navbar */
+
+    .navbar{
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        padding:15px;
+        margin-bottom:0;
+        gap:15px;
+    }
+
+    .logo img{
+        width:220px !important;
+        height:auto !important;
+    }
+
+    .nav-links{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+        width:100%;
+    }
+
+    .dropdown{
+        width:100%;
+    }
+
+    .dropmenu{
+        position:static;
+        visibility:visible;
+        opacity:1;
+        transform:none;
+        width:100%;
+        margin:10px 0;
+        box-shadow:none;
+        border-radius:8px;
+    }
+
+    /* Hero */
+
+    .hero img{
+        width:100%;
+        height:auto;
+        object-fit:cover;
+    }
+
+    /* Headings */
+
+    .section-header h2,
+    .why-us h2,
+    .process h2,
+    .services h2,
+    .partners h2,
+    .cta h2{
+        font-size:30px;
+        margin-top:0;
+    }
+
+    /* Cards */
+
+    .cards{
+        grid-template-columns:1fr;
+        margin:30px 0;
+    }
+
+    .card{
+        padding:25px;
+    }
+
+    /* Steps */
+
+    .steps{
+        grid-template-columns:1fr;
+        margin:30px 0;
+    }
+
+    /* Services */
+
+    .service-grid{
+        grid-template-columns:1fr;
+        margin:30px 0;
+    }
+
+    /* Partners */
+
+    .partners{
+        padding:50px 20px;
+    }
+
+    .overlay{
+        margin:0;
+        padding:40px 20px;
+    }
+
+    .partner{
+        overflow-x:auto;
+    }
+
+    .partner-flex{
+        gap:15px;
+        width:max-content;
+        animation:none;
+    }
+
+    .partner-flex span{
+        width:170px;
+        height:120px;
+    }
+
+    /* CTA */
+
+    .btn{
+        display:block;
+        width:100%;
+        max-width:300px;
+        margin:auto;
+    }
+
+    /* Marquee */
+
+    .marquee-content{
+        margin-left:100%;
+    }
+
+}
+ </style>
+
+  <body>
+
+    <div class="marquee">
+        <div class="marquee-content">
+            Welcome To Robert &amp; Co. Consulting Firm - Learn What Law Is All About -
+            10% Discount On Your First Order
+        </div>
+    </div>
+
+
+    <nav class="navbar">
+
+        <!-- Logo -->
+
+        <div class="logo">
+
+            <a href="index.html" class="logo-link">
+
+                <img
+                    src="images/legallogo.png"
+                    alt="Robert & Co. Consulting Firm Logo">
+
+            </a>
+
+        </div>
+
+        <!-- Navigation -->
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="aboutus.html">About Us</a>
+            </li>
+
+            <li>
+                <a href="ourmission.html">Our Mission</a>
+            </li>
+
+            <li class="dropdown">
+
+                <a href="#">
+                    More
+                    <span>▼</span>
+                </a>
+
+                <ul class="dropmenu">
+
+                    <li>
+                        <a href="crypto.html">
+                            Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contactus.html">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="chat.html">
+                            Bank With Us
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <section class="hero">
+
+        <img
+            src="images/legalban.png"
+            alt="Professional Legal Consulting Banner">
+
+    </section>
+
+<!-- =========================================
+     ABOUT SECTION
+========================================= -->
+
+<section class="about">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2>Welcome to Robert &amp; Co. Consulting Firm</h2>
+
+            <p>
+                Empowering businesses with innovative strategies,
+                expert guidance, and practical solutions for
+                sustainable growth.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     WHY CHOOSE US
+========================================= -->
+
+<section class="why-us">
+
+    <div class="container">
+
+        <h2>Why Choose Us</h2>
+
+        <div class="cards">
+
+            <article class="card">
+
+                <h3>Expert Consultants</h3>
+
+                <p>
+                    Industry specialists with proven experience,
+                    delivering practical solutions tailored to your
+                    business needs.
+                </p>
+
+            </article>
+
+            <article class="card">
+
+                <h3>Tailored Solutions</h3>
+
+                <p>
+                    Every strategy is customized to help your business
+                    achieve sustainable growth and long-term success.
+                </p>
+
+            </article>
+
+            <article class="card">
+
+                <h3>Reliable Support</h3>
+
+                <p>
+                    We provide professional guidance and dedicated
+                    support throughout every stage of your project.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="process">
+
+    <div class="container">
+
+        <h2>Our Consulting Process</h2>
+
+        <div class="steps">
+
+            <div class="step">1. Consultation</div>
+            <div class="step">2. Assessment</div>
+            <div class="step">3. Strategy</div>
+            <div class="step">4. Implementation</div>
+            <div class="step">5. Monitoring</div>
+            <div class="step">6. Improvement</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+ <!-- <div id="mycontainer">
+   
+ </div> -->
+
+<!-- SERVICES -->
+
+<section class="services">
+
+    <div class="container">
+
+        <h2>Our Services</h2>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                Business Strategy Consulting
+            </div>
+
+            <div class="service-card">
+                Risk Management
+            </div>
+
+            <div class="service-card">
+                Financial Advisory
+            </div>
+
+            <div class="service-card">
+                Project Management
+            </div>
+
+            <div class="service-card">
+                Human Resource Consulting
+            </div>
+
+            <div class="service-card">
+                Market Research
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="partners" >
+    
+    <div class="overlay">
+
+        <div class="title">
+            <span class="line"></span>
+            <h4>OUR PARTNERS</h4>
+            <span class="line"></span>
+        </div>
+
+        <h2>Maintaining Law Together</h2>
+
+        <div class="partner">
+
+            <div class="partner-flex">
+
+                <span>
+                    <img src="images/benz.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/bmw.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/toyota.png" alt="">
+                </span>
+
+                <span>
+                    <img src="images/lambo.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/famous.jpg" alt="">
+                </span>
+
+                <span>
+                   <img src="images/benz.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/bmw.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/famous.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/lambo.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/toyota.png" alt="">
+                </span>
+
+                <span>
+                    <img src="images/benz.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/bmw.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/famous.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/lambo.jpg" alt="">
+                </span>
+
+            </div>
+
+         </div>   
+
+    </div>  
+
+</section>
+
+
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>Ready To Grow Your Business?</h2>
+
+        <a href="contactus.html " class="btn">
+            Contact Us Today
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        &copy; 2026 Robert & Co. Consulting Firm. All Rights Reserved.
+    </p>
+
+</footer>
+
 </body>
 </html>

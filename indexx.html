@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        Robert & Co. Consulting Firm
+
+    </title>
+
+    <meta name="description" content="Professional consulting firm providing strategic business solutions, financial advisory, legal consulting and corporate services.">
+
+    <link rel="icon" href="images/logo.png">
+
+    <link href="thony.css" rel="stylesheet">
+
+    <link href="lonert/sammy.css" rel="stylesheet">
+
+    <style>
+            .marquee{
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            border: 1px solid #000;
+            background: #000;
+            margin-bottom: 0px;
+            }
+
+            .marquee-content{
+                    display: inline-block;
+                    padding-right: 100%;
+                    margin-left: 1350px;
+                    color: white;
+                    /* font-weight: 100; */
+                    animation: scrolltext 20s linear infinite;
+            }
+
+            .marquee-content:hover{
+                animation-play-state: paused;
+            }
+
+            @keyframes scrolltext{
+                from{
+                        transform: translateX(0);
+                }
+
+                to {
+                        transform: translateX(-100%);
+                }
+            }
+
+                .partners{
+        width: 100%;
+        padding: 80px 5%;
+        background: url("images/background.jpg") center/cover no-repeat;
+        position: relative;
+    }
+
+    .overlay{
+        background: rgba(25, 20, 75, .82);
+        padding: 80px ;
+        margin: -80px;
+        margin-right: -65px;
+        margin-left: -70px;
+    }
+
+    .partner{
+        padding-left: 0%;
+        overflow: hidden;
+    }
+
+    .title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-top: -50px;
+        padding: 10px;
+    }
+
+    .line{
+        width: 30px;
+        height: 2px;
+        background: #f3b319;
+
+    }
+
+    .title h4{
+        color: #f3b319;
+        font-size: 18px;
+        letter-spacing: 1px;
+        font-family: Arial, Arial, Helvetica, sans-serif;
+    }
+
+    .partners h2{
+        text-align: center;
+        color: #fff;
+        font-size: 32px;
+        margin: 20px 0 50px;
+        margin-top: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .partner-flex{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        height: 200px;
+        flex-wrap: nowrap;
+        width: 6%;
+        animation: scrollpartner 10s linear infinite;
+    }
+
+    .partner-flex:hover{
+        animation-play-state: paused;
+    }
+
+
+    .partner-flex span{
+        width: 260px;
+        height: 170px;
+        margin: 0 15px;
+        background: white;
+        border-radius: 18px;
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        /* transition: 0s; */
+        /*cursor: pointer; */
+        padding: 20px;
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+    }
+
+
+    .partner-flex span img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: filter 3s, transform 3s;
+        border-radius: 20px;
+        transform-style: preserve-3d;
+    }
+
+    .partner-flex span:hover img {
+        transform: translateZ(200px);
+        filter: grayscale(100%);
+        /* animation-play-state: paused; */
+    }
+
+    .partner-flex span:hover{
+        transform: scale(1.08);
+        box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
+
+    @keyframes scrollpartner{
+        from{
+                transform: translateX(0);
+        }
+
+        to {
+                transform: translateX(calc(-280px * 4));
+        }
+    }
+    </style>
+
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+<!-- ==================================================
+        TOP MARQUEE
+=================================================== -->
+
+<div class=" marque bg-black text-white overflow-hidden">
+
+    <div class="max-w-7xl mx-auto">
+
+        <p class="marquee-content whitespace-nowrap py-2 text-sm font-medium">
+
+            Welcome To Robert & Co. Consulting Firm —
+            Learn What Law Is All About —
+            10% Discount On Your First Order
+
+        </p>
+
+    </div>
+
+</div>
+
+<!-- ==================================================
+        HEADER
+=================================================== -->
+
+<header class="sticky top-0 z-50 bg-[#C00000] shadow-lg">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex items-center justify-between h-24">
+
+            <!-- Logo -->
+
+            <a href="index.html" class="flex items-center">
+
+            <img src="images/legallogo.png" alt="Robert & Co." class="h-16 w-auto">
+
+            </a>
+
+            <!-- Desktop Navigation -->
+
+                <nav class="hidden lg:block">
+
+                    <ul class="flex items-center space-x-10 text-white font-semibold">
+
+                        <li>
+                            <a href="index.html" class="hover:text-yellow-300 transition"> Home </a>
+                        </li>
+
+                        <li>
+                            <a href="aboutus.html" class="hover:text-yellow-300 transition"> About Us </a>
+                        </li>
+
+                        <li>
+                            <a href="ourmission.html" class="hover:text-yellow-300 transition"> Our Mission </a>
+                        </li>
+
+                        <li>
+                            <a href="services.html" class="hover:text-yellow-300 transition"> Services </a>
+                        </li>
+
+                        <li>
+                            <a href="contactus.html" class="hover:text-yellow-300 transition"> Contact </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+            <!-- Desktop Button -->
+
+            <div class="hidden lg:block">
+
+                <a href="contactus.html" class="bg-white text-[#C00000] px-6 py-3 rounded-full font-bold hover:bg-yellow-300 transition"> 
+                    Book Consultation 
+                </a>
+
+            </div>
+
+            <!-- Mobile Button -->
+
+            <button class="lg:hidden text-white">
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+
+                </svg>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ==================================================
+        HERO
+=================================================== -->
+
+<section class="bg-white">
+
+<div class="max-w-7xl mx-auto px-6 py-16 lg:py-24">
+
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+
+<!-- LEFT -->
+
+<div>
+
+<span class="inline-block bg-red-100 text-[#C00000] font-semibold rounded-full px-5 py-2 mb-6">
+
+    Professional Consulting Services
+
+</span>
+
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+
+    Helping Businesses
+
+    <span class="text-[#C00000]"> Grow With Confidence </span>
+
+</h1>
+
+<p class="mt-8 text-lg leading-8 text-slate-600">
+
+Empowering businesses with innovative strategies,
+expert legal guidance and practical consulting
+solutions that drive sustainable growth and
+long-term success.
+
+</p>
+
+<div class="mt-10 flex flex-wrap gap-5">
+
+<a href="contactus.html" class="bg-[#C00000] text-white px-8 py-4 rounded-full font-semibold hover:bg-black transition">
+
+Book Consultation
+
+</a>
+
+<a href="aboutus.html" class="border-2 border-[#C00000] text-[#C00000] px-8 py-4 rounded-full font-semibold hover:bg-[#C00000] hover:text-white transition">
+
+Learn More
+
+</a>
+
+</div>
+
+<div class="grid grid-cols-3 gap-8 mt-14">
+
+<div>
+
+    <h2 class="text-3xl font-bold text-[#C00000]"> 15+ </h2>
+
+    <p> Years Experience </p>
+
+</div>
+
+<div>
+
+<h2 class="text-3xl font-bold text-[#C00000]">
+
+500+
+
+</h2>
+
+<p>
+
+Satisfied Clients
+
+</p>
+
+</div>
+
+<div>
+
+<h2 class="text-3xl font-bold text-[#C00000]"> 100% </h2>
+
+<p> Professional Support </p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div>
+
+<img src="images/legalban.png" alt="Consulting Firm" class="w-full rounded-3xl shadow-2xl">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==================================================
+        ABOUT OUR COMPANY
+=================================================== -->
+
+<section class="py-20 bg-slate-50">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- Left Image -->
+
+            <div>
+
+                <img src="images/ayomide.png" alt="Robert & Co. Consulting Firm" class="rounded-3xl shadow-xl w-full">
+
+            </div>
+
+            <!-- Right Content -->
+
+            <div>
+
+                <span class="text-[#C00000] font-semibold uppercase tracking-widest">
+
+                    About Our Company
+
+                </span>
+
+                <h2 class="text-4xl lg:text-5xl font-bold mt-4">
+
+                    Trusted Business Consultants
+                    Helping Companies Succeed
+
+                </h2>
+
+                <p class="mt-6 text-lg text-slate-600 leading-8">
+
+                    Robert & Co. Consulting Firm provides professional
+                    consulting solutions that help businesses overcome
+                    challenges, improve operations and achieve sustainable
+                    growth.
+
+                </p>
+
+                <p class="mt-5 text-lg text-slate-600 leading-8">
+
+                    Our experienced consultants work closely with every client,
+                    providing personalized guidance, strategic planning and
+                    reliable support from consultation to implementation.
+
+                </p>
+
+                <div class="mt-10">
+
+                    <a href="aboutus.html" class="bg-[#C00000] text-white px-8 py-4 rounded-full font-semibold hover:bg-black transition">
+
+                        Learn More About Us
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==================================================
+        WHY CHOOSE US
+=================================================== -->
+
+<section class="py-20 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center max-w-3xl mx-auto">
+
+            <span class="text-[#C00000] font-semibold uppercase">
+
+                Why Choose Us
+
+            </span>
+
+            <h2 class="text-4xl lg:text-4xl font-bold mt-4">
+
+                Why Businesses Trust Robert & Co.
+
+            </h2>
+
+            <p class="mt-6 text-slate-600 text-lg">
+
+                Delivering practical consulting solutions with professionalism,
+                integrity and measurable results.
+
+            </p>
+
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mt-16">
+
+            <article class="bg-slate-50 rounded-2xl p-8 shadow hover:shadow-xl transition">
+
+                <div class="text-5xl mb-5">
+
+                    🎯
+
+                </div>
+
+                <h3 class="text-2xl font-bold">
+
+                    Expert Consultants
+
+                </h3>
+
+                <p class="mt-4 text-slate-600">
+
+                    Experienced professionals delivering strategic business solutions.
+
+                </p>
+
+            </article>
+
+            <article class="bg-slate-50 rounded-2xl p-8 shadow hover:shadow-xl transition">
+
+                <div class="text-5xl mb-5">
+
+                    📈
+
+                </div>
+
+                <h3 class="text-2xl font-bold">
+
+                    Tailored Strategies
+
+                </h3>
+
+                <p class="mt-4 text-slate-600">
+
+                    Every recommendation is customized to your business goals.
+
+                </p>
+
+            </article>
+
+            <article class="bg-slate-50 rounded-2xl p-8 shadow hover:shadow-xl transition">
+
+                <div class="text-5xl mb-5">
+
+                    🤝
+
+                </div>
+
+                <h3 class="text-2xl font-bold">
+
+                    Dedicated Support
+
+                </h3>
+
+                <p class="mt-4 text-slate-600">
+
+                    Our consultants remain available throughout every stage.
+
+                </p>
+
+            </article>
+
+            <article class="bg-slate-50 rounded-2xl p-8 shadow hover:shadow-xl transition">
+
+                <div class="text-5xl mb-5">
+
+                    🏆
+
+                </div>
+
+                <h3 class="text-2xl font-bold">
+
+                    Proven Results
+
+                </h3>
+
+                <p class="mt-4 text-slate-600">
+
+                    Helping businesses achieve long-term success with confidence.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==================================================
+        MEET OUR EXPERTS
+=================================================== -->
+
+<section class="py-20 bg-slate-100">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center max-w-3xl mx-auto">
+
+            <span class="text-[#C00000] font-semibold uppercase">
+
+                Meet Our Experts
+
+            </span>
+
+            <h2 class="text-4xl lg:text-4xl font-bold mt-4">
+
+                The Professionals Behind Your Success
+
+            </h2>
+
+            <p class="mt-6 text-lg text-slate-600">
+
+                Meet our experienced consulting professionals dedicated to
+                delivering outstanding service and trusted business solutions.
+
+            </p>
+
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mt-16">
+
+            <!-- Member 1 -->
+
+            <article class="bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition">
+
+                <img
+                    src="images/ayomide.png"
+                    alt="Managing Director"
+                    class="w-full h-80 object-cover">
+
+                <div class="p-8">
+
+                    <h3 class="text-2xl font-bold">
+
+                        Oluwayomi Ayomide G.
+
+                    </h3>
+
+                    <p class="text-[#C00000] font-semibold mt-2">
+
+                        Managing Director
+
+                    </p>
+
+                    <p class="mt-4 text-slate-600">
+
+                        Leading the firm's strategic direction and client success.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+            <!-- Member 2 -->
+
+            <article class="bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition">
+
+                <img
+                    src="images/vic.jpg"
+                    alt="Senior Consultant"
+                    class="w-full h-80 object-cover">
+
+                <div class="p-8">
+
+                    <h3 class="text-2xl font-bold">
+
+                        Team Member
+
+                    </h3>
+
+                    <p class="text-[#C00000] font-semibold mt-2">
+
+                        Senior Consultant
+
+                    </p>
+
+                    <p class="mt-4 text-slate-600">
+
+                        Helping businesses improve operations and performance.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+            <!-- Member 3 -->
+
+            <article class="bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition">
+
+                <img
+                    src="images/lc.jpg"
+                    alt="Financial Advisor"
+                    class="w-full h-80 object-cover">
+
+                <div class="p-8">
+
+                    <h3 class="text-2xl font-bold">
+
+                        Team Member
+
+                    </h3>
+
+                    <p class="text-[#C00000] font-semibold mt-2">
+
+                        Financial Advisor
+
+                    </p>
+
+                    <p class="mt-4 text-slate-600">
+
+                        Delivering sound financial planning and advisory services.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+            <!-- Member 4 -->
+
+            <article class="bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition">
+
+                <img
+                    src="images/senior consult.jpg"
+                    alt="Legal Consultant"
+                    class="w-full h-80 object-cover">
+
+                <div class="p-8">
+
+                    <h3 class="text-2xl font-bold">
+
+                        Team Member
+
+                    </h3>
+
+                    <p class="text-[#C00000] font-semibold mt-2">
+
+                        Legal Consultant
+
+                    </p>
+
+                    <p class="mt-4 text-slate-600">
+
+                        Providing reliable legal and regulatory guidance.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==================================================
+                OUR SERVICES
+=================================================== -->
+
+<section class="py-20 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Heading -->
+
+        <div class="text-center max-w-3xl mx-auto">
+
+            <span class="text-[#C00000] font-semibold uppercase tracking-widest">
+
+                Our Services
+
+            </span>
+
+            <h2 class="text-4xl lg:text-5xl font-bold mt-4">
+
+                Professional Consulting Services
+
+            </h2>
+
+            <p class="mt-6 text-lg text-slate-600">
+
+                We deliver strategic consulting solutions that help
+                organizations improve performance, manage risks,
+                and achieve sustainable business growth.
+
+            </p>
+
+        </div>
+
+        <!-- Service Cards -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16">
+
+            <article class="bg-[#C00000] text-white rounded-3xl p-8 hover:bg-black transition duration-300 shadow-lg">
+
+                <div class="text-5xl mb-6">📊</div>
+
+                <h3 class="text-2xl font-bold">
+
+                    Business Strategy Consulting
+
+                </h3>
+
+                <p class="mt-4">
+
+                    Helping organizations develop winning strategies
+                    for sustainable growth.
+
+                </p>
+
+            </article>
+
+            <article class="bg-[#C00000] text-white rounded-3xl p-8 hover:bg-black transition duration-300 shadow-lg">
+
+                <div class="text-5xl mb-6">⚖️</div>
+
+                <h3 class="text-2xl font-bold">
+
+                    Risk Management
+
+                </h3>
+
+                <p class="mt-4">
+
+                    Identifying, assessing and managing business risks.
+
+                </p>
+
+            </article>
+
+            <article class="bg-[#C00000] text-white rounded-3xl p-8 hover:bg-black transition duration-300 shadow-lg">
+
+                <div class="text-5xl mb-6">💰</div>
+
+                <h3 class="text-2xl font-bold">
+
+                    Financial Advisory
+
+                </h3>
+
+                <p class="mt-4">
+
+                    Practical financial guidance to strengthen your business.
+
+                </p>
+
+            </article>
+
+            <article class="bg-[#C00000] text-white rounded-3xl p-8 hover:bg-black transition duration-300 shadow-lg">
+
+                <div class="text-5xl mb-6">📁</div>
+
+                <h3 class="text-2xl font-bold">
+
+                    Project Management
+
+                </h3>
+
+                <p class="mt-4">
+
+                    Delivering projects efficiently from planning to completion.
+
+                </p>
+
+            </article>
+
+            <article class="bg-[#C00000] text-white rounded-3xl p-8 hover:bg-black transition duration-300 shadow-lg">
+
+                <div class="text-5xl mb-6">👥</div>
+
+                <h3 class="text-2xl font-bold">
+
+                    Human Resource Consulting
+
+                </h3>
+
+                <p class="mt-4">
+
+                    Building productive teams and improving workforce performance.
+
+                </p>
+
+            </article>
+
+            <article class="bg-[#C00000] text-white rounded-3xl p-8 hover:bg-black transition duration-300 shadow-lg">
+
+                <div class="text-5xl mb-6">📈</div>
+
+                <h3 class="text-2xl font-bold">
+
+                    Market Research
+
+                </h3>
+
+                <p class="mt-4">
+
+                    Helping businesses understand markets and customer behavior.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==================================================
+            OUR CONSULTING PROCESS
+=================================================== -->
+
+<section class="py-20 bg-slate-100">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center max-w-3xl mx-auto">
+
+            <span class="text-[#C00000] font-semibold uppercase">
+
+                Our Process
+
+            </span>
+
+            <h2 class="text-4xl lg:text-5xl font-bold mt-4">
+
+                How We Work
+
+            </h2>
+
+            <p class="mt-6 text-lg text-slate-600">
+
+                Every project follows a structured process to ensure
+                successful delivery and measurable results.
+
+            </p>
+
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8 mt-16">
+
+            <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition">
+
+                <div class="w-14 h-14 bg-[#C00000] text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+
+                    1
+
+                </div>
+
+                <h3 class="font-bold mt-6">
+
+                    Consultation
+
+                </h3>
+
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition">
+
+                <div class="w-14 h-14 bg-[#C00000] text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+
+                    2
+
+                </div>
+
+                <h3 class="font-bold mt-6">
+
+                    Assessment
+
+                </h3>
+
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition">
+
+                <div class="w-14 h-14 bg-[#C00000] text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+
+                    3
+
+                </div>
+
+                <h3 class="font-bold mt-6">
+
+                    Strategy
+
+                </h3>
+
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition">
+
+                <div class="w-14 h-14 bg-[#C00000] text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+
+                    4
+
+                </div>
+
+                <h3 class="font-bold mt-6">
+
+                    Implementation
+
+                </h3>
+
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition">
+
+                <div class="w-14 h-14 bg-[#C00000] text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+
+                    5
+
+                </div>
+
+                <h3 class="font-bold mt-6">
+
+                    Monitoring
+
+                </h3>
+
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition">
+
+                <div class="w-14 h-14 bg-[#C00000] text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+
+                    6
+
+                </div>
+
+                <h3 class="font-bold mt-6">
+
+                    Improvement
+
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==================================================
+                OUR PARTNERS
+=================================================== -->
+
+<section class="partners" >
+    
+    <div class="overlay">
+
+        <div class="title">
+            <span class="line"></span>
+            <h4 class="text-yellow-400 uppercase font-semibold tracking-widest">OUR PARTNERS</h4>
+            <span class="line"></span>
+        </div>
+
+        <h2 class="text-4xl lg:text-5xl font-bold text-white mt-4"> Trusted By Leading Organizations </h2>
+        
+        <div class="partner">
+
+            <div class="partner-flex">
+
+                <span>
+                    <img src="images/benz.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/bmw.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/toyota.png" alt="">
+                </span>
+
+                <span>
+                    <img src="images/lambo.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/famous.jpg" alt="">
+                </span>
+
+                <span>
+                   <img src="images/benz.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/bmw.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/famous.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/lambo.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/toyota.png" alt="">
+                </span>
+
+                <span>
+                    <img src="images/benz.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/bmw.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/famous.jpg" alt="">
+                </span>
+
+                <span>
+                    <img src="images/lambo.jpg" alt="">
+                </span>
+
+            </div>
+
+         </div>   
+
+    </div>  
+
+</section>
+
+<!-- ==================================================
+                CLIENT TESTIMONIALS
+=================================================== -->
+
+<section class="py-20 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center max-w-3xl mx-auto">
+
+            <span class="uppercase tracking-widest font-semibold text-[#C00000]">
+
+                Testimonials
+
+            </span>
+
+            <h2 class="text-4xl lg:text-5xl font-bold mt-4">
+
+                What Our Clients Say
+
+            </h2>
+
+            <p class="mt-6 text-lg text-slate-600">
+
+                We take pride in delivering exceptional consulting services
+                that help businesses succeed.
+
+            </p>
+
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16">
+
+            <article class="bg-slate-50 p-8 rounded-3xl shadow-lg">
+
+                <div class="text-yellow-400 text-2xl">
+
+                    ★★★★★
+
+                </div>
+
+                <p class="mt-6 text-slate-600">
+
+                    Robert & Co. transformed our business strategy.
+                    Their professionalism and expertise exceeded
+                    our expectations.
+
+                </p>
+
+                <div class="flex items-center mt-8">
+
+                    <img
+                        src="images/client1.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
+
+                    <div class="ml-4">
+
+                        <h4 class="font-bold">
+
+                            Michael Johnson
+
+                        </h4>
+
+                        <p class="text-sm text-slate-500">
+
+                            CEO, Johnson Group
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <article class="bg-slate-50 p-8 rounded-3xl shadow-lg">
+
+                <div class="text-yellow-400 text-2xl">
+
+                    ★★★★★
+
+                </div>
+
+                <p class="mt-6 text-slate-600">
+
+                    Their financial advisory services helped us
+                    increase profitability and streamline operations.
+
+                </p>
+
+                <div class="flex items-center mt-8">
+
+                    <img src="images/client2.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
+
+                    <div class="ml-4">
+
+                        <h4 class="font-bold">
+
+                            Sarah Williams
+
+                        </h4>
+
+                        <p class="text-sm text-slate-500">
+
+                            Managing Director
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <article class="bg-slate-50 p-8 rounded-3xl shadow-lg">
+
+                <div class="text-yellow-400 text-2xl">
+
+                    ★★★★★
+
+                </div>
+
+                <p class="mt-6 text-slate-600">
+
+                    Reliable, responsive and highly knowledgeable.
+                    We strongly recommend Robert & Co.
+
+                </p>
+
+                <div class="flex items-center mt-8">
+
+                    <img
+                        src="images/client3.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
+
+                    <div class="ml-4">
+
+                        <h4 class="font-bold">
+
+                            David Brown
+
+                        </h4>
+
+                        <p class="text-sm text-slate-500">
+
+                            Business Owner
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==================================================
+                FAQ
+=================================================== -->
+
+<section class="py-20 bg-slate-100">
+
+    <div class="max-w-5xl mx-auto px-6">
+
+        <div class="text-center">
+
+            <span class="uppercase tracking-widest font-bold text-[#C00000]">
+
+                FAQ
+
+            </span>
+
+            <h2 class="text-4xl lg:text-5xl font-bold mt-4">
+
+                Frequently Asked Questions
+
+            </h2>
+
+        </div>
+
+        <div class="mt-16 space-y-6">
+
+            <details class="bg-white rounded-xl shadow p-6">
+
+                <summary class="font-bold cursor-pointer">
+
+                    What industries do you serve?
+
+                </summary>
+
+                <p class="mt-4 text-slate-600">
+
+                    We serve businesses across finance, legal,
+                    manufacturing, healthcare, technology,
+                    retail and many other industries.
+
+                </p>
+
+            </details>
+
+            <details class="bg-white rounded-xl shadow p-6">
+
+                <summary class="font-bold cursor-pointer">
+
+                    How do I schedule a consultation?
+
+                </summary>
+
+                <p class="mt-4 text-slate-600">
+
+                    Simply contact our team using the contact page
+                    and we'll arrange a consultation.
+
+                </p>
+
+            </details>
+
+            <details class="bg-white rounded-xl shadow p-6">
+
+                <summary class="font-bold cursor-pointer">
+
+                    Do you provide ongoing support?
+
+                </summary>
+
+                <p class="mt-4 text-slate-600">
+
+                    Yes. We continue supporting our clients even
+                    after project completion.
+
+                </p>
+
+            </details>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==================================================
+                CALL TO ACTION
+=================================================== -->
+
+<section class="py-24 bg-[#C00000]">
+
+    <div class="max-w-5xl mx-auto px-6 text-center">
+
+        <h2 class="text-4xl lg:text-6xl font-bold text-white">
+
+            Ready To Grow Your Business?
+
+        </h2>
+
+        <p class="text-white text-lg mt-8">
+
+            Partner with Robert & Co. Consulting Firm and
+            take your business to the next level.
+
+        </p>
+
+        <div class="mt-10">
+
+            <a href="contactus.html" class="inline-block bg-white text-[#C00000] px-10 py-4 rounded-full font-bold hover:bg-yellow-400 transition">
+
+                Contact Us Today
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==================================================
+                    FOOTER
+=================================================== -->
+
+<footer class="bg-black text-white">
+
+    <div class="max-w-7xl mx-auto px-6 py-16">
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+            <!-- Company -->
+
+            <div>
+
+                <img
+                    src="images/legallogo.png"
+                    alt="Robert & Co."
+                    class="h-20 mb-6">
+
+                <p class="text-slate-300">
+
+                    Professional consulting solutions helping
+                    businesses achieve sustainable growth.
+
+                </p>
+
+            </div>
+
+            <!-- Quick Links -->
+
+            <div>
+
+                <h3 class="font-bold text-xl mb-6">
+
+                    Quick Links
+
+                </h3>
+
+                <ul class="space-y-3">
+
+                    <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
+
+                    <li><a href="aboutus.html" class="hover:text-yellow-400">About</a></li>
+
+                    <li><a href="ourmission.html" class="hover:text-yellow-400">Mission</a></li>
+
+                    <li><a href="contactus.html" class="hover:text-yellow-400">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Services -->
+
+            <div>
+
+                <h3 class="font-bold text-xl mb-6">
+
+                    Services
+
+                </h3>
+
+                <ul class="space-y-3">
+
+                    <li>Business Consulting</li>
+
+                    <li>Financial Advisory</li>
+
+                    <li>Risk Management</li>
+
+                    <li>Project Management</li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+
+            <div>
+
+                <h3 class="font-bold text-xl mb-6">
+
+                    Contact
+
+                </h3>
+
+                <p>Email: info@robertconsulting.com</p>
+
+                <p class="mt-3">Phone: +1 (000) 000-0000</p>
+
+                <p class="mt-3">Monday - Friday</p>
+
+                <p>9:00 AM - 5:00 PM</p>
+
+            </div>
+
+        </div>
+
+        <hr class="border-slate-700 my-10">
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+
+            <p class="text-slate-400 text-sm">
+
+                &copy; 2026 Robert & Co. Consulting Firm. All Rights Reserved.
+
+            </p>
+
+            <div class="flex gap-6">
+
+                <a href="#" class="hover:text-yellow-400">Facebook</a>
+
+                <a href="#" class="hover:text-yellow-400">LinkedIn</a>
+
+                <a href="#" class="hover:text-yellow-400">Instagram</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>

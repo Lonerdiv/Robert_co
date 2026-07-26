@@ -26,7 +26,7 @@
 
             .navbar{
                 background:#c00000;
-                padding-top:20px;
+                padding-top:90x;
                 padding-bottom:10px 5%;
                 padding-left: 70px;
                 padding-right: 40px;
@@ -45,7 +45,7 @@
                 margin-left: -450px;
             }
 
-            .nav-links{
+           .nav-links{
                 display:flex;
                 list-style:none;
                 gap:30px;
@@ -60,6 +60,72 @@
 
             .nav-links a:hover{
                 color:#ffd700;
+            }
+
+            .dropdown{
+                position: relative;
+            }
+
+            .dropdown > a{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            
+            .dropmenu{
+                position: absolute;
+                top: 130%;
+                right: 0px;
+                left: 0;
+                min-width: 180px;
+                z-index: 1000;
+                background: white;
+                list-style: none;
+                width: 200px;
+                transition: background-color 2s ;
+                text-align: center;
+                padding: 8px 0;
+                border-radius: 10px;
+                box-shadow: 0 10px 25px rgba(0,0,0,.15);
+                margin: opx;
+                margin-left: -100px;
+                visibility: hidden;
+                transform: translateY(15px);
+                transition: all .35s ease;
+            }
+
+            .dropmenu li{
+                width: 100%;
+            }
+
+            .dropmenu a{
+                display: block;
+                padding: 1opx 18px;
+                color: #444;
+                text-decoration: none;
+                transition: .35s ease;
+            }
+
+             .dropmenua::after{
+                display: none;
+            }
+
+
+
+            .dropmenu a:hover{
+                background-color: #f5f5f5;
+                color: red;
+                padding-left: 25px;
+            }
+
+            .dropdown:hover .dropmenu{
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .dropdown:hover .dropmenu{
+                display: inline-block;
             }
 
             .hero img{
@@ -84,13 +150,20 @@
             <img src="images/legallogo.png" alt="Robert & Co. Consulting Firm" style="height: 80px; width: 300px;"></a>
     </div>
 
-    <ul class="nav-links">
+    <ul class="nav-links" >
         <li><a href="index.html">Home</a></li>
         <li><a href="aboutus.html">About Us</a></li>
         <li><a href="ourmission.html">Our Mission</a></li>
-        <li><a href="crypto.html">Services</a></li>
-        <li><a href="contactus.html">Contact</a></li>
-        <li><a href="chat.html">Bank With Us</a></li>
+
+        <li class="dropdown">
+            <a href="#">More ▼</a>
+
+            <ul class="dropmenu">
+                <li><a href="crypto.html">Services</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+                <li><a href="chat.html">Bank With Us</a></li>
+            </ul>
+        </li>
     </ul>
 
 </nav>
