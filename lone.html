@@ -7,146 +7,213 @@
 
 </head>
 <body>
+
+  <label for=" "></label>
   
 
   <script>
-        let username = prompt ('what is your name');
+     let priceList = [842.305, 28.723, 250.05, "nothing" ];
+
+       priceList.pop();
+
+     let finalPrice = priceList.map(x => {
+      return parseFloat(x).toFixed(2)
+     })
+
+          console.log(priceList)
+
+          finalPrice.forEach((y,z) => {
+            console.log(`item ${z}: ${y}`)
+          })
+
+    //  let newArray = priceList
+    //  .slice(0,3)
+    //  .map(price => price * 2)
     
-        alert(`welcome to class ${username}`)
-        alert(``)
+ 
+//         let username = prompt ('what is your name');
+    
+//         alert(`welcome to class ${username}`)
+//         alert(``)
 
-        let a; 
-      String(a)
+//         let a; 
+//       String(a)
       
-      // let age = 25;
-      // console.log("age :"+ age)
+//       // let age = 25;
+//       // console.log("age :"+ age)
 
       
-      console.log(String)
+//       console.log(String)
 
-      String(2<45) //"failse"
+//       String(2<45) //"failse"
 
-      // let age = 25
-      // alert(age*"tolu") //NaN
+//       // let age = 25
+//       // alert(age*"tolu") //NaN
 
-      Boolean(false)
-      Boolean(0)
-      Boolean(-0)
-      Boolean("")
-      Boolean(null)
-      Boolean(undefined)
-      Boolean(NaN)
+//       Boolean(false)
+//       Boolean(0)
+//       Boolean(-0)
+//       Boolean("")
+//       Boolean(null)
+//       Boolean(undefined)
+//       Boolean(NaN)
 
-      // let age = Number(prompt('how old are you?'))
+//       // let age = Number(prompt('how old are you?'))
 
-      // if(!age){
-      //   alert("please enter a valid number")
-      // }
+//       // if(!age){
+//       //   alert("please enter a valid number")
+//       // }
 
-      let user={
-        name: "ayomi",
-        age: 48,
-        occupation: "developer",
-        height: 6.0
-      }
+//       let userapi= fetch(input)
+      
+//       {
+//         "name": "ayomi"
+//         "age"
+//       }
 
-      console.log(user+ "")
+//       let user={
+//         name: "ayomi",
+//         age: 48,
+//         occupation: "developer",
+//         height: 6.0
+//       }
 
-
-      // Number(true) //1
-      // Number(false) //0
-      // Number(null) //0
-      // Number("") //0
-      // Number(" ") //0
-      // Number( undefined) //NaN
-      // Number("hello") //NaN
-      // parseFloat("45.67")
-      // parseInt("45.67")
+//       console.log(user+ "")
 
 
+//       // Number(true) //1
+//       // Number(false) //0
+//       // Number(null) //0
+//       // Number("") //0
+//       // Number(" ") //0
+//       // Number( undefined) //NaN
+//       // Number("hello") //NaN
+//       // parseFloat("45.67")
+//       // parseInt("45.67")
 
 
- const ibadanRestaurants = [
-  {
-    name: "Amala Sky",
-    location: "Bodija, Ibadan",
-    menu: {
-      swallow: ["Amala", "Eba", "Pounded Yam", "Fufu"],
-      meats: ["Goat Meat", "Beef", "Shaki", "Ponmo"],
-      drinks: ["Coke", "Pepsi", "Zobo", "Water"],
-      chinese: {
-        rice: ["Fried Rice", "Special Fried Rice", "Shrimp Fried Rice"],
-        noodles: ["Chicken Noodles", "Seafood Noodles"],
-        sides: ["Spring Rolls", "Dumplings"]
-      }
-    }
-  },
-  {
-    name: "Tantalizers",
-    location: "Dugbe, Ibadan",
-    menu: {
-      swallow: ["Eba", "Semo", "Wheat"],
-      meats: ["Chicken", "Beef", "Fish"],
-      drinks: ["Sprite", "Fanta", "Chapman", "Juice"],
-      chinese: {
-        rice: ["Cantonese Rice", "Vegetable Fried Rice"],
-        noodles: ["Beef Noodles", "Prawn Noodles"],
-        sides: ["Sweet Corn Soup", "Chicken Wings"]
-      }
-    }
-  },
-  {
-    name: "Mama Ope Restaurant",
-    location: "Ring Road, Ibadan",
-    menu: {
-      swallow: ["Amala", "Fufu", "Lafun"],
-      meats: ["Goat Meat", "Fish", "Chicken", "Intestine"],
-      drinks: ["Coke", "Pepsi", "Malt", "Water"],
-      chinese: {
-        rice: ["Egg Fried Rice", "Chicken Fried Rice"],
-        noodles: ["Vegetable Noodles", "Shrimp Noodles"],
-        sides: ["Wonton", "Spicy Tofu"]
-      }
-    }
-  },
-  {
-    name: "Koko Dome",
-    location: "Cocoa House, Dugbe, Ibadan",
-    menu: {
-      swallow: ["Pounded Yam", "Eba", "Fufu"],
-      meats: ["Beef", "Turkey", "Catfish"],
-      drinks: ["Chapman", "Smirnoff Ice", "Coke", "Water"],
-      chinese: {
-        rice: ["Yangzhou Fried Rice", "Pineapple Fried Rice"],
-        noodles: ["Chicken Chow Mein", "Beef Chow Mein"],
-        sides: ["Spring Rolls", "Samosa"]
-      }
-    }
-  },
-  {
-    name: "Mr Bigg’s",
-    location: "Challenge, Ibadan",
-    menu: {
-      swallow: ["Semo", "Eba", "Fufu"],
-      meats: ["Chicken", "Beef", "Turkey"],
-      drinks: ["Fanta", "Pepsi", "Bottled Water", "Malt"],
-      chinese: {
-        rice: ["Special Rice", "Fried Rice", "Egg Rice"],
-        noodles: ["Beef Noodles", "Vegetable Noodles"],
-        sides: ["Spicy Wings", "Steamed Dumplings"]
-      }
-    }
-  }
-];
 
 
-     console.log(`I want to buy 3 wraps of ${ibadanRestaurants[0].menu.swallow[0]}, one piece of ${ibadanRestaurants[0].menu.meats[1]} and one bottle of ${ibadanRestaurants[0].menu.drinks[1]} from ${ibadanRestaurants[0].name} restaurant located in ${ibadanRestaurants[0].location}.`);
+//  const ibadanRestaurants = [
+//   {
+//     name: "Amala Sky",
+//     location: "Bodija, Ibadan",
+//     menu: {
+//       swallow: ["Amala", "Eba", "Pounded Yam", "Fufu"],
+//       meats: ["Goat Meat", "Beef", "Shaki", "Ponmo"],
+//       drinks: ["Coke", "Pepsi", "Zobo", "Water"],
+//       chinese: {
+//         rice: ["Fried Rice", "Special Fried Rice", "Shrimp Fried Rice"],
+//         noodles: ["Chicken Noodles", "Seafood Noodles"],
+//         sides: ["Spring Rolls", "Dumplings"]
+//       }
+//     }
+//   },
+//   {
+//     name: "Tantalizers",
+//     location: "Dugbe, Ibadan",
+//     menu: {
+//       swallow: ["Eba", "Semo", "Wheat"],
+//       meats: ["Chicken", "Beef", "Fish"],
+//       drinks: ["Sprite", "Fanta", "Chapman", "Juice"],
+//       chinese: {
+//         rice: ["Cantonese Rice", "Vegetable Fried Rice"],
+//         noodles: ["Beef Noodles", "Prawn Noodles"],
+//         sides: ["Sweet Corn Soup", "Chicken Wings"]
+//       }
+//     }
+//   },
+//   {
+//     name: "Mama Ope Restaurant",
+//     location: "Ring Road, Ibadan",
+//     menu: {
+//       swallow: ["Amala", "Fufu", "Lafun"],
+//       meats: ["Goat Meat", "Fish", "Chicken", "Intestine"],
+//       drinks: ["Coke", "Pepsi", "Malt", "Water"],
+//       chinese: {
+//         rice: ["Egg Fried Rice", "Chicken Fried Rice"],
+//         noodles: ["Vegetable Noodles", "Shrimp Noodles"],
+//         sides: ["Wonton", "Spicy Tofu"]
+//       }
+//     }
+//   },
+//   {
+//     name: "Koko Dome",
+//     location: "Cocoa House, Dugbe, Ibadan",
+//     menu: {
+//       swallow: ["Pounded Yam", "Eba", "Fufu"],
+//       meats: ["Beef", "Turkey", "Catfish"],
+//       drinks: ["Chapman", "Smirnoff Ice", "Coke", "Water"],
+//       chinese: {
+//         rice: ["Yangzhou Fried Rice", "Pineapple Fried Rice"],
+//         noodles: ["Chicken Chow Mein", "Beef Chow Mein"],
+//         sides: ["Spring Rolls", "Samosa"]
+//       }
+//     }
+//   },
+//   {
+//     name: "Mr Bigg’s",
+//     location: "Challenge, Ibadan",
+//     menu: {
+//       swallow: ["Semo", "Eba", "Fufu"],
+//       meats: ["Chicken", "Beef", "Turkey"],
+//       drinks: ["Fanta", "Pepsi", "Bottled Water", "Malt"],
+//       chinese: {
+//         rice: ["Special Rice", "Fried Rice", "Egg Rice"],
+//         noodles: ["Beef Noodles", "Vegetable Noodles"],
+//         sides: ["Spicy Wings", "Steamed Dumplings"]
+//       }
+//     }
+//   }
+// ];
+
+
+//      console.log(`I want to buy 3 wraps of ${ibadanRestaurants[0].menu.swallow[0]}, one piece of ${ibadanRestaurants[0].menu.meats[1]} and one bottle of ${ibadanRestaurants[0].menu.drinks[1]} from ${ibadanRestaurants[0].name} restaurant located in ${ibadanRestaurants[0].location}.`);
 
         // console.log(`My name is ${student.first}  ${student.surname} and i am ${student.age}`)
      
+  // let i = 0;
+
+  // for(i = 0; i < 5; i++){
+  //   console.log(i)
+  // }
+
+  // console.log(i)
+
+
+  // for (let exercise = 1; exercise <= 4; exercise++) {
+  //   console.log(`------ Starting exercise ${exercise} ------`);
   
+  //   for (let rep = 1; rep <= 4; rep++) {
+  //     console.log(`Exercise ${exercise}: Lifting weight repetition ${rep}`);
+  //   }
+  // }
+
+  // let i = 0;
+  // while (i < 3) {
+  //   console.log(i);
+  //   i++;
+  // }
+
+  // let a = 3;
+  // while(a) console.log(a--);
+
+  // let b = 3;
+  // while(b) console.log(b--);
+
+//   let k = Math.trunc((Math.random() * 6) + 1);
+
+// while (k < 6) {
+//     console.log(` you rolled ${k}`);
+// }
+//   k = math.trunc((math.random() * 6) + 1)
+//   if (k==6){
+//       console.log("congrat! you rolled 6!");
+//   }
 
 
-    </script>
+
+  </script>
+
 </body>
 </html> 
