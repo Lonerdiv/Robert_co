@@ -10,21 +10,72 @@
 
   <label for=" "></label>
   
+  <h1 id="digitaltime"></h1>
+  <h3 id="todaysdate"></h3>
 
+  <h1 id="count">
+    <span id="hr">00:</span>
+    <span id="min">00:</span>
+    <span id="sec">00</span> 
+  </h1>
+
+  <button id="startcount">Start</button>
+  <button id="pausecount" style="display:none">Pause</button>
+  <button id="resetcount" style="display:none">Reset</button>
+  <button id="stopcount" style="display:none">Stop</button>
+  <button id="resume">Resume</button>
+  
+  
   <script>
-     let priceList = [842.305, 28.723, 250.05, "nothing" ];
 
-       priceList.pop();
+    let count = 0;
 
-     let finalPrice = priceList.map(x => {
-      return parseFloat(x).toFixed(2)
-     })
+    setInterval(()=>{
+      count++
 
-          console.log(priceList)
+      let hr = parseInt(count/3600);
+      let mm = parseInt(count/60) % 60;
+      let ss = count%60;
 
-          finalPrice.forEach((y,z) => {
-            console.log(`item ${z}: ${y}`)
-          })
+      hr = (hr<10)? "0"+hr+ ":" : hr+":";
+
+      document.getElementById('hr').innerHTML = (hr<10)? "0"+hr : hr;
+      document.getElementById('min').innerHTML = (mm<10)? "0"+mm : mm;
+      document.getElementById('sec').innerHTML = (ss<10)? "0"+ss : ss;
+      
+    }, 1000) 
+  
+  document.getElementById('startcount').addEventListener('click', ()=>{
+    document.getElementById('startcount').style.display = "none";
+    document.getElementById('pausecount').style.display = "inline-block";
+    document.getElementById('resetcount').style.display = "inline-block";
+    document.getElementById('stopcount').style.display = "inline-block"; 
+  })
+
+    let student = "tunji"
+    let person = {
+      name: student,
+      age: 25,
+      black: true,
+      career: "teacher",
+      height: "6 feet",
+    }
+
+    // console.log(person.name $[`age`])
+    
+    //  let priceList = [842.305, 28.723, 250.05, "nothing" ];
+
+    //    priceList.pop();
+
+    //  let finalPrice = priceList.map(x => {
+    //   return parseFloat(x).toFixed(2)
+    //  })
+
+    //       console.log(priceList)
+
+    //       finalPrice.forEach((y,z) => {
+    //         console.log(`item ${z}: ${y}`)
+    //       })
 
     //  let newArray = priceList
     //  .slice(0,3)
@@ -94,85 +145,113 @@
 
 
 
-//  const ibadanRestaurants = [
-//   {
-//     name: "Amala Sky",
-//     location: "Bodija, Ibadan",
-//     menu: {
-//       swallow: ["Amala", "Eba", "Pounded Yam", "Fufu"],
-//       meats: ["Goat Meat", "Beef", "Shaki", "Ponmo"],
-//       drinks: ["Coke", "Pepsi", "Zobo", "Water"],
-//       chinese: {
-//         rice: ["Fried Rice", "Special Fried Rice", "Shrimp Fried Rice"],
-//         noodles: ["Chicken Noodles", "Seafood Noodles"],
-//         sides: ["Spring Rolls", "Dumplings"]
-//       }
-//     }
-//   },
-//   {
-//     name: "Tantalizers",
-//     location: "Dugbe, Ibadan",
-//     menu: {
-//       swallow: ["Eba", "Semo", "Wheat"],
-//       meats: ["Chicken", "Beef", "Fish"],
-//       drinks: ["Sprite", "Fanta", "Chapman", "Juice"],
-//       chinese: {
-//         rice: ["Cantonese Rice", "Vegetable Fried Rice"],
-//         noodles: ["Beef Noodles", "Prawn Noodles"],
-//         sides: ["Sweet Corn Soup", "Chicken Wings"]
-//       }
-//     }
-//   },
-//   {
-//     name: "Mama Ope Restaurant",
-//     location: "Ring Road, Ibadan",
-//     menu: {
-//       swallow: ["Amala", "Fufu", "Lafun"],
-//       meats: ["Goat Meat", "Fish", "Chicken", "Intestine"],
-//       drinks: ["Coke", "Pepsi", "Malt", "Water"],
-//       chinese: {
-//         rice: ["Egg Fried Rice", "Chicken Fried Rice"],
-//         noodles: ["Vegetable Noodles", "Shrimp Noodles"],
-//         sides: ["Wonton", "Spicy Tofu"]
-//       }
-//     }
-//   },
-//   {
-//     name: "Koko Dome",
-//     location: "Cocoa House, Dugbe, Ibadan",
-//     menu: {
-//       swallow: ["Pounded Yam", "Eba", "Fufu"],
-//       meats: ["Beef", "Turkey", "Catfish"],
-//       drinks: ["Chapman", "Smirnoff Ice", "Coke", "Water"],
-//       chinese: {
-//         rice: ["Yangzhou Fried Rice", "Pineapple Fried Rice"],
-//         noodles: ["Chicken Chow Mein", "Beef Chow Mein"],
-//         sides: ["Spring Rolls", "Samosa"]
-//       }
-//     }
-//   },
-//   {
-//     name: "Mr Bigg’s",
-//     location: "Challenge, Ibadan",
-//     menu: {
-//       swallow: ["Semo", "Eba", "Fufu"],
-//       meats: ["Chicken", "Beef", "Turkey"],
-//       drinks: ["Fanta", "Pepsi", "Bottled Water", "Malt"],
-//       chinese: {
-//         rice: ["Special Rice", "Fried Rice", "Egg Rice"],
-//         noodles: ["Beef Noodles", "Vegetable Noodles"],
-//         sides: ["Spicy Wings", "Steamed Dumplings"]
-//       }
-//     }
-//   }
-// ];
+ const ibadanRestaurants = [
+  {
+    name: "Amala Sky",
+    location: "Bodija, Ibadan",
+    menu: {
+      swallow: ["Amala", "Eba", "Pounded Yam", "Fufu"],
+      meats: ["Goat Meat", "Beef", "Shaki", "Ponmo"],
+      drinks: ["Coke", "Pepsi", "Zobo", "Water"],
+      chinese: {
+        rice: ["Fried Rice", "Special Fried Rice", "Shrimp Fried Rice"],
+        noodles: ["Chicken Noodles", "Seafood Noodles"],
+        sides: ["Spring Rolls", "Dumplings"]
+      }
+    }
+  },
+  {
+    name: "Tantalizers",
+    location: "Dugbe, Ibadan",
+    menu: {
+      swallow: ["Eba", "Semo", "Wheat"],
+      meats: ["Chicken", "Beef", "Fish"],
+      drinks: ["Sprite", "Fanta", "Chapman", "Juice"],
+      chinese: {
+        rice: ["Cantonese Rice", "Vegetable Fried Rice"],
+        noodles: ["Beef Noodles", "Prawn Noodles"],
+        sides: ["Sweet Corn Soup", "Chicken Wings"]
+      }
+    }
+  },
+  {
+    name: "Mama Ope Restaurant",
+    location: "Ring Road, Ibadan",
+    menu: {
+      swallow: ["Amala", "Fufu", "Lafun"],
+      meats: ["Goat Meat", "Fish", "Chicken", "Intestine"],
+      drinks: ["Coke", "Pepsi", "Malt", "Water"],
+      chinese: {
+        rice: ["Egg Fried Rice", "Chicken Fried Rice"],
+        noodles: ["Vegetable Noodles", "Shrimp Noodles"],
+        sides: ["Wonton", "Spicy Tofu"]
+      }
+    }
+  },
+  {
+    name: "Koko Dome",
+    location: "Cocoa House, Dugbe, Ibadan",
+    menu: {
+      swallow: ["Pounded Yam", "Eba", "Fufu"],
+      meats: ["Beef", "Turkey", "Catfish"],
+      drinks: ["Chapman", "Smirnoff Ice", "Coke", "Water"],
+      chinese: {
+        rice: ["Yangzhou Fried Rice", "Pineapple Fried Rice"],
+        noodles: ["Chicken Chow Mein", "Beef Chow Mein"],
+        sides: ["Spring Rolls", "Samosa"]
+      }
+    }
+  },
+  {
+    name: "Mr Bigg’s",
+    location: "Challenge, Ibadan",
+    menu: {
+      swallow: ["Semo", "Eba", "Fufu"],
+      meats: ["Chicken", "Beef", "Turkey"],
+      drinks: ["Fanta", "Pepsi", "Bottled Water", "Malt"],
+      chinese: {
+        rice: ["Special Rice", "Fried Rice", "Egg Rice"],
+        noodles: ["Beef Noodles", "Vegetable Noodles"],
+        sides: ["Spicy Wings", "Steamed Dumplings"]
+      }
+    }
+  }
+];
+
+// ibadanRestaurants[0].name
+// ibadanRestaurants[0].location
+// ibadanRestaurants[0].menu.swallow[0]
+// ibadanRestaurants[0].menu.meats[1]
+// ibadanRestaurants[0].menu.drinks[1]
+// ibadanRestaurants[0].menu.chinese.rice[0]
 
 
-//      console.log(`I want to buy 3 wraps of ${ibadanRestaurants[0].menu.swallow[0]}, one piece of ${ibadanRestaurants[0].menu.meats[1]} and one bottle of ${ibadanRestaurants[0].menu.drinks[1]} from ${ibadanRestaurants[0].name} restaurant located in ${ibadanRestaurants[0].location}.`);
+     console.log(`I want to buy 3 wraps of ${ibadanRestaurants[0].menu.swallow[0]}, one piece of ${ibadanRestaurants[0].menu.meats[1]} and one bottle of ${ibadanRestaurants[0].menu.drinks[1]} from ${ibadanRestaurants[0].name} restaurant located in ${ibadanRestaurants[0].location}.`);
 
         // console.log(`My name is ${student.first}  ${student.surname} and i am ${student.age}`)
      
   // let i = 0;
+  setInterval(()=>{
+     let a = new Date()
+  let hr = a.getHours();
+  let min = a.getMinutes();
+  let sec = a.getSeconds();
+  let digitalsession = 'AM';
+  let digitalOutput= document.getElementById("digitaltime")
+
+  digitalsessionn = (hr >= 12) ? 'PM' : 'AM';
+  hr = (hr>12)? hr-12 : hr;
+  hr = (hr<10)? "0"+hr : hr ;
+  min = (min<10)? "0"+min : min ;
+  sec = (sec<10)? "0"+sec :sec ;
+
+  digitalOutput.innerHTML = `${hr}:${min}:${sec} ${digitalsession}`
+
+  document.getElementById('todaysdate').innerHTML = a.toDateString();
+  }, 1000)
+ 
+
+  
 
   // for(i = 0; i < 5; i++){
   //   console.log(i)

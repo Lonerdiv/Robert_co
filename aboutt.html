@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GES 103 — 60 Question CBT</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f3f6fb;
+        margin: 0;
+        color: #172033;
+    }
+
+    .container {
+        max-width: 850px;
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 6px 25px #0001;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .progress {
+        height: 10px;
+        background: #e5eaf2;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 18px 0;
+    }
+
+    .bar {
+        height: 100%;
+        background: #2563eb;
+        width: 0;
+    }
+
+    .option {
+        display: block;
+        border: 2px solid #dce2ec;
+        border-radius: 12px;
+        padding: 15px;
+        margin: 12px 0;
+        cursor: pointer;
+    }
+
+    .option:hover {
+        background: #f5f8ff;
+    }
+
+    .option input {
+        margin-right: 10px;
+    }
+
+    button {
+        border: 0;
+        border-radius: 10px;
+        padding: 13px 22px;
+        font-weight: bold;
+        cursor: pointer;
+        background: #2563eb;
+        color: white;
+    }
+
+    button:disabled {
+        background: #aab4c5;
+        cursor: not-allowed;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 24px;
+    }
+
+    .result {
+        text-align: center;
+    }
+
+    .score {
+        font-size: 42px;
+        font-weight: bold;
+        color: #2563eb;
+    }
+
+    .review {
+        text-align: left;
+        margin-top: 25px;
+    }
+
+    .correct {
+        color: #16803c;
+    }
+
+    .wrong {
+        color: #c62828;
+    }
+
+    .small {
+        color: #667085;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card" id="app"></div>
+</div>
+
+
+<script>
+
+/* =========================================================
+   QUESTIONS
+   ========================================================= */
+
+const questions = [
+
+[
+"Social Science is primarily concerned with the study of ______.",
+[
+"Stars and planets",
+"Human relationships within the socio-cultural environment",
+"Chemical reactions",
+"Physical objects"
+],
+1
+],
+
+[
+"According to Charles Beard, social sciences constitute knowledge pertaining to ______.",
+[
+"Physical objects",
+"Human affairs",
+"Natural resources",
+"Biological organisms"
+],
+1
+],
+
+[
+"Social Science became a field of study in the ______ century.",
+[
+"15th",
+"16th",
+"18th",
+"20th"
+],
+2
+],
+
+[
+"For a study to be considered scientific, it should be ______.",
+[
+"Subjective and emotional",
+"Systematic and verifiable",
+"Political and controversial",
+"Traditional and religious"
+],
+1
+],
+
+[
+"The Latin phrase ceteris paribus means ______.",
+[
+"Nothing is certain",
+"All things being equal",
+"Knowledge is power",
+"Survival of the fittest"
+],
+1
+],
+
+[
+"Political Science is mainly concerned with the study of ______.",
+[
+"Human biological development",
+"Political behaviour and political relationships",
+"Physical geography",
+"Economic production only"
+],
+1
+],
+
+[
+"Aristotle described his book Politics as the ______.",
+[
+"Science of Economics",
+"Queen/master science",
+"Science of Sociology",
+"Science of Law"
+],
+1
+],
+
+[
+"The Greek word Polis refers to a ______.",
+[
+"Village",
+"Kingdom",
+"Greek city",
+"Political party"
+],
+2
+],
+
+[
+"Harold Lasswell defined politics as the determination of ______.",
+[
+"Who governs society",
+"Who gets what, when and how",
+"Who makes laws",
+"Who votes and when"
+],
+1
+],
+
+[
+"According to David Easton, politics involves the ______.",
+[
+"Separation of powers",
+"Authoritative allocation of values for a society",
+"Distribution of wealth alone",
+"Election of political leaders"
+],
+1
+],
+
+[
+"Which of the following is NOT a characteristic of a state?",
+[
+"Population",
+"Defined territory",
+"Sovereignty",
+"Voluntary membership"
+],
+3
+],
+
+[
+"The state is regarded as the most contemporary framework for the conduct of ______.",
+[
+"Economics",
+"Politics",
+"Psychology",
+"Sociology"
+],
+1
+],
+
+[
+"Which of the following is a level of politics?",
+[
+"Domestic biological level",
+"State level",
+"Psychological level",
+"Economic level"
+],
+1
+],
+
+[
+"Politics occurring between two or more states is known as ______ politics.",
+[
+"Intra-state",
+"Local",
+"Inter-state",
+"Community"
+],
+2
+],
+
+[
+"The three types of power identified in the material are ______.",
+[
+"Force, domination and manipulation",
+"Authority, legitimacy and sovereignty",
+"Political, economic and military",
+"Direct, indirect and legal"
+],
+0
+],
+
+[
+"When an actor influences another person's behaviour without explicitly stating the behaviour desired, this is called ______.",
+[
+"Force",
+"Domination",
+"Manipulation",
+"Authority"
+],
+2
+],
+
+[
+"Authority is described in the material as a ______ form of power.",
+[
+"Lower",
+"Superior",
+"Temporary",
+"Illegal"
+],
+1
+],
+
+[
+"Authority based on the sanctity of tradition is called ______ authority.",
+[
+"Legal",
+"Charismatic",
+"Traditional",
+"Democratic"
+],
+2
+],
+
+[
+"Authority based on extraordinary personal qualities is ______ authority.",
+[
+"Legal",
+"Traditional",
+"Charismatic",
+"Constitutional"
+],
+2
+],
+
+[
+"Legitimacy refers to the belief that ______.",
+[
+"government should be abolished",
+"an individual has the right to make authoritative decisions",
+"citizens must always obey political parties",
+"power must be exercised by force"
+],
+1
+],
+
+
+/* GOVERNMENT */
+
+[
+"One meaning of government refers to government as the ______.",
+[
+"Process or art of governing",
+"Population of a state",
+"Territory of a country",
+"Natural resources of a country"
+],
+0
+],
+
+[
+"Which of the following is an organ of modern government?",
+[
+"Legislature",
+"Family",
+"Political party",
+"Pressure group"
+],
+0
+],
+
+[
+"The two primary purposes of modern states identified in the material are maintenance of order and ______.",
+[
+"Promotion of citizens' welfare",
+"Promotion of political parties",
+"Expansion of territory",
+"Increase in population"
+],
+0
+],
+
+[
+"Which of the following is a feature of democratic government?",
+[
+"Election rigging",
+"Political equality",
+"Military coup",
+"Suppression of citizens"
+],
+1
+],
+
+[
+"Which of the following is NOT associated with democratic government?",
+[
+"Rule of law",
+"Political tolerance",
+"Secret balloting",
+"Military coup"
+],
+3
+],
+
+[
+"The first procedure involved in establishing democratic government listed in the material is ______.",
+[
+"Swearing in winners",
+"Registration of voters",
+"Delimitation of constituency areas",
+"Formation of cabinet"
+],
+2
+],
+
+[
+"Which of the following is classified according to patterns of power distribution?",
+[
+"Federal government",
+"Monarchy",
+"Capitalism",
+"Fascism"
+],
+0
+],
+
+[
+"The three organs of modern government are the executive, legislature and ______.",
+[
+"Political party",
+"Judiciary",
+"Civil society",
+"Electorate"
+],
+1
+],
+
+
+/* POLITICAL SOCIALISATION */
+
+[
+"Socialisation is the process through which an individual learns to ______.",
+[
+"Reject society",
+"Adjust to a group and behave in an approved manner",
+"Become a politician",
+"Avoid social relationships"
+],
+1
+],
+
+[
+"Political socialisation involves the inculcation of political information, values and ______.",
+[
+"Wealth",
+"Practices",
+"Resources",
+"Territories"
+],
+1
+],
+
+[
+"According to Gabriel Almond, political socialisation is the process of induction into the ______.",
+[
+"Economic system",
+"Political culture",
+"Legal system",
+"Family system"
+],
+1
+],
+
+[
+"Which of the following is an agency of political socialisation?",
+[
+"Family",
+"Mineral resources",
+"Weather",
+"Soil"
+],
+0
+],
+
+[
+"The foremost avenue for citizens' political participation is ______.",
+[
+"Elections",
+"Litigation",
+"Education",
+"Employment"
+],
+0
+],
+
+[
+"Which of the following is NOT an avenue of political participation listed in the material?",
+[
+"Political parties",
+"Interest groups",
+"Public protests",
+"Mineral exploration"
+],
+3
+],
+
+[
+"Voting in elections is regarded as the most visible indicator of citizens' ______.",
+[
+"Economic growth",
+"Political socialisation and participation",
+"Environmental awareness",
+"Psychological development"
+],
+1
+],
+
+[
+"One major reason for political apathy in Nigeria is that voters ______.",
+[
+"understand their rights too well",
+"do not fully understand the importance of elections",
+"are overrepresented",
+"have too many political parties"
+],
+1
+],
+
+[
+"Which participatory skill involves communication and cooperation in political and civic life?",
+[
+"Monitoring",
+"Influencing",
+"Interacting",
+"Voting"
+],
+2
+],
+
+[
+"Skills used to affect outcomes in political and civic life are known as ______ skills.",
+[
+"Monitoring",
+"Influencing",
+"Interacting",
+"Administrative"
+],
+1
+],
+
+
+/* LAW AND DEMOCRACY */
+
+[
+"Austin defines law as a rule laid down for the guidance of an intelligent being by ______.",
+[
+"Another intelligent being having power over him",
+"The electorate",
+"Political parties",
+"Traditional rulers only"
+],
+0
+],
+
+[
+"Which of the following is a function of law?",
+[
+"Creating poverty",
+"Maintenance of public order",
+"Promoting political apathy",
+"Eliminating elections"
+],
+1
+],
+
+[
+"Which of the following is a classification of constitutions?",
+[
+"Written and unwritten",
+"Social and economic",
+"Rural and urban",
+"Primary and secondary"
+],
+0
+],
+
+[
+"The Lyttleton Constitution of 1954 made Nigeria a federation of ______ regions.",
+[
+"Two",
+"Three",
+"Four",
+"Six"
+],
+1
+],
+
+[
+"Under the 1963 Republican Constitution, which new region was created?",
+[
+"Northern Region",
+"Western Region",
+"Mid-Western Region",
+"Eastern Region"
+],
+2
+],
+
+[
+"The 1979 Constitution established ______ tiers of government.",
+[
+"Two",
+"Three",
+"Four",
+"Five"
+],
+1
+],
+
+[
+"Matters on the Exclusive Legislative List are reserved for the ______ government.",
+[
+"Local",
+"State",
+"Federal",
+"Traditional"
+],
+2
+],
+
+[
+"Which of the following is a fundamental human right under the Nigerian Constitution as presented in the material?",
+[
+"Right to unlimited wealth",
+"Right to life",
+"Right to free housing",
+"Right to employment"
+],
+1
+],
+
+[
+"The right to fair hearing is provided under Section ______ of the 1999 Constitution according to the material.",
+[
+"33",
+"34",
+"35",
+"36"
+],
+3
+],
+
+[
+"Which of the following can constitute a limitation on human rights?",
+[
+"Public health",
+"Personal wealth",
+"Educational qualification",
+"Political ambition"
+],
+0
+],
+
+[
+"The two elements of crime that must coexist for criminal liability are ______.",
+[
+"Actus reus and mens rea",
+"Force and authority",
+"Law and order",
+"Rights and duties"
+],
+0
+],
+
+[
+"Mens rea refers to the ______.",
+[
+"Guilty act",
+"Guilty mind",
+"Legal authority",
+"Criminal punishment"
+],
+1
+],
+
+[
+"A written authority issued by a court to arrest an offender is called a ______.",
+[
+"Search order",
+"Warrant of arrest",
+"Police report",
+"Court petition"
+],
+1
+],
+
+[
+"According to Black's Law Dictionary, democracy means government of the ______.",
+[
+"Military",
+"Wealthy",
+"People",
+"Judiciary"
+],
+2
+],
+
+[
+"The Greek word Demos means ______.",
+[
+"Power",
+"Law",
+"Common people or masses",
+"Government"
+],
+2
+],
+
+[
+"Good governance is associated with ______.",
+[
+"Secrecy and coercion",
+"Accountability, transparency and openness",
+"Military rule and censorship",
+"Political violence"
+],
+1
+],
+
+
+/* SOCIOLOGY AND ECONOMICS */
+
+[
+"Sociology is the scientific study of ______.",
+[
+"Human society",
+"The physical environment only",
+"Government institutions only",
+"Chemical substances"
+],
+0
+],
+
+[
+"Who defined sociology as the study of social facts?",
+[
+"Max Weber",
+"August Comte",
+"Emile Durkheim",
+"Karl Marx"
+],
+2
+],
+
+[
+"Which sociological approach moves from particular observations to general theories?",
+[
+"Deductive",
+"Inductive",
+"Experimental",
+"Comparative"
+],
+1
+],
+
+[
+"Data collected firsthand by a researcher is known as ______ data.",
+[
+"Secondary",
+"Historical",
+"Primary",
+"Official"
+],
+2
+],
+
+[
+"Which of the following is an example of a closed-ended questionnaire?",
+[
+"A question requiring an essay response",
+"A question where respondents select from given options",
+"An unstructured interview",
+"A life document"
+],
+1
+],
+
+[
+"The fundamental economic problem arising because human wants are unlimited while resources are limited is ______.",
+[
+"Inflation",
+"Scarcity",
+"Unemployment",
+"Production"
+],
+1
+]
+
+];
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+let current = 0;
+
+let answers = Array(questions.length).fill(null);
+
+
+/* =========================================================
+   DISPLAY QUESTION
+   ========================================================= */
+
+function render() {
+
+    const q = questions[current];
+
+    document.getElementById("app").innerHTML = `
+
+        <div class="top">
+
+            <strong>GES 103 CBT</strong>
+
+            <span>
+                Question ${current + 1} of ${questions.length}
+            </span>
+
+        </div>
+
+
+        <div class="progress">
+
+            <div
+                class="bar"
+                style="width:${((current + 1) / questions.length) * 100}%">
+            </div>
+
+        </div>
+
+
+        <p class="small">
+            Select one answer.
+        </p>
+
+
+        <h2>
+            ${current + 1}. ${q[0]}
+        </h2>
+
+
+        ${q[1].map((option, index) => `
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    name="answer"
+                    value="${index}"
+
+                    ${answers[current] === index ? "checked" : ""}
+
+                    onchange="answers[current] = ${index}"
+                >
+
+                <b>${String.fromCharCode(65 + index)}.</b>
+
+                ${option}
+
+            </label>
+
+        `).join("")}
+
+
+        <div class="nav">
+
+            <button
+                onclick="prev()"
+                ${current === 0 ? "disabled" : ""}>
+                ← Previous
+            </button>
+
+
+            ${
+                current === questions.length - 1
+
+                ?
+
+                `<button onclick="submitExam()">
+                    Submit Exam
+                </button>`
+
+                :
+
+                `<button onclick="next()">
+                    Next →
+                </button>`
+            }
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+   ========================================================= */
+
+function next() {
+
+    if (answers[current] === null) {
+
+        alert("Please select an answer first.");
+
+        return;
+    }
+
+    current++;
+
+    render();
+}
+
+
+/* =========================================================
+   PREVIOUS QUESTION
+   ========================================================= */
+
+function prev() {
+
+    if (current > 0) {
+
+        current--;
+
+        render();
+    }
+}
+
+
+/* =========================================================
+   SUBMIT EXAM
+   ========================================================= */
+
+function submitExam() {
+
+    if (answers[current] === null) {
+
+        alert("Please select an answer first.");
+
+        return;
+    }
+
+
+    let score = 0;
+
+
+    answers.forEach((answer, index) => {
+
+        if (answer === questions[index][2]) {
+
+            score++;
+        }
+
+    });
+
+
+    let percentage =
+        (score / questions.length * 100).toFixed(1);
+
+
+    /* CREATE ANSWER REVIEW */
+
+    let review = questions.map((q, index) => {
+
+        if (answers[index] === q[2]) {
+
+            return `
+                <p class="correct">
+                    Q${index + 1} ✓ Correct
+                </p>
+            `;
+
+        } else {
+
+            return `
+                <p class="wrong">
+
+                    Q${index + 1} ✗
+
+                    You chose:
+                    ${
+                        answers[index] === null
+                        ? "Not answered"
+                        : String.fromCharCode(65 + answers[index])
+                    }
+
+                    |
+
+                    Correct answer:
+                    ${String.fromCharCode(65 + q[2])}
+
+                </p>
+            `;
+        }
+
+    }).join("");
+
+
+    /* DISPLAY RESULT */
+
+    document.getElementById("app").innerHTML = `
+
+        <div class="result">
+
+            <h1>
+                CBT Completed 🎉
+            </h1>
+
+
+            <div class="score">
+
+                ${score}/60
+
+            </div>
+
+
+            <h2>
+
+                ${percentage}%
+
+            </h2>
+
+
+            <p>
+
+                Correct: ${score}
+
+                &nbsp; | &nbsp;
+
+                Wrong: ${60 - score}
+
+            </p>
+
+
+            <div class="review">
+
+                <h2>
+                    Answer Review
+                </h2>
+
+                ${review}
+
+            </div>
+
+
+            <button onclick="location.reload()">
+
+                Take Again
+
+            </button>
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   START CBT
+   ========================================================= */
+
+render();
+
+</script>
+
+</body>
+</html>
