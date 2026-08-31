@@ -1,1518 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>
-
-        Robert & Co. Consulting Firm
-
-    </title>
-
-    <meta name="description" content="Professional consulting firm providing strategic business solutions, financial advisory, legal consulting and corporate services.">
-
-    <link rel="icon" href="images/logo.png">
-
-    <link href="thony.css" rel="stylesheet">
-
-    <link href="lonert/sammy.css" rel="stylesheet">
-
-    <style>
-            .marquee{
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            border: 1px solid #000;
-            background: #000;
-            margin-bottom: 0px;
-            }
-
-            .marquee-content{
-                    display: inline-block;
-                    padding-right: 100%;
-                    margin-left: 1350px;
-                    color: white;
-                    /* font-weight: 100; */
-                    animation: scrolltext 20s linear infinite;
-            }
-
-            .marquee-content:hover{
-                animation-play-state: paused;
-            }
-
-            @keyframes scrolltext{
-                from{
-                        transform: translateX(0);
-                }
-
-                to {
-                        transform: translateX(-100%);
-                }
-            }
-
-                .partners{
-        width: 100%;
-        padding: 80px 5%;
-        background: url("images/background.jpg") center/cover no-repeat;
-        position: relative;
-    }
-
-    .overlay{
-        background: rgba(25, 20, 75, .82);
-        padding: 80px ;
-        margin: -80px;
-        margin-right: -65px;
-        margin-left: -70px;
-    }
-
-    .partner{
-        padding-left: 0%;
-        overflow: hidden;
-    }
-
-    .title{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        margin-top: -50px;
-        padding: 10px;
-    }
-
-    .line{
-        width: 30px;
-        height: 2px;
-        background: #f3b319;
-
-    }
-
-    .title h4{
-        color: #f3b319;
-        font-size: 18px;
-        letter-spacing: 1px;
-        font-family: Arial, Arial, Helvetica, sans-serif;
-    }
-
-    .partners h2{
-        text-align: center;
-        color: #fff;
-        font-size: 32px;
-        margin: 20px 0 50px;
-        margin-top: 5px;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .partner-flex{
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        height: 200px;
-        flex-wrap: nowrap;
-        width: 6%;
-        animation: scrollpartner 10s linear infinite;
-    }
-
-    .partner-flex:hover{
-        animation-play-state: paused;
-    }
-
-
-    .partner-flex span{
-        width: 260px;
-        height: 170px;
-        margin: 0 15px;
-        background: white;
-        border-radius: 18px;
-        display: inline-block;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-        /* transition: 0s; */
-        /*cursor: pointer; */
-        padding: 20px;
-        perspective: 1000px;
-        perspective-origin: 50% 50%;
-    }
-
-
-    .partner-flex span img{
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        transition: filter 3s, transform 3s;
-        border-radius: 20px;
-        transform-style: preserve-3d;
-    }
-
-    .partner-flex span:hover img {
-        transform: translateZ(200px);
-        filter: grayscale(100%);
-        /* animation-play-state: paused; */
-    }
-
-    .partner-flex span:hover{
-        transform: scale(1.08);
-        box-shadow: 0 12px 30px rgba(0,0,0,.35);
-    }
-
-    @keyframes scrollpartner{
-        from{
-                transform: translateX(0);
-        }
-
-        to {
-                transform: translateX(calc(-280px * 4));
-        }
-    }
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GES 103 CBT Examination</title>
+<style>
+  :root{
+    --bg:#f4f7fb; --card:#fff; --text:#172033; --muted:#667085;
+    --primary:#315efb; --primary2:#2448c8; --border:#e4e7ec;
+    --correct:#15803d; --wrong:#dc2626; --answered:#315efb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+  .app{max-width:1050px;margin:auto;padding:24px}
+  .header{background:linear-gradient(135deg,#182848,#315efb);color:#fff;border-radius:20px;padding:24px;margin-bottom:18px;box-shadow:0 12px 30px rgba(49,94,251,.18)}
+  .header h1{margin:0 0 6px;font-size:28px}
+  .header p{margin:0;opacity:.88}
+  .topline{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-top:18px;flex-wrap:wrap}
+  .attempt{font-size:14px;opacity:.9}
+  .progress-wrap{background:rgba(255,255,255,.22);height:9px;border-radius:99px;overflow:hidden;margin-top:15px}
+  .progress{height:100%;background:#fff;width:0%;transition:.25s}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;box-shadow:0 8px 25px rgba(16,24,40,.05)}
+  .meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;color:var(--muted);font-size:14px}
+  .question{font-size:22px;line-height:1.45;font-weight:700;margin:8px 0 22px}
+  .options{display:grid;gap:12px}
+  .option{width:100%;border:2px solid var(--border);background:#fff;border-radius:13px;padding:15px;text-align:left;cursor:pointer;font-size:16px;transition:.15s;display:flex;gap:12px;align-items:flex-start}
+  .option:hover{border-color:#aab8ff;background:#f8f9ff}
+  .option.selected{border-color:var(--primary);background:#eef2ff}
+  .letter{font-weight:800;min-width:28px;height:28px;border-radius:8px;background:#eef2f7;display:grid;place-items:center}
+  .selected .letter{background:var(--primary);color:#fff}
+  .nav{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+  button{font:inherit}
+  .btn{border:0;border-radius:11px;padding:12px 18px;font-weight:700;cursor:pointer}
+  .btn-primary{background:var(--primary);color:#fff}
+  .btn-primary:hover{background:var(--primary2)}
+  .btn-secondary{background:#eef2f6;color:#344054}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .navigator{margin-top:18px}
+  .navigator h3{margin:0 0 12px;font-size:15px}
+  .numbers{display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:7px}
+  .num{height:40px;border:1px solid var(--border);background:#fff;border-radius:9px;cursor:pointer;font-weight:700;color:#475467}
+  .num.answered{background:#e8edff;border-color:#9aaaff;color:#2448c8}
+  .num.current{outline:3px solid rgba(49,94,251,.2);border-color:var(--primary)}
+  .result{display:none}
+  .result h2{margin-top:0}
+  .scorebox{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+  .stat{background:#f8fafc;border:1px solid var(--border);padding:16px;border-radius:13px;text-align:center}
+  .stat strong{display:block;font-size:25px;margin-bottom:3px}
+  .stat span{font-size:13px;color:var(--muted)}
+  .review{margin-top:20px}
+  .review-item{border:1px solid var(--border);border-radius:13px;padding:16px;margin-bottom:12px}
+  .review-item.correct{border-left:5px solid var(--correct)}
+  .review-item.wrong{border-left:5px solid var(--wrong)}
+  .review-q{font-weight:750;margin-bottom:10px}
+  .answer-line{font-size:14px;margin:5px 0}
+  .correct-text{color:var(--correct);font-weight:700}
+  .wrong-text{color:var(--wrong);font-weight:700}
+  .intro{display:none}
+  .intro.active{display:block}
+  .exam.active{display:block}
+  .exam{display:none}
+  .center{text-align:center}
+  .notice{padding:13px 15px;border-radius:12px;background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;margin:15px 0;font-size:14px}
+  @media(max-width:650px){
+    .app{padding:12px}.header{padding:18px}.question{font-size:19px}.card{padding:17px}
+    .scorebox{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
 </head>
+<body>
+<div class="app">
+  <section class="header">
+    <h1>GES 103 CBT Examination</h1>
+    <p>60 questions per attempt • 300-question bank • No-repeat tracking</p>
+    <div class="topline">
+      <div class="attempt" id="attemptText">Ready to begin</div>
+      <div class="attempt" id="usedText"></div>
+    </div>
+    <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+  </section>
 
-<body class="bg-slate-50 text-slate-800">
+  <section class="card intro active" id="intro">
+    <h2>Ready for your examination?</h2>
+    <p>This CBT selects 60 unused questions from the 300-question GES 103 bank. Questions used in previous completed attempts are remembered in this browser.</p>
+    <div class="notice" id="bankNotice"></div>
+    <div class="center">
+      <button class="btn btn-primary" id="startBtn">Start Examination</button>
+    </div>
+  </section>
 
-<!-- ==================================================
-        TOP MARQUEE
-=================================================== -->
-
-<div class=" marque bg-black text-white overflow-hidden">
-
-    <div class="max-w-7xl mx-auto">
-
-        <p class="marquee-content whitespace-nowrap py-2 text-sm font-medium">
-
-            Welcome To Robert & Co. Consulting Firm —
-            Learn What Law Is All About —
-            10% Discount On Your First Order
-
-        </p>
-
+  <section class="exam" id="exam">
+    <div class="card">
+      <div class="meta">
+        <span id="qIndicator">Question 1 of 60</span>
+        <span id="chapterIndicator"></span>
+      </div>
+      <div class="question" id="questionText"></div>
+      <div class="options" id="options"></div>
+      <div class="nav">
+        <button class="btn btn-secondary" id="prevBtn">Previous</button>
+        <button class="btn btn-primary" id="nextBtn">Next</button>
+      </div>
     </div>
 
+    <div class="card navigator">
+      <h3>Question Navigation</h3>
+      <div class="numbers" id="numbers"></div>
+    </div>
+  </section>
+
+  <section class="card result" id="result">
+    <h2>Examination Result</h2>
+    <div class="scorebox">
+      <div class="stat"><strong id="scoreStat">0/60</strong><span>Score</span></div>
+      <div class="stat"><strong id="percentStat">0%</strong><span>Percentage</span></div>
+      <div class="stat"><strong id="correctStat">0</strong><span>Correct</span></div>
+      <div class="stat"><strong id="wrongStat">0</strong><span>Wrong</span></div>
+    </div>
+    <div class="center">
+      <button class="btn btn-primary" id="againBtn">Take Again</button>
+      <button class="btn btn-secondary" id="resetBtn">Reset Question History</button>
+    </div>
+    <div class="review">
+      <h3>Detailed Review</h3>
+      <div id="reviewList"></div>
+    </div>
+  </section>
 </div>
 
-<!-- ==================================================
-        HEADER
-=================================================== -->
-
-<header class="sticky top-0 z-50 bg-[#C00000] shadow-lg">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="flex items-center justify-between h-24">
-
-            <!-- Logo -->
-
-            <a href="index.html" class="flex items-center">
-
-            <img src="images/legallogo.png" alt="Robert & Co." class="h-16 w-auto">
-
-            </a>
-
-            <!-- Desktop Navigation -->
-
-                <nav class="hidden lg:block">
-
-                    <ul class="flex items-center space-x-10 text-white font-semibold">
-
-                        <li>
-                            <a href="index.html" class="hover:text-yellow-300 transition"> Home </a>
-                        </li>
-
-                        <li>
-                            <a href="aboutus.html" class="hover:text-yellow-300 transition"> About Us </a>
-                        </li>
-
-                        <li>
-                            <a href="ourmission.html" class="hover:text-yellow-300 transition"> Our Mission </a>
-                        </li>
-
-                        <li>
-                            <a href="services.html" class="hover:text-yellow-300 transition"> Services </a>
-                        </li>
-
-                        <li>
-                            <a href="contactus.html" class="hover:text-yellow-300 transition"> Contact </a>
-                        </li>
-
-                    </ul>
-
-                </nav>
-
-            <!-- Desktop Button -->
-
-            <div class="hidden lg:block">
-
-                <a href="contactus.html" class="bg-white text-[#C00000] px-6 py-3 rounded-full font-bold hover:bg-yellow-300 transition"> 
-                    Book Consultation 
-                </a>
-
-            </div>
-
-            <!-- Mobile Button -->
-
-            <button class="lg:hidden text-white">
-
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
-
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-
-                </svg>
-
-            </button>
-
-        </div>
-
-    </div>
-
-</header>
-
-<!-- ==================================================
-        HERO
-=================================================== -->
-
-<section class="bg-white">
-
-<div class="max-w-7xl mx-auto px-6 py-16 lg:py-24">
-
-<div class="grid lg:grid-cols-2 gap-16 items-center">
-
-<!-- LEFT -->
-
-<div>
-
-<span class="inline-block bg-red-100 text-[#C00000] font-semibold rounded-full px-5 py-2 mb-6">
-
-    Professional Consulting Services
-
-</span>
-
-<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
-
-    Helping Businesses
-
-    <span class="text-[#C00000]"> Grow With Confidence </span>
-
-</h1>
-
-<p class="mt-8 text-lg leading-8 text-slate-600">
-
-Empowering businesses with innovative strategies,
-expert legal guidance and practical consulting
-solutions that drive sustainable growth and
-long-term success.
-
-</p>
-
-<div class="mt-10 flex flex-wrap gap-5">
-
-<a href="contactus.html" class="bg-[#C00000] text-white px-8 py-4 rounded-full font-semibold hover:bg-black transition">
-
-Book Consultation
-
-</a>
-
-<a href="aboutus.html" class="border-2 border-[#C00000] text-[#C00000] px-8 py-4 rounded-full font-semibold hover:bg-[#C00000] hover:text-white transition">
-
-Learn More
-
-</a>
-
-</div>
-
-<div class="grid grid-cols-3 gap-8 mt-14">
-
-<div>
-
-    <h2 class="text-3xl font-bold text-[#C00000]"> 15+ </h2>
-
-    <p> Years Experience </p>
-
-</div>
-
-<div>
-
-<h2 class="text-3xl font-bold text-[#C00000]">
-
-500+
-
-</h2>
-
-<p>
-
-Satisfied Clients
-
-</p>
-
-</div>
-
-<div>
-
-<h2 class="text-3xl font-bold text-[#C00000]"> 100% </h2>
-
-<p> Professional Support </p>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- RIGHT -->
-
-<div>
-
-<img src="images/legalban.png" alt="Consulting Firm" class="w-full rounded-3xl shadow-2xl">
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ==================================================
-        ABOUT OUR COMPANY
-=================================================== -->
-
-<section class="py-20 bg-slate-50">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-            <!-- Left Image -->
-
-            <div>
-
-                <img src="images/ayomide.png" alt="Robert & Co. Consulting Firm" class="rounded-3xl shadow-xl w-full">
-
-            </div>
-
-            <!-- Right Content -->
-
-            <div>
-
-                <span class="text-[#C00000] font-semibold uppercase tracking-widest">
-
-                    About Our Company
-
-                </span>
-
-                <h2 class="text-4xl lg:text-5xl font-bold mt-4">
-
-                    Trusted Business Consultants
-                    Helping Companies Succeed
-
-                </h2>
-
-                <p class="mt-6 text-lg text-slate-600 leading-8">
-
-                    Robert & Co. Consulting Firm provides professional
-                    consulting solutions that help businesses overcome
-                    challenges, improve operations and achieve sustainable
-                    growth.
-
-                </p>
-
-                <p class="mt-5 text-lg text-slate-600 leading-8">
-
-                    Our experienced consultants work closely with every client,
-                    providing personalized guidance, strategic planning and
-                    reliable support from consultation to implementation.
-
-                </p>
-
-                <div class="mt-10">
-
-                    <a href="aboutus.html" class="bg-[#C00000] text-white px-8 py-4 rounded-full font-semibold hover:bg-black transition">
-
-                        Learn More About Us
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-        WHY CHOOSE US
-=================================================== -->
-
-<section class="py-20 bg-white">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="text-center max-w-3xl mx-auto">
-
-            <span class="text-[#C00000] font-semibold uppercase">
-
-                Why Choose Us
-
-            </span>
-
-            <h2 class="text-4xl lg:text-4xl font-bold mt-4">
-
-                Why Businesses Trust Robert & Co.
-
-            </h2>
-
-            <p class="mt-6 text-slate-600 text-lg">
-
-                Delivering practical consulting solutions with professionalism,
-                integrity and measurable results.
-
-            </p>
-
-        </div>
-
-        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mt-16">
-
-            <article class="bg-slate-50 rounded-2xl p-8 shadow hover:shadow-xl transition">
-
-                <div class="text-5xl mb-5">
-
-                    🎯
-
-                </div>
-
-                <h3 class="text-2xl font-bold">
-
-                    Expert Consultants
-
-                </h3>
-
-                <p class="mt-4 text-slate-600">
-
-                    Experienced professionals delivering strategic business solutions.
-
-                </p>
-
-            </article>
-
-            <article class="bg-slate-50 rounded-2xl p-8 shadow hover:shadow-xl transition">
-
-                <div class="text-5xl mb-5">
-
-                    📈
-
-                </div>
-
-                <h3 class="text-2xl font-bold">
-
-                    Tailored Strategies
-
-                </h3>
-
-                <p class="mt-4 text-slate-600">
-
-                    Every recommendation is customized to your business goals.
-
-                </p>
-
-            </article>
-
-            <article class="bg-slate-50 rounded-2xl p-8 shadow hover:shadow-xl transition">
-
-                <div class="text-5xl mb-5">
-
-                    🤝
-
-                </div>
-
-                <h3 class="text-2xl font-bold">
-
-                    Dedicated Support
-
-                </h3>
-
-                <p class="mt-4 text-slate-600">
-
-                    Our consultants remain available throughout every stage.
-
-                </p>
-
-            </article>
-
-            <article class="bg-slate-50 rounded-2xl p-8 shadow hover:shadow-xl transition">
-
-                <div class="text-5xl mb-5">
-
-                    🏆
-
-                </div>
-
-                <h3 class="text-2xl font-bold">
-
-                    Proven Results
-
-                </h3>
-
-                <p class="mt-4 text-slate-600">
-
-                    Helping businesses achieve long-term success with confidence.
-
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-        MEET OUR EXPERTS
-=================================================== -->
-
-<section class="py-20 bg-slate-100">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="text-center max-w-3xl mx-auto">
-
-            <span class="text-[#C00000] font-semibold uppercase">
-
-                Meet Our Experts
-
-            </span>
-
-            <h2 class="text-4xl lg:text-4xl font-bold mt-4">
-
-                The Professionals Behind Your Success
-
-            </h2>
-
-            <p class="mt-6 text-lg text-slate-600">
-
-                Meet our experienced consulting professionals dedicated to
-                delivering outstanding service and trusted business solutions.
-
-            </p>
-
-        </div>
-
-        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mt-16">
-
-            <!-- Member 1 -->
-
-            <article class="bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition">
-
-                <img
-                    src="images/ayomide.png"
-                    alt="Managing Director"
-                    class="w-full h-80 object-cover">
-
-                <div class="p-8">
-
-                    <h3 class="text-2xl font-bold">
-
-                        Oluwayomi Ayomide G.
-
-                    </h3>
-
-                    <p class="text-[#C00000] font-semibold mt-2">
-
-                        Managing Director
-
-                    </p>
-
-                    <p class="mt-4 text-slate-600">
-
-                        Leading the firm's strategic direction and client success.
-
-                    </p>
-
-                </div>
-
-            </article>
-
-            <!-- Member 2 -->
-
-            <article class="bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition">
-
-                <img
-                    src="images/vic.jpg"
-                    alt="Senior Consultant"
-                    class="w-full h-80 object-cover">
-
-                <div class="p-8">
-
-                    <h3 class="text-2xl font-bold">
-
-                        Team Member
-
-                    </h3>
-
-                    <p class="text-[#C00000] font-semibold mt-2">
-
-                        Senior Consultant
-
-                    </p>
-
-                    <p class="mt-4 text-slate-600">
-
-                        Helping businesses improve operations and performance.
-
-                    </p>
-
-                </div>
-
-            </article>
-
-            <!-- Member 3 -->
-
-            <article class="bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition">
-
-                <img
-                    src="images/lc.jpg"
-                    alt="Financial Advisor"
-                    class="w-full h-80 object-cover">
-
-                <div class="p-8">
-
-                    <h3 class="text-2xl font-bold">
-
-                        Team Member
-
-                    </h3>
-
-                    <p class="text-[#C00000] font-semibold mt-2">
-
-                        Financial Advisor
-
-                    </p>
-
-                    <p class="mt-4 text-slate-600">
-
-                        Delivering sound financial planning and advisory services.
-
-                    </p>
-
-                </div>
-
-            </article>
-
-            <!-- Member 4 -->
-
-            <article class="bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition">
-
-                <img
-                    src="images/senior consult.jpg"
-                    alt="Legal Consultant"
-                    class="w-full h-80 object-cover">
-
-                <div class="p-8">
-
-                    <h3 class="text-2xl font-bold">
-
-                        Team Member
-
-                    </h3>
-
-                    <p class="text-[#C00000] font-semibold mt-2">
-
-                        Legal Consultant
-
-                    </p>
-
-                    <p class="mt-4 text-slate-600">
-
-                        Providing reliable legal and regulatory guidance.
-
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-                OUR SERVICES
-=================================================== -->
-
-<section class="py-20 bg-white">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <!-- Heading -->
-
-        <div class="text-center max-w-3xl mx-auto">
-
-            <span class="text-[#C00000] font-semibold uppercase tracking-widest">
-
-                Our Services
-
-            </span>
-
-            <h2 class="text-4xl lg:text-5xl font-bold mt-4">
-
-                Professional Consulting Services
-
-            </h2>
-
-            <p class="mt-6 text-lg text-slate-600">
-
-                We deliver strategic consulting solutions that help
-                organizations improve performance, manage risks,
-                and achieve sustainable business growth.
-
-            </p>
-
-        </div>
-
-        <!-- Service Cards -->
-
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16">
-
-            <article class="bg-[#C00000] text-white rounded-3xl p-8 hover:bg-black transition duration-300 shadow-lg">
-
-                <div class="text-5xl mb-6">📊</div>
-
-                <h3 class="text-2xl font-bold">
-
-                    Business Strategy Consulting
-
-                </h3>
-
-                <p class="mt-4">
-
-                    Helping organizations develop winning strategies
-                    for sustainable growth.
-
-                </p>
-
-            </article>
-
-            <article class="bg-[#C00000] text-white rounded-3xl p-8 hover:bg-black transition duration-300 shadow-lg">
-
-                <div class="text-5xl mb-6">⚖️</div>
-
-                <h3 class="text-2xl font-bold">
-
-                    Risk Management
-
-                </h3>
-
-                <p class="mt-4">
-
-                    Identifying, assessing and managing business risks.
-
-                </p>
-
-            </article>
-
-            <article class="bg-[#C00000] text-white rounded-3xl p-8 hover:bg-black transition duration-300 shadow-lg">
-
-                <div class="text-5xl mb-6">💰</div>
-
-                <h3 class="text-2xl font-bold">
-
-                    Financial Advisory
-
-                </h3>
-
-                <p class="mt-4">
-
-                    Practical financial guidance to strengthen your business.
-
-                </p>
-
-            </article>
-
-            <article class="bg-[#C00000] text-white rounded-3xl p-8 hover:bg-black transition duration-300 shadow-lg">
-
-                <div class="text-5xl mb-6">📁</div>
-
-                <h3 class="text-2xl font-bold">
-
-                    Project Management
-
-                </h3>
-
-                <p class="mt-4">
-
-                    Delivering projects efficiently from planning to completion.
-
-                </p>
-
-            </article>
-
-            <article class="bg-[#C00000] text-white rounded-3xl p-8 hover:bg-black transition duration-300 shadow-lg">
-
-                <div class="text-5xl mb-6">👥</div>
-
-                <h3 class="text-2xl font-bold">
-
-                    Human Resource Consulting
-
-                </h3>
-
-                <p class="mt-4">
-
-                    Building productive teams and improving workforce performance.
-
-                </p>
-
-            </article>
-
-            <article class="bg-[#C00000] text-white rounded-3xl p-8 hover:bg-black transition duration-300 shadow-lg">
-
-                <div class="text-5xl mb-6">📈</div>
-
-                <h3 class="text-2xl font-bold">
-
-                    Market Research
-
-                </h3>
-
-                <p class="mt-4">
-
-                    Helping businesses understand markets and customer behavior.
-
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-            OUR CONSULTING PROCESS
-=================================================== -->
-
-<section class="py-20 bg-slate-100">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="text-center max-w-3xl mx-auto">
-
-            <span class="text-[#C00000] font-semibold uppercase">
-
-                Our Process
-
-            </span>
-
-            <h2 class="text-4xl lg:text-5xl font-bold mt-4">
-
-                How We Work
-
-            </h2>
-
-            <p class="mt-6 text-lg text-slate-600">
-
-                Every project follows a structured process to ensure
-                successful delivery and measurable results.
-
-            </p>
-
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8 mt-16">
-
-            <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition">
-
-                <div class="w-14 h-14 bg-[#C00000] text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
-
-                    1
-
-                </div>
-
-                <h3 class="font-bold mt-6">
-
-                    Consultation
-
-                </h3>
-
-            </div>
-
-            <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition">
-
-                <div class="w-14 h-14 bg-[#C00000] text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
-
-                    2
-
-                </div>
-
-                <h3 class="font-bold mt-6">
-
-                    Assessment
-
-                </h3>
-
-            </div>
-
-            <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition">
-
-                <div class="w-14 h-14 bg-[#C00000] text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
-
-                    3
-
-                </div>
-
-                <h3 class="font-bold mt-6">
-
-                    Strategy
-
-                </h3>
-
-            </div>
-
-            <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition">
-
-                <div class="w-14 h-14 bg-[#C00000] text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
-
-                    4
-
-                </div>
-
-                <h3 class="font-bold mt-6">
-
-                    Implementation
-
-                </h3>
-
-            </div>
-
-            <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition">
-
-                <div class="w-14 h-14 bg-[#C00000] text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
-
-                    5
-
-                </div>
-
-                <h3 class="font-bold mt-6">
-
-                    Monitoring
-
-                </h3>
-
-            </div>
-
-            <div class="bg-white rounded-2xl p-6 text-center shadow hover:shadow-xl transition">
-
-                <div class="w-14 h-14 bg-[#C00000] text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
-
-                    6
-
-                </div>
-
-                <h3 class="font-bold mt-6">
-
-                    Improvement
-
-                </h3>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-                OUR PARTNERS
-=================================================== -->
-
-<section class="partners" >
-    
-    <div class="overlay">
-
-        <div class="title">
-            <span class="line"></span>
-            <h4 class="text-yellow-400 uppercase font-semibold tracking-widest">OUR PARTNERS</h4>
-            <span class="line"></span>
-        </div>
-
-        <h2 class="text-4xl lg:text-5xl font-bold text-white mt-4"> Trusted By Leading Organizations </h2>
-        
-        <div class="partner">
-
-            <div class="partner-flex">
-
-                <span>
-                    <img src="images/benz.jpg" alt="">
-                </span>
-
-                <span>
-                    <img src="images/bmw.jpg" alt="">
-                </span>
-
-                <span>
-                    <img src="images/toyota.png" alt="">
-                </span>
-
-                <span>
-                    <img src="images/lambo.jpg" alt="">
-                </span>
-
-                <span>
-                    <img src="images/famous.jpg" alt="">
-                </span>
-
-                <span>
-                   <img src="images/benz.jpg" alt="">
-                </span>
-
-                <span>
-                    <img src="images/bmw.jpg" alt="">
-                </span>
-
-                <span>
-                    <img src="images/famous.jpg" alt="">
-                </span>
-
-                <span>
-                    <img src="images/lambo.jpg" alt="">
-                </span>
-
-                <span>
-                    <img src="images/toyota.png" alt="">
-                </span>
-
-                <span>
-                    <img src="images/benz.jpg" alt="">
-                </span>
-
-                <span>
-                    <img src="images/bmw.jpg" alt="">
-                </span>
-
-                <span>
-                    <img src="images/famous.jpg" alt="">
-                </span>
-
-                <span>
-                    <img src="images/lambo.jpg" alt="">
-                </span>
-
-            </div>
-
-         </div>   
-
-    </div>  
-
-</section>
-
-<!-- ==================================================
-                CLIENT TESTIMONIALS
-=================================================== -->
-
-<section class="py-20 bg-white">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="text-center max-w-3xl mx-auto">
-
-            <span class="uppercase tracking-widest font-semibold text-[#C00000]">
-
-                Testimonials
-
-            </span>
-
-            <h2 class="text-4xl lg:text-5xl font-bold mt-4">
-
-                What Our Clients Say
-
-            </h2>
-
-            <p class="mt-6 text-lg text-slate-600">
-
-                We take pride in delivering exceptional consulting services
-                that help businesses succeed.
-
-            </p>
-
-        </div>
-
-        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16">
-
-            <article class="bg-slate-50 p-8 rounded-3xl shadow-lg">
-
-                <div class="text-yellow-400 text-2xl">
-
-                    ★★★★★
-
-                </div>
-
-                <p class="mt-6 text-slate-600">
-
-                    Robert & Co. transformed our business strategy.
-                    Their professionalism and expertise exceeded
-                    our expectations.
-
-                </p>
-
-                <div class="flex items-center mt-8">
-
-                    <img
-                        src="images/client1.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
-
-                    <div class="ml-4">
-
-                        <h4 class="font-bold">
-
-                            Michael Johnson
-
-                        </h4>
-
-                        <p class="text-sm text-slate-500">
-
-                            CEO, Johnson Group
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-            <article class="bg-slate-50 p-8 rounded-3xl shadow-lg">
-
-                <div class="text-yellow-400 text-2xl">
-
-                    ★★★★★
-
-                </div>
-
-                <p class="mt-6 text-slate-600">
-
-                    Their financial advisory services helped us
-                    increase profitability and streamline operations.
-
-                </p>
-
-                <div class="flex items-center mt-8">
-
-                    <img src="images/client2.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
-
-                    <div class="ml-4">
-
-                        <h4 class="font-bold">
-
-                            Sarah Williams
-
-                        </h4>
-
-                        <p class="text-sm text-slate-500">
-
-                            Managing Director
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-            <article class="bg-slate-50 p-8 rounded-3xl shadow-lg">
-
-                <div class="text-yellow-400 text-2xl">
-
-                    ★★★★★
-
-                </div>
-
-                <p class="mt-6 text-slate-600">
-
-                    Reliable, responsive and highly knowledgeable.
-                    We strongly recommend Robert & Co.
-
-                </p>
-
-                <div class="flex items-center mt-8">
-
-                    <img
-                        src="images/client3.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
-
-                    <div class="ml-4">
-
-                        <h4 class="font-bold">
-
-                            David Brown
-
-                        </h4>
-
-                        <p class="text-sm text-slate-500">
-
-                            Business Owner
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-                FAQ
-=================================================== -->
-
-<section class="py-20 bg-slate-100">
-
-    <div class="max-w-5xl mx-auto px-6">
-
-        <div class="text-center">
-
-            <span class="uppercase tracking-widest font-bold text-[#C00000]">
-
-                FAQ
-
-            </span>
-
-            <h2 class="text-4xl lg:text-5xl font-bold mt-4">
-
-                Frequently Asked Questions
-
-            </h2>
-
-        </div>
-
-        <div class="mt-16 space-y-6">
-
-            <details class="bg-white rounded-xl shadow p-6">
-
-                <summary class="font-bold cursor-pointer">
-
-                    What industries do you serve?
-
-                </summary>
-
-                <p class="mt-4 text-slate-600">
-
-                    We serve businesses across finance, legal,
-                    manufacturing, healthcare, technology,
-                    retail and many other industries.
-
-                </p>
-
-            </details>
-
-            <details class="bg-white rounded-xl shadow p-6">
-
-                <summary class="font-bold cursor-pointer">
-
-                    How do I schedule a consultation?
-
-                </summary>
-
-                <p class="mt-4 text-slate-600">
-
-                    Simply contact our team using the contact page
-                    and we'll arrange a consultation.
-
-                </p>
-
-            </details>
-
-            <details class="bg-white rounded-xl shadow p-6">
-
-                <summary class="font-bold cursor-pointer">
-
-                    Do you provide ongoing support?
-
-                </summary>
-
-                <p class="mt-4 text-slate-600">
-
-                    Yes. We continue supporting our clients even
-                    after project completion.
-
-                </p>
-
-            </details>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-                CALL TO ACTION
-=================================================== -->
-
-<section class="py-24 bg-[#C00000]">
-
-    <div class="max-w-5xl mx-auto px-6 text-center">
-
-        <h2 class="text-4xl lg:text-6xl font-bold text-white">
-
-            Ready To Grow Your Business?
-
-        </h2>
-
-        <p class="text-white text-lg mt-8">
-
-            Partner with Robert & Co. Consulting Firm and
-            take your business to the next level.
-
-        </p>
-
-        <div class="mt-10">
-
-            <a href="contactus.html" class="inline-block bg-white text-[#C00000] px-10 py-4 rounded-full font-bold hover:bg-yellow-400 transition">
-
-                Contact Us Today
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-                    FOOTER
-=================================================== -->
-
-<footer class="bg-black text-white">
-
-    <div class="max-w-7xl mx-auto px-6 py-16">
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-
-            <!-- Company -->
-
-            <div>
-
-                <img
-                    src="images/legallogo.png"
-                    alt="Robert & Co."
-                    class="h-20 mb-6">
-
-                <p class="text-slate-300">
-
-                    Professional consulting solutions helping
-                    businesses achieve sustainable growth.
-
-                </p>
-
-            </div>
-
-            <!-- Quick Links -->
-
-            <div>
-
-                <h3 class="font-bold text-xl mb-6">
-
-                    Quick Links
-
-                </h3>
-
-                <ul class="space-y-3">
-
-                    <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
-
-                    <li><a href="aboutus.html" class="hover:text-yellow-400">About</a></li>
-
-                    <li><a href="ourmission.html" class="hover:text-yellow-400">Mission</a></li>
-
-                    <li><a href="contactus.html" class="hover:text-yellow-400">Contact</a></li>
-
-                </ul>
-
-            </div>
-
-            <!-- Services -->
-
-            <div>
-
-                <h3 class="font-bold text-xl mb-6">
-
-                    Services
-
-                </h3>
-
-                <ul class="space-y-3">
-
-                    <li>Business Consulting</li>
-
-                    <li>Financial Advisory</li>
-
-                    <li>Risk Management</li>
-
-                    <li>Project Management</li>
-
-                </ul>
-
-            </div>
-
-            <!-- Contact -->
-
-            <div>
-
-                <h3 class="font-bold text-xl mb-6">
-
-                    Contact
-
-                </h3>
-
-                <p>Email: info@robertconsulting.com</p>
-
-                <p class="mt-3">Phone: +1 (000) 000-0000</p>
-
-                <p class="mt-3">Monday - Friday</p>
-
-                <p>9:00 AM - 5:00 PM</p>
-
-            </div>
-
-        </div>
-
-        <hr class="border-slate-700 my-10">
-
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-
-            <p class="text-slate-400 text-sm">
-
-                &copy; 2026 Robert & Co. Consulting Firm. All Rights Reserved.
-
-            </p>
-
-            <div class="flex gap-6">
-
-                <a href="#" class="hover:text-yellow-400">Facebook</a>
-
-                <a href="#" class="hover:text-yellow-400">LinkedIn</a>
-
-                <a href="#" class="hover:text-yellow-400">Instagram</a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</footer>
+<script>
+const questionBank = [{"id": 1, "chapter": "Introduction", "question": "What does the supplied GES 103 material identify as the main subject of Social Science?", "options": ["Human relationships within the socio-cultural environment", "The movement of physical objects", "The structure of the solar system", "The chemical composition of matter"], "answer": 0}, {"id": 2, "chapter": "Introduction", "question": "Charles Beard described the Social Sciences as bodies of knowledge and thought pertaining to:", "options": ["Planetary motion", "Chemical reactions", "Animal anatomy", "Human affairs"], "answer": 3}, {"id": 3, "chapter": "Introduction", "question": "According to James High, Social Sciences recognise the action of physical and non-physical stimuli that produce:", "options": ["Chemical reaction", "Geological change", "Social reaction", "Astronomical movement"], "answer": 2}, {"id": 4, "chapter": "Introduction", "question": "Which of the following is listed as a component of social behaviour?", "options": ["Planetary behaviour", "Chemical behaviour", "Economic behaviour", "Geological behaviour"], "answer": 2}, {"id": 5, "chapter": "Introduction", "question": "The Social Science field developed in the eighteenth century partly in response to the need to understand:", "options": ["Volcanism", "Astronomy", "Modernity", "Genetics"], "answer": 2}, {"id": 6, "chapter": "Introduction", "question": "A scientific approach to Social Science requires a:", "options": ["Systematic and stepwise approach", "Purely emotional approach", "Traditional approach", "Random approach"], "answer": 0}, {"id": 7, "chapter": "Introduction", "question": "For an analysis to be scientific, the material says it must also be:", "options": ["Secret", "Verifiable", "Political", "Religious"], "answer": 1}, {"id": 8, "chapter": "Introduction", "question": "Objectivity in Social Science means that analysis should be:", "options": ["Objective rather than personally biased", "Based on personal preference", "Based on tradition", "Based on popularity"], "answer": 0}, {"id": 9, "chapter": "Introduction", "question": "The expression 'ceteris paribus' means:", "options": ["Everything is changing", "Nothing can be measured", "Society is permanent", "All things being equal"], "answer": 3}, {"id": 10, "chapter": "Introduction", "question": "Social Science is basically concerned with:", "options": ["Human relations", "Chemical elements", "Planetary systems", "Machine design"], "answer": 0}, {"id": 11, "chapter": "Introduction", "question": "One reason for studying Social Science is to help develop:", "options": ["Astronomers", "Chemical laboratories", "Efficient citizens of democracy", "Mechanical systems"], "answer": 2}, {"id": 12, "chapter": "Introduction", "question": "The study of Social Science helps form man's:", "options": ["Blood group", "Body structure", "Genetic code", "Social character"], "answer": 3}, {"id": 13, "chapter": "Introduction", "question": "Social Science is important to the development of:", "options": ["Stars and planets", "Minerals and rocks", "Institutions and communities", "Machines and engines"], "answer": 2}, {"id": 14, "chapter": "Introduction", "question": "An international viewpoint can be developed through Social Science by:", "options": ["Political isolation", "Military training", "Avoiding communication", "Knowledge generation and dissemination"], "answer": 3}, {"id": 15, "chapter": "Introduction", "question": "One objective of Social Science is to provide knowledge of the:", "options": ["Natural and social environment", "Human blood system", "Solar system alone", "Chemical environment only"], "answer": 0}, {"id": 16, "chapter": "Introduction", "question": "Functional education, learning and socialisation are said to develop:", "options": ["Mineral resources", "Physical forces", "Human qualities", "Machines"], "answer": 2}, {"id": 17, "chapter": "Introduction", "question": "Students of Social Science are expected to develop critical:", "options": ["Physical strength", "Thinking and reasoning power", "Musical ability", "Military skill"], "answer": 1}, {"id": 18, "chapter": "Introduction", "question": "The material expects Social Science students to be able to compare, analyse, summarise and:", "options": ["Evaluate phenomena", "Conduct elections", "Manufacture goods", "Measure rainfall"], "answer": 0}, {"id": 19, "chapter": "Introduction", "question": "The study of Social Science is expected to develop a feeling of:", "options": ["Political violence", "Isolation", "Competition only", "Morality"], "answer": 3}, {"id": 20, "chapter": "Introduction", "question": "The IBSSS commenced with the Department of Economics in:", "options": ["1948", "1967", "1958", "1979"], "answer": 2}, {"id": 21, "chapter": "Chapter 1", "question": "Political Science is classified as a discipline within the:", "options": ["Social Sciences", "Natural Sciences", "Medical Sciences", "Physical Sciences"], "answer": 0}, {"id": 22, "chapter": "Chapter 1", "question": "Political Science primarily studies man's:", "options": ["Biological development", "Political behaviour and political relationships", "Chemical reactions", "Physical environment"], "answer": 1}, {"id": 23, "chapter": "Chapter 1", "question": "In the material, government is described as the administrative apparatus of the:", "options": ["Family", "Market", "School", "State"], "answer": 3}, {"id": 24, "chapter": "Chapter 1", "question": "The state is described as the most important contemporary framework for the conduct of:", "options": ["Medicine", "Agriculture", "Psychology", "Politics"], "answer": 3}, {"id": 25, "chapter": "Chapter 1", "question": "Aristotle's book associated with the study of politics is titled:", "options": ["The Wealth of Nations", "Politics", "System of Positive Politics", "The Republic"], "answer": 1}, {"id": 26, "chapter": "Chapter 1", "question": "Aristotle described Political Science as the:", "options": ["Queen or master science", "Minor science", "Natural science", "Applied chemistry"], "answer": 0}, {"id": 27, "chapter": "Chapter 1", "question": "The Greek word 'polis' refers to a:", "options": ["Roman army", "Modern parliament", "Greek city", "Trade union"], "answer": 2}, {"id": 28, "chapter": "Chapter 1", "question": "According to the material, Political Science became a field of study around:", "options": ["The beginning of the 15th century", "The last quarter of the 19th century", "The middle of the 16th century", "The beginning of the 21st century"], "answer": 1}, {"id": 29, "chapter": "Chapter 1", "question": "The first chair in Political Science was set up in:", "options": ["Nigeria", "Britain", "France", "Sweden"], "answer": 3}, {"id": 30, "chapter": "Chapter 1", "question": "Aristotle viewed politics as the essence of:", "options": ["Economic production", "Social existence", "Scientific research", "Biological development"], "answer": 1}, {"id": 31, "chapter": "Chapter 1", "question": "Harold Lasswell associated politics with determining:", "options": ["Who studies where and why", "Who votes and who teaches", "Who gets what, when and how", "Who owns the constitution"], "answer": 2}, {"id": 32, "chapter": "Chapter 1", "question": "Lasswell's formulation highlights the importance of:", "options": ["Climate", "Power", "Religion", "Biology"], "answer": 1}, {"id": 33, "chapter": "Chapter 1", "question": "David Easton defined politics in terms of the:", "options": ["Production of goods", "Study of social groups", "Movement of people", "Authoritative allocation of values for a society"], "answer": 3}, {"id": 34, "chapter": "Chapter 1", "question": "A definition of politics concerned with making laws, enforcing them and settling controversies focuses on:", "options": ["Family institutions", "Governmental institutions", "Religious institutions", "Economic households"], "answer": 1}, {"id": 35, "chapter": "Chapter 1", "question": "The state is defined in the material as a territorial organisation exercising a legitimate monopoly of:", "options": ["Education", "Trade", "Religion", "Force"], "answer": 3}, {"id": 36, "chapter": "Chapter 1", "question": "Which is NOT one of the four major characteristics of the state?", "options": ["Population", "Defined territory", "Sovereignty", "Political party"], "answer": 3}, {"id": 37, "chapter": "Chapter 1", "question": "The four major characteristics of the state include population, territory, government and:", "options": ["Culture", "Religion", "Sovereignty", "Industry"], "answer": 2}, {"id": 38, "chapter": "Chapter 1", "question": "The government performs the duties of the state:", "options": ["Against its authority", "Only during elections", "Only during emergencies", "On its behalf"], "answer": 3}, {"id": 39, "chapter": "Chapter 1", "question": "Politics has something to do with power, influence and:", "options": ["Weather", "Agriculture", "Geology", "Authority"], "answer": 3}, {"id": 40, "chapter": "Chapter 1", "question": "Political Science should be distinguished from practical politics because political scientists primarily seek:", "options": ["Popularity and name recognition", "Election victory", "Political office", "Calm, systematic and objective analysis"], "answer": 3}, {"id": 41, "chapter": "Chapter 1", "question": "Comparative Politics uses comparison to:", "options": ["Draw generalisations and make valid conclusions", "Conduct elections", "Administer courts", "Measure GDP"], "answer": 0}, {"id": 42, "chapter": "Chapter 1", "question": "International Relations studies relationships between:", "options": ["Families", "Firms", "Countries", "Schools"], "answer": 2}, {"id": 43, "chapter": "Chapter 2", "question": "One primary purpose of a modern state is the maintenance of:", "options": ["Inflation", "Competition", "Order", "Migration"], "answer": 2}, {"id": 44, "chapter": "Chapter 2", "question": "The second primary purpose of a modern state identified in the material is the promotion of citizens':", "options": ["Welfare", "Political parties", "Private businesses", "Foreign policy"], "answer": 0}, {"id": 45, "chapter": "Chapter 2", "question": "Structures established to perform government's basic responsibilities are called:", "options": ["Economic agents", "Arms or branches or organs of government", "Social classes", "Research designs"], "answer": 1}, {"id": 46, "chapter": "Chapter 2", "question": "Government exists primarily to make and:", "options": ["Enforce decisions", "Collect rainfall", "Produce minerals", "Create cultures"], "answer": 0}, {"id": 47, "chapter": "Chapter 2", "question": "Government is described as the ultimate source of:", "options": ["Agricultural production", "Scientific knowledge", "Family relations", "Coercion in social affairs"], "answer": 3}, {"id": 48, "chapter": "Chapter 2", "question": "The conduct of government is normally seen as:", "options": ["Illegal", "Legitimate", "Private", "Traditional"], "answer": 1}, {"id": 49, "chapter": "Chapter 2", "question": "Which is listed as a basic concept associated with government?", "options": ["Mountain building", "Photosynthesis", "Natural selection", "Contract enforcement"], "answer": 3}, {"id": 50, "chapter": "Chapter 2", "question": "Citizen/popular participation is a principle of:", "options": ["Military government", "Colonial government", "Feudal government", "Democratic government"], "answer": 3}, {"id": 51, "chapter": "Chapter 2", "question": "Political equality is associated with the:", "options": ["Imperialistic mode", "Democratic method", "Military coup", "Election rigging"], "answer": 1}, {"id": 52, "chapter": "Chapter 2", "question": "Accountability and transparency are features of:", "options": ["Election rigging", "Militarism", "Democracy", "Colonialism"], "answer": 2}, {"id": 53, "chapter": "Chapter 2", "question": "Which of the following is a democratic principle in the material?", "options": ["Election rigging", "Military coup", "Political tolerance", "Imperialistic rule"], "answer": 2}, {"id": 54, "chapter": "Chapter 2", "question": "Separation of powers is associated with:", "options": ["Election malpractice", "Democratic government", "Military rule", "Colonial rule"], "answer": 1}, {"id": 55, "chapter": "Chapter 2", "question": "Popular sovereignty means that sovereignty ultimately resides with:", "options": ["The military", "A private firm", "The people", "A foreign state"], "answer": 2}, {"id": 56, "chapter": "Chapter 2", "question": "Secret balloting is identified as a principle of:", "options": ["Feudalism", "Fascism", "Militarism", "Democracy"], "answer": 3}, {"id": 57, "chapter": "Chapter 2", "question": "The first listed procedure in establishing a democratic government is:", "options": ["Balloting", "Delimitation of constituency areas", "Swearing in", "Cabinet formation"], "answer": 1}, {"id": 58, "chapter": "Chapter 2", "question": "After delimitation of constituency areas, the material lists:", "options": ["Formation of cabinet", "Registration of voters", "Litigation", "Declaration of results"], "answer": 1}, {"id": 59, "chapter": "Chapter 2", "question": "Political parties are registered and candidates are:", "options": ["Arrested", "Judged", "Nominated", "Appointed as judges"], "answer": 2}, {"id": 60, "chapter": "Chapter 2", "question": "Counting of votes is followed by the:", "options": ["Registration of voters", "Delimitation of areas", "Nomination of candidates", "Declaration of results"], "answer": 3}, {"id": 61, "chapter": "Chapter 2", "question": "A person who feels cheated in an election may proceed to:", "options": ["Socialisation", "Litigation", "Industrialisation", "Privatisation"], "answer": 1}, {"id": 62, "chapter": "Chapter 2", "question": "After the election process, winners are:", "options": ["Arrested", "Sworn in", "Recalled", "Disqualified automatically"], "answer": 1}, {"id": 63, "chapter": "Chapter 2", "question": "Which is a non-democratic method of establishing government?", "options": ["Military coup", "Free and fair election", "Secret balloting", "Popular participation"], "answer": 0}, {"id": 64, "chapter": "Chapter 2", "question": "Election rigging is classified in the material as a:", "options": ["Democratic principle", "Research method", "Form of economic efficiency", "Non-democratic method"], "answer": 3}, {"id": 65, "chapter": "Chapter 3", "question": "Socialisation is the process by which an individual learns to adjust to a:", "options": ["Laboratory", "Machine", "Group", "Market"], "answer": 2}, {"id": 66, "chapter": "Chapter 3", "question": "Political socialisation involves the deliberate inculcation of political information, values and:", "options": ["Practices", "Minerals", "Goods", "Diseases"], "answer": 0}, {"id": 67, "chapter": "Chapter 3", "question": "Political socialisation is carried out by instructional agents operating:", "options": ["Formally and informally", "Only formally", "Only informally", "Only politically"], "answer": 0}, {"id": 68, "chapter": "Chapter 3", "question": "The political socialisation hypothesis emphasises shared political knowledge, values and:", "options": ["Income", "Territory", "Resources", "Attitudes"], "answer": 3}, {"id": 69, "chapter": "Chapter 3", "question": "The theme of the political socialisation hypothesis is building:", "options": ["Economic inflation", "Environmental pollution", "Industrial capacity", "Political cohesion"], "answer": 3}, {"id": 70, "chapter": "Chapter 3", "question": "Gabriel Almond described political socialisation as induction into:", "options": ["Economic culture", "Physical culture", "Political culture", "Industrial culture"], "answer": 2}, {"id": 71, "chapter": "Chapter 3", "question": "One utility of political socialisation is that it acts as a major:", "options": ["Tax collector", "Stress-absorber", "Court", "Economic market"], "answer": 1}, {"id": 72, "chapter": "Chapter 3", "question": "Political socialisation can help make governance decisions acceptable and:", "options": ["Secret from citizens", "Irrelevant to citizens", "Illegal for citizens", "Binding on citizens"], "answer": 3}, {"id": 73, "chapter": "Chapter 3", "question": "Political socialisation helps streamline the volume and variety of:", "options": ["Natural resources", "Demands on the political system", "Agricultural products", "Court cases"], "answer": 1}, {"id": 74, "chapter": "Chapter 3", "question": "The process of streamlining demands helps prevent communication networks from becoming:", "options": ["Overburdened", "Democratic", "Educated", "Decentralised"], "answer": 0}, {"id": 75, "chapter": "Chapter 3", "question": "Political socialisation helps members undertake roles relevant to converting inputs to:", "options": ["Binding outputs", "Natural resources", "Political parties", "Economic goods"], "answer": 0}, {"id": 76, "chapter": "Chapter 3", "question": "One expected outcome of political socialisation is a minimal level of positive:", "options": ["Economic output", "Industrialisation", "Population growth", "Citizen support"], "answer": 3}, {"id": 77, "chapter": "Chapter 3", "question": "Which is an agency of political socialisation?", "options": ["A mineral deposit", "A factory machine", "The family", "A weather system"], "answer": 2}, {"id": 78, "chapter": "Chapter 3", "question": "The school system is regarded in the material as an agency of:", "options": ["Economic growth", "Environmental change", "Political socialisation", "Natural selection"], "answer": 2}, {"id": 79, "chapter": "Chapter 3", "question": "Peer groups can serve as agencies of:", "options": ["GDP measurement", "Law enforcement", "Resource depletion", "Political socialisation"], "answer": 3}, {"id": 80, "chapter": "Chapter 3", "question": "Mass media and social media are agencies of:", "options": ["Political socialisation", "Economic scarcity", "Industrial production", "Court judgment"], "answer": 0}, {"id": 81, "chapter": "Chapter 3", "question": "Political participation describes the relationship between:", "options": ["State and society", "Firms and machines", "Rocks and soil", "Plants and animals"], "answer": 0}, {"id": 82, "chapter": "Chapter 3", "question": "The foremost avenue for citizens' political participation is:", "options": ["Court cases", "Research", "Elections", "Industrialisation"], "answer": 2}, {"id": 83, "chapter": "Chapter 3", "question": "Political parties provide opportunities for:", "options": ["Mass participation in the political system", "Natural resource formation", "Economic scarcity", "Scientific experimentation"], "answer": 0}, {"id": 84, "chapter": "Chapter 3", "question": "Legislative representation is described as citizens' direct:", "options": ["Source of income", "Voice in governing the state", "Method of socialisation", "Means of resource extraction"], "answer": 1}, {"id": 85, "chapter": "Chapter 3", "question": "Nigeria and the USA are described in the material as having:", "options": ["Unicameral systems", "No legislature", "Three legislatures", "Bicameral systems"], "answer": 3}, {"id": 86, "chapter": "Chapter 3", "question": "The House of Representatives is elected by:", "options": ["Equal representation of each state", "Judicial appointment", "Population", "Military selection"], "answer": 2}, {"id": 87, "chapter": "Chapter 4", "question": "Law is defined in the material as a body of official rules and regulations used to govern society and control:", "options": ["Behaviour of its members", "Weather patterns", "Economic prices", "Natural resources"], "answer": 0}, {"id": 88, "chapter": "Chapter 4", "question": "Austin defined law as a rule laid down for guidance of an intelligent being by an intelligent being having:", "options": ["Wealth over him", "Power over him", "Knowledge over him", "Age over him"], "answer": 1}, {"id": 89, "chapter": "Chapter 4", "question": "According to the material, sovereignty belongs to:", "options": ["The people", "The police", "The courts", "Private companies"], "answer": 0}, {"id": 90, "chapter": "Chapter 4", "question": "Which is a stated duty of citizens?", "options": ["Abide by the constitution", "Ignore the constitution", "Avoid paying taxes", "Reject lawful agencies"], "answer": 0}, {"id": 91, "chapter": "Chapter 4", "question": "Citizens are expected to respect the dignity and rights of:", "options": ["Only public officers", "Other citizens", "Only wealthy persons", "Only political leaders"], "answer": 1}, {"id": 92, "chapter": "Chapter 4", "question": "A citizen is expected to make a positive contribution to the progress of his or her:", "options": ["Political party only", "Community", "Business only", "Family only"], "answer": 1}, {"id": 93, "chapter": "Chapter 4", "question": "Honest declaration of income is connected with the duty to:", "options": ["Avoid public agencies", "Pay tax promptly", "Reject the constitution", "Avoid community work"], "answer": 1}, {"id": 94, "chapter": "Chapter 4", "question": "One function of law is the maintenance of:", "options": ["Political parties", "Public order", "Economic scarcity", "Population growth"], "answer": 1}, {"id": 95, "chapter": "Chapter 4", "question": "Law facilitates:", "options": ["Election rigging", "Co-operative actions", "Political violence", "Resource depletion"], "answer": 1}, {"id": 96, "chapter": "Chapter 4", "question": "Law can confer:", "options": ["Scarcity", "Inflation", "Legitimacy", "Unemployment"], "answer": 2}, {"id": 97, "chapter": "Chapter 4", "question": "The classification of law includes substantive and:", "options": ["Agricultural law", "Cultural law", "Procedural law", "Environmental law"], "answer": 2}, {"id": 98, "chapter": "Chapter 4", "question": "Another broad classification of law is private and:", "options": ["Family law", "Market law", "Public law", "School law"], "answer": 2}, {"id": 99, "chapter": "Chapter 4", "question": "A constitution may be classified as written or:", "options": ["Informal only", "Political", "Economic", "Unwritten"], "answer": 3}, {"id": 100, "chapter": "Chapter 4", "question": "A constitution that is difficult to amend is described as:", "options": ["Rigid", "Flexible", "Informal", "Temporary"], "answer": 0}, {"id": 101, "chapter": "Chapter 4", "question": "Nigeria's Clifford's Constitution was introduced in:", "options": ["1946", "1951", "1954", "1922"], "answer": 3}, {"id": 102, "chapter": "Chapter 4", "question": "The Richards Constitution was introduced in:", "options": ["1922", "1951", "1946", "1963"], "answer": 2}, {"id": 103, "chapter": "Chapter 4", "question": "The Macpherson Constitution was introduced in:", "options": ["1946", "1951", "1954", "1979"], "answer": 1}, {"id": 104, "chapter": "Chapter 4", "question": "The Federal Constitution of 1954 is also known as the:", "options": ["Clifford Constitution", "Richards Constitution", "Oliver Lyttelton Constitution", "Macpherson Constitution"], "answer": 2}, {"id": 105, "chapter": "Chapter 4", "question": "The Lyttelton Constitution made Nigeria a federation of:", "options": ["Two regions", "Four regions", "Six regions", "Three regions"], "answer": 3}, {"id": 106, "chapter": "Chapter 4", "question": "Under the 1963 republican constitution, the newly created region was the:", "options": ["Northern Region", "Western Region", "Eastern Region", "Mid-Western Region"], "answer": 3}, {"id": 107, "chapter": "Chapter 4", "question": "The military takeover in 1966 led to the suspension of the:", "options": ["1954 Constitution", "1922 Constitution", "1946 Constitution", "1963 Republican Constitution"], "answer": 3}, {"id": 108, "chapter": "Chapter 4", "question": "The 1979 Constitution introduced a federal system and established:", "options": ["Two tiers", "Three tiers of government", "Four tiers", "One tier"], "answer": 1}, {"id": 109, "chapter": "Chapter 5", "question": "The word 'socius' from which sociology is formed means:", "options": ["Government", "Power", "Companion or associate", "Knowledge"], "answer": 2}, {"id": 110, "chapter": "Chapter 5", "question": "The Greek word 'logia' means:", "options": ["Society", "Government", "Companion", "Study"], "answer": 3}, {"id": 111, "chapter": "Chapter 5", "question": "Sociology is generally the scientific study of:", "options": ["Natural resources", "Political parties only", "Economic goods", "Human society"], "answer": 3}, {"id": 112, "chapter": "Chapter 5", "question": "Anthony Giddens defined sociology as the scientific study of:", "options": ["Power", "Scarcity", "The state", "Society"], "answer": 3}, {"id": 113, "chapter": "Chapter 5", "question": "Emile Durkheim associated sociology with the study of:", "options": ["Economic agents", "Social facts", "Political power", "Natural resources"], "answer": 1}, {"id": 114, "chapter": "Chapter 5", "question": "Max Weber linked sociology to the interpretive understanding of:", "options": ["Economic growth", "Social action", "Natural selection", "Government institutions only"], "answer": 1}, {"id": 115, "chapter": "Chapter 5", "question": "Sociology was formed by the French philosopher:", "options": ["Karl Marx", "Max Weber", "August Comte", "Herbert Spencer"], "answer": 2}, {"id": 116, "chapter": "Chapter 5", "question": "Comte regarded sociology as the:", "options": ["Smallest of the sciences", "Opposite of science", "Branch of economics", "Apex of the achievement of all sciences"], "answer": 3}, {"id": 117, "chapter": "Chapter 5", "question": "Sociology was birthed during the upheavals of the Industrial Revolution and the political revolution of:", "options": ["1776", "1789", "1879", "1960"], "answer": 1}, {"id": 118, "chapter": "Chapter 5", "question": "Which person is listed as a pioneer of sociology?", "options": ["Isaac Newton", "Charles Darwin", "Galileo Galilei", "Harriet Martineau"], "answer": 3}, {"id": 119, "chapter": "Chapter 5", "question": "Karl Marx is described in the material as a German philosopher and:", "options": ["Psychologist", "Economic historian", "Political scientist", "Geographer"], "answer": 1}, {"id": 120, "chapter": "Chapter 5", "question": "August Comte wrote:", "options": ["The Wealth of Nations", "Politics", "The Republic", "System of Positive Politics"], "answer": 3}, {"id": 121, "chapter": "Chapter 5", "question": "Sociological imagination looks beyond individual psychology to social and:", "options": ["Chemical forces", "Geological forces", "Cultural forces", "Electrical forces"], "answer": 2}, {"id": 122, "chapter": "Chapter 5", "question": "Sociological imagination considers recurring patterns in people's:", "options": ["Blood groups", "Income levels only", "Attitudes and actions", "Political offices"], "answer": 2}, {"id": 123, "chapter": "Chapter 5", "question": "Sociological imagination allows comparison across time, cultures and:", "options": ["Chemical elements", "Political parties only", "Economic markets only", "Social groups"], "answer": 3}, {"id": 124, "chapter": "Chapter 5", "question": "Good sociology examines both social structure and:", "options": ["Weather", "Interaction", "GDP", "Natural resources"], "answer": 1}, {"id": 125, "chapter": "Chapter 5", "question": "The application of natural science methodology to sociological research is associated with:", "options": ["Feudalism", "Positivism", "Capitalism", "Federalism"], "answer": 1}, {"id": 126, "chapter": "Chapter 5", "question": "Positivism derives from the idea of:", "options": ["Positive philosophy", "Political philosophy", "Economic philosophy", "Religious philosophy"], "answer": 0}, {"id": 127, "chapter": "Chapter 5", "question": "The scientific system evaluates data derived from:", "options": ["Rumour", "Systematic observation", "Tradition", "Political speeches"], "answer": 1}, {"id": 128, "chapter": "Chapter 5", "question": "Which is included among the elements of scientific methods in the material?", "options": ["Election rigging", "Hypothesis", "Political tolerance", "Taxation"], "answer": 1}, {"id": 129, "chapter": "Chapter 5", "question": "Inductive reasoning proceeds from:", "options": ["General to particular", "Particular to general", "General to general", "Theory to theory"], "answer": 1}, {"id": 130, "chapter": "Chapter 5", "question": "Deductive reasoning proceeds from:", "options": ["General to particular", "Particular to general", "Observation to culture", "Individual to individual"], "answer": 0}, {"id": 131, "chapter": "Chapter 6", "question": "Data are facts, statistics or records of observations from which:", "options": ["Elections can be conducted", "Inferences can be drawn", "Governments can be formed", "Taxes can be abolished"], "answer": 1}, {"id": 132, "chapter": "Chapter 6", "question": "The singular form of data is:", "options": ["Datas", "Datum", "Datae", "Dat"], "answer": 1}, {"id": 133, "chapter": "Chapter 6", "question": "Data collection is described as a fundamental stage in:", "options": ["Government formation", "Sociological research", "Election rigging", "Industrialisation"], "answer": 1}, {"id": 134, "chapter": "Chapter 6", "question": "The form in which data are collected informs the kind of:", "options": ["Statistical analysis employed", "Political party formed", "Government elected", "Constitution written"], "answer": 0}, {"id": 135, "chapter": "Chapter 6", "question": "Quantitative data are primarily in:", "options": ["Audio form only", "Visual form only", "Numerical form", "Written form only"], "answer": 2}, {"id": 136, "chapter": "Chapter 6", "question": "Qualitative data may be in written, visual or:", "options": ["Political form", "Economic form", "Legislative form", "Audio form"], "answer": 3}, {"id": 137, "chapter": "Chapter 6", "question": "Data collected firsthand by the researcher are:", "options": ["Secondary data", "Historical data", "Official data", "Primary data"], "answer": 3}, {"id": 138, "chapter": "Chapter 6", "question": "Data collected previously by researchers or organisations are:", "options": ["Primary data", "Secondary data", "Experimental data", "Personal observations"], "answer": 1}, {"id": 139, "chapter": "Chapter 6", "question": "Which is a primary source of data?", "options": ["Observation", "Historical document", "Official statistics", "Mass media"], "answer": 0}, {"id": 140, "chapter": "Chapter 6", "question": "Participant observation requires the researcher to:", "options": ["Remain completely outside the setting", "Participate in the setting being observed", "Use only official statistics", "Avoid interaction with participants"], "answer": 1}, {"id": 141, "chapter": "Chapter 6", "question": "Non-participatory observation involves:", "options": ["Observing without participating", "Participating fully", "Conducting an experiment", "Administering a questionnaire only"], "answer": 0}, {"id": 142, "chapter": "Chapter 6", "question": "Qualitative information is obtained through an:", "options": ["Election", "Economic model", "Interview", "Official census only"], "answer": 2}, {"id": 143, "chapter": "Chapter 6", "question": "A structured interview contains an:", "options": ["Orderly listed set of questions", "Unplanned sequence only", "Absence of questions", "Election schedule"], "answer": 0}, {"id": 144, "chapter": "Chapter 6", "question": "In an unstructured interview, the interviewer has:", "options": ["A fixed sequence", "Only closed questions", "No respondent", "No predetermined order of asking questions"], "answer": 3}, {"id": 145, "chapter": "Chapter 6", "question": "Which is an interview tool named in the material?", "options": ["GDP survey", "Political ballot", "In-depth interview", "Census tribunal"], "answer": 2}, {"id": 146, "chapter": "Chapter 6", "question": "A key informant interview seeks information from:", "options": ["A random machine", "A political party", "A knowledgeable informant", "A court"], "answer": 2}, {"id": 147, "chapter": "Chapter 6", "question": "Focus group discussion is a:", "options": ["Government organ", "Type of economy", "Data collection tool", "Form of government"], "answer": 2}, {"id": 148, "chapter": "Chapter 6", "question": "Open-ended questionnaire questions allow respondents to:", "options": ["Choose only fixed options", "Avoid all responses", "Provide mind-generated answers", "Vote for candidates"], "answer": 2}, {"id": 149, "chapter": "Chapter 6", "question": "Closed or fixed-choice questions require respondents to:", "options": ["Write an unrestricted essay", "Conduct an interview", "Pick from stated options", "Create a theory"], "answer": 2}, {"id": 150, "chapter": "Chapter 6", "question": "Which is a means of administering questionnaires?", "options": ["Face-to-face approach", "Military command", "Court order", "Political rally"], "answer": 0}, {"id": 151, "chapter": "Chapter 6", "question": "Postal services can be used to administer:", "options": ["Questionnaires", "Court judgments", "Political constitutions", "GDP"], "answer": 0}, {"id": 152, "chapter": "Chapter 6", "question": "The mass media are listed as a source of:", "options": ["Secondary data", "Primary observation", "Experimental data", "Participant data"], "answer": 0}, {"id": 153, "chapter": "Chapter 7", "question": "The commencement of economics as a discipline is linked in the material to Adam Smith's:", "options": ["Wealth of Nations", "Politics", "System of Positive Politics", "The Republic"], "answer": 0}, {"id": 154, "chapter": "Chapter 7", "question": "Adam Smith's Wealth of Nations was published in:", "options": ["1789", "1776", "1879", "1960"], "answer": 1}, {"id": 155, "chapter": "Chapter 7", "question": "The central subject matter of economics is:", "options": ["Politics", "Culture", "Socialisation", "Scarcity"], "answer": 3}, {"id": 156, "chapter": "Chapter 7", "question": "Scarcity exists because human wants are unlimited while resources are:", "options": ["Unlimited", "Limited", "Free", "Infinite"], "answer": 1}, {"id": 157, "chapter": "Chapter 7", "question": "One issue economics attempts to address is what commodities should be:", "options": ["Produced", "Voted for", "Judged", "Socialised"], "answer": 0}, {"id": 158, "chapter": "Chapter 7", "question": "Economics asks what quantity of resources should be:", "options": ["Committed", "Destroyed", "Hidden", "Political"], "answer": 0}, {"id": 159, "chapter": "Chapter 7", "question": "A production question concerns the mixture of capital and:", "options": ["Politics", "Culture", "Labour", "Religion"], "answer": 2}, {"id": 160, "chapter": "Chapter 7", "question": "The law of demand states that as price rises, quantity demanded generally:", "options": ["Rises", "Falls", "Remains infinite", "Becomes zero automatically"], "answer": 1}, {"id": 161, "chapter": "Chapter 7", "question": "Adam Smith defined economics as inquiry into the nature and causes of the:", "options": ["Wealth of nations", "Political system", "Social structure", "Natural environment"], "answer": 0}, {"id": 162, "chapter": "Chapter 7", "question": "J.S. Mill described economics as the practical science of production and distribution of:", "options": ["Power", "Wealth", "Culture", "Law"], "answer": 1}, {"id": 163, "chapter": "Chapter 7", "question": "Alfred Marshall viewed economics as the study of mankind in the ordinary:", "options": ["Political system", "Scientific laboratory", "Business of life", "Judicial system"], "answer": 2}, {"id": 164, "chapter": "Chapter 7", "question": "Lionel Robbins defined economics around ends and scarce means having:", "options": ["Political uses", "No uses", "Only one use", "Alternative uses"], "answer": 3}, {"id": 165, "chapter": "Chapter 7", "question": "A model is defined as a:", "options": ["Simplified representation of reality", "Government constitution", "Social institution", "Political party"], "answer": 0}, {"id": 166, "chapter": "Chapter 7", "question": "Positive economics deals with propositions that are tested against:", "options": ["Tradition", "Personal values", "Political slogans", "Facts"], "answer": 3}, {"id": 167, "chapter": "Chapter 7", "question": "Normative economics asks whether an outcome or policy is:", "options": ["Primary or secondary", "Qualitative or quantitative", "Desirable or undesirable", "Democratic or federal"], "answer": 2}, {"id": 168, "chapter": "Chapter 7", "question": "An economic person is theoretically assumed to behave according to:", "options": ["Profit or benefit maximising goals", "Political loyalty", "Religious doctrine", "Social pressure alone"], "answer": 0}, {"id": 169, "chapter": "Chapter 7", "question": "The mechanism through which scarce resources are organised for production is the:", "options": ["Economy", "Government", "Family", "School"], "answer": 0}, {"id": 170, "chapter": "Chapter 7", "question": "Households are economic agents that:", "options": ["Only make laws", "Only produce taxes", "Consume goods and services", "Only conduct elections"], "answer": 2}, {"id": 171, "chapter": "Chapter 7", "question": "Households own the:", "options": ["Factors of production", "Political parties", "Courts", "Constitutions"], "answer": 0}, {"id": 172, "chapter": "Chapter 7", "question": "The household is driven by:", "options": ["Profit maximisation", "Political maximisation", "Environmental maximisation", "Utility maximisation"], "answer": 3}, {"id": 173, "chapter": "Chapter 7", "question": "Firms are economic agents that:", "options": ["Produce goods and services", "Conduct elections", "Interpret laws", "Register voters"], "answer": 0}, {"id": 174, "chapter": "Chapter 7", "question": "Firms are driven by:", "options": ["Utility maximisation", "Political participation", "Environmental justice", "Profit maximisation"], "answer": 3}, {"id": 175, "chapter": "Chapter 8", "question": "Nigeria attained political independence from Britain in:", "options": ["1960", "1963", "1970", "1986"], "answer": 0}, {"id": 176, "chapter": "Chapter 8", "question": "Nigeria became a republic in:", "options": ["1960", "1979", "1963", "1986"], "answer": 2}, {"id": 177, "chapter": "Chapter 8", "question": "Which is listed as a natural resource in Nigeria?", "options": ["Plastic", "Software", "Columbite", "Cotton cloth"], "answer": 2}, {"id": 178, "chapter": "Chapter 8", "question": "At independence, the Nigerian economy was characterised by features of:", "options": ["Underdevelopment", "Complete industrialisation", "Zero unemployment", "Economic self-sufficiency"], "answer": 0}, {"id": 179, "chapter": "Chapter 8", "question": "The four national development plans were implemented between:", "options": ["1950 and 1960", "1970 and 1990", "1962 and 1985", "1986 and 2000"], "answer": 2}, {"id": 180, "chapter": "Chapter 8", "question": "Nigeria adopted SAP in:", "options": ["June 1960", "June 1986", "January 1970", "December 1999"], "answer": 1}, {"id": 181, "chapter": "Chapter 8", "question": "SAP was adopted because of persistent:", "options": ["Political independence", "Population decline", "Agricultural abundance", "Economic crisis"], "answer": 3}, {"id": 182, "chapter": "Chapter 8", "question": "The first decade after independence was marked by political crises and military intrusion that resulted in:", "options": ["The Green Revolution", "A civil war", "The MDGs", "The SDGs"], "answer": 1}, {"id": 183, "chapter": "Chapter 8", "question": "The second decade of the 1970s witnessed the:", "options": ["Oil glut", "Oil boom", "Civil war", "SAP"], "answer": 1}, {"id": 184, "chapter": "Chapter 8", "question": "The oil glut of the early 1980s contributed to:", "options": ["The oil boom", "Political independence", "Economic crisis", "The creation of the MDGs"], "answer": 2}, {"id": 185, "chapter": "Chapter 8", "question": "The 1990s witnessed the adoption of more:", "options": ["Rolling plans", "Military constitutions", "Political parties", "Human rights"], "answer": 0}, {"id": 186, "chapter": "Chapter 8", "question": "The size of an economy is usually measured by GDP, GNP and:", "options": ["HDI", "SAP", "GNI", "NEEDS"], "answer": 2}, {"id": 187, "chapter": "Chapter 8", "question": "The growth rate of GDP has conventionally been used as a measure of:", "options": ["Political participation", "Socialisation", "Poverty only", "Economic growth"], "answer": 3}, {"id": 188, "chapter": "Chapter 8", "question": "The main sectors of the Nigerian economy include agriculture, oil and mining, manufacturing and:", "options": ["Services", "Politics", "Religion", "Education only"], "answer": 0}, {"id": 189, "chapter": "Chapter 8", "question": "Agriculture provides employment for about what proportion of Nigeria's labour force according to the material?", "options": ["15%", "65%", "25%", "95%"], "answer": 1}, {"id": 190, "chapter": "Chapter 8", "question": "The rural sector is predominantly:", "options": ["Industrial-based", "Agriculture-based", "Mining-based", "Technology-based"], "answer": 1}, {"id": 191, "chapter": "Chapter 8", "question": "One agricultural policy objective is attainment of self-sufficiency in:", "options": ["Oil and gas", "Food and fibre", "Steel and cement", "ICT and banking"], "answer": 1}, {"id": 192, "chapter": "Chapter 8", "question": "Agricultural policy seeks to reduce the rate of:", "options": ["Industrialisation", "Food inflation", "Employment", "Food security"], "answer": 1}, {"id": 193, "chapter": "Chapter 8", "question": "Agricultural exports can diversify the country's sources of:", "options": ["Political parties", "Judicial power", "Foreign exchange", "Population"], "answer": 2}, {"id": 194, "chapter": "Chapter 8", "question": "Operation Feed the Nation was introduced in:", "options": ["1976", "1980", "1960", "1986"], "answer": 0}, {"id": 195, "chapter": "Chapter 8", "question": "The Green Revolution programme replaced Operation Feed the Nation in:", "options": ["1976", "1980", "1986", "1990"], "answer": 1}, {"id": 196, "chapter": "Chapter 8", "question": "The Agricultural Credit Guarantee Scheme was established in:", "options": ["1977", "1973", "1980", "1986"], "answer": 0}, {"id": 197, "chapter": "Chapter 9", "question": "Psychologists are trained to observe, analyse and evaluate:", "options": ["Minerals", "Behaviour", "Political parties", "Economic output"], "answer": 1}, {"id": 198, "chapter": "Chapter 9", "question": "Human and animal behaviour may be covert or:", "options": ["Economic", "Overt", "Political", "Geological"], "answer": 1}, {"id": 199, "chapter": "Chapter 9", "question": "Covert behaviour means:", "options": ["Manifest behaviour", "Concealed behaviour", "Political behaviour", "Economic behaviour"], "answer": 1}, {"id": 200, "chapter": "Chapter 9", "question": "Overt behaviour means:", "options": ["Concealed behaviour", "Private thought only", "Manifest behaviour", "Unmeasured behaviour"], "answer": 2}, {"id": 201, "chapter": "Chapter 9", "question": "Psychology helps explain why some people act or fail to:", "options": ["Vote", "Produce goods", "Act in a particular way", "Study society"], "answer": 2}, {"id": 202, "chapter": "Chapter 9", "question": "Psychology is concerned with why some people remember while others:", "options": ["Vote", "Produce", "Migrate", "Forget"], "answer": 3}, {"id": 203, "chapter": "Chapter 9", "question": "Psychology is both a science and a:", "options": ["Government", "Political party", "Profession", "Research design"], "answer": 2}, {"id": 204, "chapter": "Chapter 9", "question": "Etymologically, 'psyche' refers to the:", "options": ["Soul or mind", "Body", "Society", "State"], "answer": 0}, {"id": 205, "chapter": "Chapter 9", "question": "The Greek word 'logos' means:", "options": ["Mind", "Behaviour", "Study", "Society"], "answer": 2}, {"id": 206, "chapter": "Chapter 9", "question": "Psychology is now defined as the scientific study of behaviour and:", "options": ["Economic processes", "Political processes", "Mental processes", "Environmental processes"], "answer": 2}, {"id": 207, "chapter": "Chapter 9", "question": "The goals of psychology include explain, describe, predict and:", "options": ["Control", "Vote", "Produce", "Govern"], "answer": 0}, {"id": 208, "chapter": "Chapter 9", "question": "The first psychology laboratory was built in Leipzig, Germany in:", "options": ["1776", "1789", "1879", "1960"], "answer": 2}, {"id": 209, "chapter": "Chapter 9", "question": "Wilhelm Wundt built the first psychology laboratory to study:", "options": ["Conscious experience", "Economic growth", "Political power", "Social class"], "answer": 0}, {"id": 210, "chapter": "Chapter 9", "question": "The idea of dualism holds that mind and body are:", "options": ["Separate and distinct", "Identical", "Political", "Economic"], "answer": 0}, {"id": 211, "chapter": "Chapter 9", "question": "Rene Descartes proposed a link between:", "options": ["Mind and body", "Government and economy", "Society and politics", "Environment and resources"], "answer": 0}, {"id": 212, "chapter": "Chapter 9", "question": "A stimulus is any physical energy that evokes a:", "options": ["Political response", "Sensory response", "Economic response", "Legal response"], "answer": 1}, {"id": 213, "chapter": "Chapter 9", "question": "Wundt called his approach experimental:", "options": ["Socialisation", "Participation", "Democracy", "Self-observation"], "answer": 3}, {"id": 214, "chapter": "Chapter 9", "question": "Which is a philosophical issue in psychology?", "options": ["GDP versus GNP", "Federal versus unitary", "Free will versus determination", "Private versus public law"], "answer": 2}, {"id": 215, "chapter": "Chapter 9", "question": "Another philosophical issue in psychology is the:", "options": ["Mind-body/mind-brain question", "Demand-supply question", "State-society question", "Government-market question"], "answer": 0}, {"id": 216, "chapter": "Chapter 9", "question": "The nature-nurture issue is identified as a:", "options": ["Type of government", "Economic system", "Research software", "Philosophical issue in psychology"], "answer": 3}, {"id": 217, "chapter": "Chapter 9", "question": "The Gestalt school uses the slogan:", "options": ["Who gets what, when and how", "All things being equal", "The whole is greater than the sum of parts", "The future we want"], "answer": 2}, {"id": 218, "chapter": "Chapter 9", "question": "William James taught the first class in psychology at Harvard in:", "options": ["1879", "1776", "1963", "1875"], "answer": 3}, {"id": 219, "chapter": "Chapter 10", "question": "The psychobiological basis of behaviour seeks to understand how the brain and the rest of the:", "options": ["Economic system works", "Political system works", "Legal system works", "Nervous system works"], "answer": 3}, {"id": 220, "chapter": "Chapter 10", "question": "Psychobiologists are concerned with questions about how disorders could be:", "options": ["Politicised", "Prevented", "Commercialised", "Industrialised"], "answer": 1}, {"id": 221, "chapter": "Chapter 10", "question": "The physiological explanation of behaviour relates to how the brain and other organs:", "options": ["Are elected", "Function", "Are financed", "Are socialised"], "answer": 1}, {"id": 222, "chapter": "Chapter 10", "question": "The ontogenetic explanation describes how a structure or behaviour:", "options": ["Is voted for", "Is taxed", "Is exchanged", "Develops"], "answer": 3}, {"id": 223, "chapter": "Chapter 10", "question": "The evolutionary explanation relates behaviour to the evolutionary history of a:", "options": ["Government", "Firm", "Species", "Household"], "answer": 2}, {"id": 224, "chapter": "Chapter 10", "question": "The material identifies factors that force and factors that enable:", "options": ["Economic growth", "Political participation", "Resource depletion", "Behaviour to occur"], "answer": 3}, {"id": 225, "chapter": "Chapter 10", "question": "Two systems responsible for human emotions and behaviour are the endocrine and:", "options": ["Nervous systems", "Political systems", "Economic systems", "Legal systems"], "answer": 0}, {"id": 226, "chapter": "Chapter 10", "question": "The endocrine system is composed of glands that release:", "options": ["Hormones", "Neurons", "Statistics", "Stimuli"], "answer": 0}, {"id": 227, "chapter": "Chapter 10", "question": "The nervous system contains specialised cells called:", "options": ["Glands", "Neurons", "Hormones", "Variables"], "answer": 1}, {"id": 228, "chapter": "Chapter 10", "question": "The central nervous system is made up of the brain and:", "options": ["Skin", "Spinal cord", "Glands", "Muscles"], "answer": 1}, {"id": 229, "chapter": "Chapter 10", "question": "The peripheral nervous system consists of all nerves outside the brain and:", "options": ["Spinal cord", "Heart", "Liver", "Cortex"], "answer": 0}, {"id": 230, "chapter": "Chapter 10", "question": "The forebrain contains the cerebral cortex and structures such as the thalamus, basal ganglia and:", "options": ["Medulla", "Pons", "Cerebellum", "Limbic system"], "answer": 3}, {"id": 231, "chapter": "Chapter 10", "question": "One function of the forebrain is to receive:", "options": ["Taxes", "Sensation", "Votes", "Resources"], "answer": 1}, {"id": 232, "chapter": "Chapter 10", "question": "The forebrain is involved in cognitive activities such as thinking, talking, creating and:", "options": ["Voting", "Imagining", "Trading", "Mining"], "answer": 1}, {"id": 233, "chapter": "Chapter 10", "question": "The midbrain makes connections with:", "options": ["Only the spinal cord", "Only the cortex", "Only the glands", "The other two divisions of the brain"], "answer": 3}, {"id": 234, "chapter": "Chapter 10", "question": "The midbrain alerts the forebrain to incoming:", "options": ["Taxes", "Sensations", "Votes", "Goods"], "answer": 1}, {"id": 235, "chapter": "Chapter 10", "question": "The hindbrain consists of the medulla, pons and:", "options": ["Thalamus", "Basal ganglia", "Cerebellum", "Cortex"], "answer": 2}, {"id": 236, "chapter": "Chapter 10", "question": "The hindbrain is involved in the coordination of:", "options": ["Political parties", "Economic agents", "Social policies", "Body movements"], "answer": 3}, {"id": 237, "chapter": "Chapter 10", "question": "The hindbrain regulates vital reflexes such as heart rate, blood pressure and:", "options": ["Voting", "Memory", "Production", "Respiration"], "answer": 3}, {"id": 238, "chapter": "Chapter 10", "question": "The frontal lobe is involved in socio-emotional behaviour and:", "options": ["GDP", "Political parties", "Environmental resources", "Personality"], "answer": 3}, {"id": 239, "chapter": "Chapter 10", "question": "The parietal lobe receives sensations from receptors in the skin and:", "options": ["Joints", "Lungs", "Kidneys", "Eyes"], "answer": 0}, {"id": 240, "chapter": "Chapter 10", "question": "The temporal lobe directs hearing and:", "options": ["Vision", "Blood flow", "Speech", "Balance"], "answer": 2}, {"id": 241, "chapter": "Chapter 11", "question": "The word environment comes from the French word 'environner', meaning:", "options": ["Measure or count", "Produce or consume", "Encircle or surround", "Rule or govern"], "answer": 2}, {"id": 242, "chapter": "Chapter 11", "question": "Environment includes circumstances or conditions that surround an:", "options": ["Economic agent only", "Political party only", "Organism or group of organisms", "Government only"], "answer": 2}, {"id": 243, "chapter": "Chapter 11", "question": "Environmental science studies interactions between humans and the:", "options": ["Natural environment", "Political system", "Economic system", "Legal system"], "answer": 0}, {"id": 244, "chapter": "Chapter 11", "question": "The environmental system includes abiotic components found in the atmosphere, hydrosphere and:", "options": ["Biosphere only", "Society", "Lithosphere", "Economy"], "answer": 2}, {"id": 245, "chapter": "Chapter 11", "question": "The approach used to study the environment in the material is:", "options": ["Political analysis", "Economic analysis only", "System analysis", "Judicial analysis"], "answer": 2}, {"id": 246, "chapter": "Chapter 11", "question": "The atmosphere is described as a mixture of gases called:", "options": ["Water", "Soil", "Rock", "Air"], "answer": 3}, {"id": 247, "chapter": "Chapter 11", "question": "Air pressure and density generally decrease with increasing:", "options": ["Altitude", "Population", "Rainfall", "Temperature"], "answer": 0}, {"id": 248, "chapter": "Chapter 11", "question": "The temperature in the atmosphere declines with increasing altitude according to the environmental:", "options": ["Growth rate", "Demand rate", "Lapse rate", "Birth rate"], "answer": 2}, {"id": 249, "chapter": "Chapter 11", "question": "The homosphere has fairly uniform gases up to about:", "options": ["10 km", "100 km", "480 km", "80 km from the ground surface"], "answer": 3}, {"id": 250, "chapter": "Chapter 11", "question": "Beyond the homosphere is the:", "options": ["Heterosphere", "Troposphere", "Lithosphere", "Biosphere"], "answer": 0}, {"id": 251, "chapter": "Chapter 11", "question": "The gas that makes up about 78% of the atmosphere is:", "options": ["Oxygen", "Carbon dioxide", "Argon", "Nitrogen"], "answer": 3}, {"id": 252, "chapter": "Chapter 11", "question": "Oxygen makes up about what percentage of the atmosphere in the material?", "options": ["78%", "21%", "0.04%", "0.93%"], "answer": 1}, {"id": 253, "chapter": "Chapter 11", "question": "The troposphere is the:", "options": ["Lower layer of the atmosphere", "Outermost layer", "Middle layer only", "Highest layer"], "answer": 0}, {"id": 254, "chapter": "Chapter 11", "question": "The lithosphere is the outermost layer of the earth's structure, about:", "options": ["100 km thick", "10 km thick", "480 km thick", "1,000 km thick"], "answer": 0}, {"id": 255, "chapter": "Chapter 11", "question": "The lithosphere is associated with earthquakes, mountain building, volcanoes and:", "options": ["Photosynthesis", "Political change", "Economic growth", "Continental drift"], "answer": 3}, {"id": 256, "chapter": "Chapter 11", "question": "Oceanic lithosphere contains mainly:", "options": ["Granite", "Gold", "Coal", "Basalt"], "answer": 3}, {"id": 257, "chapter": "Chapter 11", "question": "Continental lithosphere contains mainly:", "options": ["Granite", "Basalt", "Water", "Air"], "answer": 0}, {"id": 258, "chapter": "Chapter 11", "question": "The pedosphere is the uppermost part of the:", "options": ["Hydrosphere", "Atmosphere", "Biosphere", "Lithosphere"], "answer": 3}, {"id": 259, "chapter": "Chapter 11", "question": "The hydrosphere is the accumulation of water in:", "options": ["All its states", "Only liquid state", "Only solid state", "Only gaseous state"], "answer": 0}, {"id": 260, "chapter": "Chapter 11", "question": "Approximately what percentage of Earth's water is saltwater according to the material?", "options": ["97.5%", "2.5%", "21%", "78%"], "answer": 0}, {"id": 261, "chapter": "Chapter 11", "question": "The biosphere is the layer where:", "options": ["Life exists", "Water evaporates only", "Minerals form only", "Governments operate"], "answer": 0}, {"id": 262, "chapter": "Chapter 11", "question": "Ecology is the study of life and its interactions with the:", "options": ["Physical environment", "Political system", "Economic market", "Legal system"], "answer": 0}, {"id": 263, "chapter": "Chapter 12", "question": "A resource is any part of the environment with potential for creating wealth or:", "options": ["Creating governments", "Conducting elections", "Satisfying human needs", "Producing laws"], "answer": 2}, {"id": 264, "chapter": "Chapter 12", "question": "Nonrenewable resources do not have the ability for:", "options": ["Production", "Consumption", "Movement", "Recycling and replacement"], "answer": 3}, {"id": 265, "chapter": "Chapter 12", "question": "Biotic resources are living organisms obtained from the:", "options": ["Biosphere", "Lithosphere", "Atmosphere", "Hydrosphere"], "answer": 0}, {"id": 266, "chapter": "Chapter 12", "question": "Abiotic resources are composed of:", "options": ["Living organisms", "Social groups", "Political institutions", "Non-living components"], "answer": 3}, {"id": 267, "chapter": "Chapter 12", "question": "Fossil fuels are examples of resources that are:", "options": ["Nonrenewable and non-recyclable", "Quick renewable", "Flow resources", "Slow renewable"], "answer": 0}, {"id": 268, "chapter": "Chapter 12", "question": "Minerals are examples of:", "options": ["Quick renewable resources", "Nonrenewable but recyclable resources", "Flow resources", "Biotic resources"], "answer": 1}, {"id": 269, "chapter": "Chapter 12", "question": "Fish are used in the material as an example of:", "options": ["Nonrenewable resources", "Flow resources", "Potential resources", "Quick renewable resources"], "answer": 3}, {"id": 270, "chapter": "Chapter 12", "question": "Forest is given as an example of a:", "options": ["Flow resource", "Nonrenewable resource", "Slow renewable resource", "Abiotic resource"], "answer": 2}, {"id": 271, "chapter": "Chapter 12", "question": "Sunlight and wind are examples of:", "options": ["Nonrenewable resources", "Point resources", "Potential resources", "Flow or continuous resources"], "answer": 3}, {"id": 272, "chapter": "Chapter 12", "question": "A resource that exists but may be used in the future is a:", "options": ["Actual resource", "Point resource", "Biotic resource", "Potential resource"], "answer": 3}, {"id": 273, "chapter": "Chapter 12", "question": "A resource already in use is an:", "options": ["Actual resource", "Potential resource", "Inexhaustible resource", "Diffuse resource"], "answer": 0}, {"id": 274, "chapter": "Chapter 12", "question": "A resistance is an obstacle that hinders the use of a:", "options": ["Government", "Political party", "Resource", "Constitution"], "answer": 2}, {"id": 275, "chapter": "Chapter 12", "question": "Culture may act as a resistance to resource use because it can be a:", "options": ["Socio-cultural obstacle", "Mineral", "Natural resource", "Government organ"], "answer": 0}, {"id": 276, "chapter": "Chapter 12", "question": "Which is listed as a type of natural resource?", "options": ["Political resource", "Mineral resource", "Electoral resource", "Judicial resource"], "answer": 1}, {"id": 277, "chapter": "Chapter 12", "question": "Biodiversity refers to the:", "options": ["Amount of rainfall", "Degree of variation of life", "Size of government", "Level of inflation"], "answer": 1}, {"id": 278, "chapter": "Chapter 12", "question": "Which is an element of biodiversity?", "options": ["Political diversity", "Economic diversity", "Genetic diversity", "Judicial diversity"], "answer": 2}, {"id": 279, "chapter": "Chapter 12", "question": "Resource depletion can contribute to:", "options": ["Loss of biodiversity", "Political equality", "Higher literacy automatically", "More socialisation"], "answer": 0}, {"id": 280, "chapter": "Chapter 12", "question": "Another effect of resource depletion is:", "options": ["Political participation", "Democratic governance", "Land and soil degradation", "Increased civic education"], "answer": 2}, {"id": 281, "chapter": "Chapter 12", "question": "Sustainability is the process of improving human life within the:", "options": ["Limits of government", "Limitations of the environment", "Limits of politics", "Limits of education"], "answer": 1}, {"id": 282, "chapter": "Chapter 12", "question": "The Brundtland Commission definition of sustainability emphasises meeting present needs without compromising the needs of:", "options": ["Political parties", "Future generations", "Governments", "Firms"], "answer": 1}, {"id": 283, "chapter": "Chapter 12", "question": "The environmental perspective of sustainability concerns maintaining renewable resource harvest, pollution and nonrenewable resource depletion:", "options": ["Indefinitely", "For one year", "Only during elections", "Only during economic growth"], "answer": 0}, {"id": 284, "chapter": "Chapter 12", "question": "The economic perspective of sustainability concerns supporting a defined level of:", "options": ["Political participation", "Population growth", "Economic production indefinitely", "Government authority"], "answer": 2}, {"id": 285, "chapter": "Chapter 14", "question": "According to the material, ICT was introduced in the:", "options": ["Early 1970s", "Early 1980s", "Early 1990s", "Early 2000s"], "answer": 2}, {"id": 286, "chapter": "Chapter 14", "question": "One curriculum position of ICT is learning:", "options": ["Without ICT", "Against ICT", "Beyond government", "About ICT"], "answer": 3}, {"id": 287, "chapter": "Chapter 14", "question": "Another curriculum position of ICT is learning:", "options": ["Without students", "With ICT", "Against science", "Outside education"], "answer": 1}, {"id": 288, "chapter": "Chapter 14", "question": "The third curriculum position identified is learning:", "options": ["Without technology", "Against computers", "Through ICT", "Only from books"], "answer": 2}, {"id": 289, "chapter": "Chapter 14", "question": "The material gives banking and voting systems as examples of ICT applications in:", "options": ["Social Science", "Geology", "Chemistry", "Physics"], "answer": 0}, {"id": 290, "chapter": "Chapter 14", "question": "ICT literacy supports:", "options": ["Independent learning", "Political isolation", "Economic scarcity", "Resource depletion"], "answer": 0}, {"id": 291, "chapter": "Chapter 14", "question": "Constructivist theory gives an important role to:", "options": ["Political parties", "Economic scarcity", "Natural resources", "Social interactions"], "answer": 3}, {"id": 292, "chapter": "Chapter 14", "question": "Contemporary learning theory views learning as an active process of:", "options": ["Avoiding knowledge", "Constructing knowledge", "Memorising laws only", "Rejecting instruction"], "answer": 1}, {"id": 293, "chapter": "Chapter 14", "question": "According to contemporary learning theory, instruction supports knowledge:", "options": ["Destruction", "Restriction", "Construction", "Privatisation"], "answer": 2}, {"id": 294, "chapter": "Chapter 14", "question": "Which factor favours ICT use in Social Sciences?", "options": ["Inadequate funds", "Availability of funds", "Negative attitude", "Lack of know-how"], "answer": 1}, {"id": 295, "chapter": "Chapter 14", "question": "Availability of infrastructural facilities is a factor that:", "options": ["Hinders ICT use", "Prevents learning", "Eliminates research", "Favours ICT use"], "answer": 3}, {"id": 296, "chapter": "Chapter 14", "question": "Competence in ICT operations is a factor that:", "options": ["Prevents ICT use", "Causes resource depletion", "Favours ICT use", "Reduces socialisation"], "answer": 2}, {"id": 297, "chapter": "Chapter 14", "question": "Inadequate funds are identified as a factor that:", "options": ["Favours ICT use", "Hinders ICT use", "Improves research", "Increases infrastructure"], "answer": 1}, {"id": 298, "chapter": "Chapter 14", "question": "Inadequate professional training can:", "options": ["Guarantee ICT use", "Increase political participation", "Hinder ICT use", "Create resources"], "answer": 2}, {"id": 299, "chapter": "Chapter 14", "question": "Lack of technological know-how is listed as a:", "options": ["Favouring factor", "Hindering factor", "Democratic principle", "Research method"], "answer": 1}, {"id": 300, "chapter": "Chapter 14", "question": "In research, ICT helps with pre-data analysis, data analysis and:", "options": ["Political analysis only", "Election counting only", "Court judgments", "Post-data analysis"], "answer": 3}];
+
+const LETTERS = ["A","B","C","D"];
+const STORAGE_KEY = "ges103_used_question_ids_v1";
+const ATTEMPT_KEY = "ges103_attempt_number_v1";
+
+let usedIds = loadUsedIds();
+let attemptNumber = Number(localStorage.getItem(ATTEMPT_KEY) || 0);
+let currentSet = [];
+let answers = [];
+let currentIndex = 0;
+
+const $ = id => document.getElementById(id);
+
+function loadUsedIds(){
+  try { return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]")); }
+  catch(e){ return new Set(); }
+}
+
+function saveUsedIds(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify([...usedIds]));
+}
+
+function shuffle(arr){
+  const a = [...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+/*
+  Core no-repeat algorithm:
+  - Never picks a question whose ID exists in usedIds.
+  - Takes a random 60 from the remaining bank.
+  - On completion, those 60 IDs are permanently added to localStorage.
+  - Therefore "Take Again" cannot merely reshuffle the previous 60.
+*/
+function generateFreshSet(){
+  const unused = questionBank.filter(q => !usedIds.has(q.id));
+
+  if(unused.length < 60){
+    return null;
+  }
+
+  // Random selection from ALL currently unused questions.
+  return shuffle(unused).slice(0,60);
+}
+
+function updateBankStatus(){
+  const used = usedIds.size;
+  const remaining = questionBank.length - used;
+  $("usedText").textContent = `${used} used • ${remaining} unused`;
+  $("bankNotice").textContent =
+    `${remaining} questions are currently unused. Each completed attempt consumes 60 different questions. ` +
+    `The bank supports ${Math.floor(questionBank.length/60)} complete no-repeat attempts.`;
+}
+
+function startAttempt(){
+  const fresh = generateFreshSet();
+
+  if(!fresh){
+    $("intro").classList.remove("active");
+    $("exam").classList.remove("active");
+    $("result").style.display = "block";
+    $("result").innerHTML = `
+      <h2>Question Bank Exhausted</h2>
+      <p>All 300 questions have already been used in completed attempts on this browser.</p>
+      <div class="center">
+        <button class="btn btn-primary" onclick="resetHistory()">Reset Question History</button>
+      </div>`;
+    return;
+  }
+
+  currentSet = fresh;
+  answers = Array(60).fill(null);
+  currentIndex = 0;
+  attemptNumber++;
+  localStorage.setItem(ATTEMPT_KEY, attemptNumber);
+
+  $("intro").classList.remove("active");
+  $("result").style.display = "none";
+  $("exam").classList.add("active");
+  $("attemptText").textContent = `Attempt ${attemptNumber} • 60 questions`;
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const q = currentSet[currentIndex];
+  $("qIndicator").textContent = `Question ${currentIndex+1} of 60`;
+  $("chapterIndicator").textContent = q.chapter;
+  $("questionText").textContent = q.question;
+
+  const container = $("options");
+  container.innerHTML = "";
+
+  q.options.forEach((text,i)=>{
+    const btn = document.createElement("button");
+    btn.className = "option" + (answers[currentIndex] === i ? " selected" : "");
+    btn.innerHTML = `<span class="letter">${LETTERS[i]}</span><span>${escapeHtml(text)}</span>`;
+    btn.onclick = () => {
+      answers[currentIndex] = i;
+      renderQuestion();
+    };
+    container.appendChild(btn);
+  });
+
+  $("prevBtn").disabled = currentIndex === 0;
+  $("nextBtn").textContent = currentIndex === 59 ? "Finish Examination" : "Next";
+  renderNumbers();
+
+  const answered = answers.filter(a=>a!==null).length;
+  $("progress").style.width = `${(answered/60)*100}%`;
+}
+
+function renderNumbers(){
+  const box = $("numbers");
+  box.innerHTML = "";
+  for(let i=0;i<60;i++){
+    const b = document.createElement("button");
+    b.className = "num" +
+      (answers[i] !== null ? " answered" : "") +
+      (i === currentIndex ? " current" : "");
+    b.textContent = i+1;
+    b.onclick = () => { currentIndex=i; renderQuestion(); };
+    box.appendChild(b);
+  }
+}
+
+function finishExam(){
+  const unanswered = answers.filter(a=>a===null).length;
+  if(unanswered > 0){
+    const ok = confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`);
+    if(!ok) return;
+  }
+
+  let score=0;
+  currentSet.forEach((q,i)=>{
+    if(answers[i] === q.answer) score++;
+  });
+
+  // IMPORTANT: questions are only marked as used after the attempt is submitted.
+  currentSet.forEach(q => usedIds.add(q.id));
+  saveUsedIds();
+  updateBankStatus();
+
+  const wrong = 60-score;
+  const pct = (score/60*100).toFixed(1).replace(".0","");
+  $("scoreStat").textContent = `${score}/60`;
+  $("percentStat").textContent = `${pct}%`;
+  $("correctStat").textContent = score;
+  $("wrongStat").textContent = wrong;
+
+  const list = $("reviewList");
+  list.innerHTML = "";
+
+  currentSet.forEach((q,i)=>{
+    const isCorrect = answers[i] === q.answer;
+    const userAnswer = answers[i] === null ? "Not answered" : `${LETTERS[answers[i]]}. ${q.options[answers[i]]}`;
+    const correctAnswer = `${LETTERS[q.answer]}. ${q.options[q.answer]}`;
+
+    const item = document.createElement("div");
+    item.className = `review-item ${isCorrect ? "correct" : "wrong"}`;
+    item.innerHTML = `
+      <div class="review-q">${i+1}. ${escapeHtml(q.question)}</div>
+      <div class="answer-line ${isCorrect ? "correct-text" : "wrong-text"}">
+        Your answer: ${escapeHtml(userAnswer)}
+      </div>
+      <div class="answer-line correct-text">Correct answer: ${escapeHtml(correctAnswer)}</div>
+      <div class="answer-line" style="color:#667085">${escapeHtml(q.chapter)}</div>`;
+    list.appendChild(item);
+  });
+
+  $("exam").classList.remove("active");
+  $("result").style.display = "block";
+  $("progress").style.width = "100%";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function resetHistory(){
+  if(confirm("This will erase the no-repeat history on this browser and allow all 300 questions to be used again. Continue?")){
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(ATTEMPT_KEY);
+    usedIds = new Set();
+    attemptNumber = 0;
+    currentSet=[];
+    answers=[];
+    updateBankStatus();
+    $("result").style.display="none";
+    $("exam").classList.remove("active");
+    $("intro").classList.add("active");
+    $("attemptText").textContent="Ready to begin";
+    $("progress").style.width="0%";
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+}
+
+function escapeHtml(value){
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+$("startBtn").onclick = startAttempt;
+$("againBtn").onclick = startAttempt;
+$("resetBtn").onclick = resetHistory;
+$("prevBtn").onclick = () => { if(currentIndex>0){currentIndex--;renderQuestion();} };
+$("nextBtn").onclick = () => {
+  if(currentIndex < 59){ currentIndex++; renderQuestion(); }
+  else finishExam();
+};
+
+updateBankStatus();
+</script>
+</body>
+</html>
